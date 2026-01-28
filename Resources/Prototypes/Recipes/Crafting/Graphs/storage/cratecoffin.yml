@@ -6,6 +6,8 @@
       edges:
         - to: cratecoffin
           steps:
+            - material: MetalRod
+              amount: 2
             - material: WoodPlank
               amount: 5
               doAfter: 5
@@ -22,5 +24,8 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 5
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
             - !type:EmptyAllContainers
             - !type:DeleteEntity

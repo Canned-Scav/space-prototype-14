@@ -23,6 +23,10 @@
         Structural: 10
   - type: Item
     size: Large
+  - type: Tool
+    qualities:
+      Crushing: 2
+    speedModifier: 1.5
 
 - type: entity
   id: Mjollnir
@@ -66,6 +70,10 @@
         Structural: 15
   - type: Item
     size: Ginormous
+  - type: Tool
+    qualities:
+      Crushing: 5
+    speedModifier: 3
 
 - type: entity
   id: SingularityHammer
@@ -107,3 +115,7 @@
         Structural: 15
   - type: Item
     size: Ginormous
+  - type: Tool
+    qualities:
+      Crushing: 0.4
+    speedModifier: 0.4

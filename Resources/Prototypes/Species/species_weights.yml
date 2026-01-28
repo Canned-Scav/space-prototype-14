@@ -2,9 +2,8 @@
 - type: weightedRandomSpecies
   id: SpeciesWeights
   weights:
-    Human: 5
-    Reptilian: 4
-    SlimePerson: 4
-    CorvaxVulpkanin: 4 # Corvax-Vulp
-    Diona: 2
-    #Vulpkanin: 4 # Corvax-Vulp мы передумали :(
+    #Space Prototype changes start
+    Human: 1
+    Speciman: 5
+    Milky: 5
+    #Space Prototype changes start

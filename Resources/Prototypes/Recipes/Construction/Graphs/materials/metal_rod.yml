@@ -1,0 +1,23 @@
+- type: constructionGraph
+  id: MetalRod
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: notCompleted
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+
+  - node: notCompleted
+    entity: RodNotCompleted
+    edges:
+    - to: MetalRod
+      steps:
+      - tool: Slicing
+        doAfter: 4
+        qualityLevel: 0.3
+
+  - node: MetalRod
+    entity: PartRodMetal3

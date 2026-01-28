@@ -70,7 +70,7 @@
     butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Tool
     qualities:
-    - Slicing
+      Slicing: 1
     speedModifier: 0.66 # pretend the sixes go on forever :)
   - type: Utensil
     types:
@@ -101,6 +101,17 @@
     state: shiv
   - type: Item
     heldPrefix: shiv
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.375,-0.15,0.35,0.12"
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+
 
 - type: entity
   name: advanced scalpel
@@ -182,7 +193,7 @@
     storedRotation: 90
   - type: Tool
     qualities:
-      - Sawing
+      Sawing: 1
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity

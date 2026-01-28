@@ -88,7 +88,7 @@
 - type: marking
   id: MilkyScarLeftEye
   bodyPart: HeadTop
-  markingCategory: Head
+  markingCategory: Overlay
   speciesRestriction: [Milky]
   forcedColoring: true
   sprites:
@@ -98,9 +98,21 @@
 - type: marking
   id: MilkyScarRightEye
   bodyPart: HeadTop
-  markingCategory: Head
+  markingCategory: Overlay
   speciesRestriction: [Milky]
   forcedColoring: true
   sprites:
   - sprite: _ScavPrototype/Mobs/Species/Milky/scars.rsi
     state: scar_righteye
+
+#--------Хвосты
+- type: marking
+  id: MilkyTailTorn
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Milky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Milky/tails.rsi
+    state: torn_tail

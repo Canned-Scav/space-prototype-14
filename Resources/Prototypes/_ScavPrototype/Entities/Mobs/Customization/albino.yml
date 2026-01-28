@@ -1,0 +1,113 @@
+#---------База
+- type: marking
+  id: AlbinoEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/specimanalbino_parts.rsi
+    state: ears_specimanalbino_primary
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/specimanalbino_parts.rsi
+    state: ears_specimanalbino_secondary
+
+- type: marking
+  id: AlbinoTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/specimanalbino_parts.rsi
+    state: tail_specimanalbino_base
+
+- type: marking
+  id: AlbinoEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: eyes
+
+#-----------Шрамы
+- type: marking
+  id: AlbinoEarScarRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: speciman_primaryears_scar_right
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/specimanalbino_parts.rsi
+    state: ears_specimanalbino_secondary
+
+- type: marking
+  id: AlbinoEarScarLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: speciman_primaryears_scar_left
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/specimanalbino_parts.rsi
+    state: ears_specimanalbino_secondary
+
+- type: marking
+  id: AlbinoScarChestDiagonal
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Albino]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: scar_chest_diagonal
+
+- type: marking
+  id: AlbinoScarChestVertical
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Albino]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: scar_chest_vertical
+
+- type: marking
+  id: AlbinoScarLeftEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Albino]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: scar_lefteye
+
+- type: marking
+  id: AlbinoScarRightEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Albino]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/scars.rsi
+    state: scar_righteye
+
+#--------Хвосты
+- type: marking
+  id: AlbinoTailSmall
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Albino]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Specimanalbino/tails.rsi
+    state: small_tail

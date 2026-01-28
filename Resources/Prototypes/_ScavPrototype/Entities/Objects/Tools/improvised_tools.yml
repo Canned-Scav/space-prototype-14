@@ -1,6 +1,30 @@
 - type: entity
-  name: самодельная отвертка
-  parent: Screwdriver
+  parent: BaseTool
+  id: BaseImprovisedTool
+  abstract: true
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassCrack
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [Screwdriver, BaseImprovisedTool]
+  name: самодельная отвёртка
   id: ImprovisedScrewdriver
   description: Отвертка сделаная из подручных материалов. Хуже, но лучше чем ничего.
   components:
@@ -14,7 +38,7 @@
     sprite: _ScavPrototype/Objects/Items/improvised_screwdriver.rsi
   - type: Tool
     qualities:
-      - Screwing
+      Screwing: 0.5
     useSound:
       collection: Screwdriver
     speedModifier: 0.4
@@ -28,7 +52,7 @@
 
 - type: entity
   name: самодельные кусачки
-  parent: Wirecutter
+  parent: [Wirecutter, BaseImprovisedTool]
   id: ImprovisedWirecutter
   description: Кусачки сделаные из подручных материалов. Хуже, но лучше чем ничего.
   components:
@@ -40,7 +64,8 @@
     - state: cutters-cutty-thingy
   - type: Tool
     qualities:
-      - Cutting
+      Cutting: 0.5
+      Slicing: 0.2
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.4
@@ -58,7 +83,7 @@
 - type: entity
   name: самодельный лом
   description: Лом сделаный из подручных материалов. Хуже, но лучше чем ничего.
-  parent: BaseCrowbar
+  parent: [BaseCrowbar, BaseImprovisedTool]
   id: ImprovisedCrowbar
   components:
   - type: MeleeWeapon
@@ -70,7 +95,8 @@
       collection: MetalThud
   - type: Tool
     qualities:
-      - Prying
+      Prying: 0.5
+      Crushing: 0.4
     speedModifier: 0.4
     useSound:
       path: /Audio/Items/crowbar.ogg
@@ -92,7 +118,7 @@
     node: crowbar
 
 - type: entity
-  parent: BaseKnife
+  parent: [BaseKnife, BaseImprovisedTool]
   id: ImprovisedKnife
   name: самодельный ножик
   description: Нож сделаный из подручных материалов. Хуже, но лучше чем ничего.
@@ -114,7 +140,7 @@
     size: Small
   - type: Tool
     qualities:
-      - Slicing
+      Slicing: 0.5
     speedModifier: 0.4
     useSound:
       path: /Audio/Items/Culinary/chop.ogg

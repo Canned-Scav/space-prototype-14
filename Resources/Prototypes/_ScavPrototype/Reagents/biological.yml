@@ -12,7 +12,7 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 1.0
+        factor: 0.25
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Speciman ]
@@ -21,6 +21,15 @@
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
           amount: 0.1
+        - !type:EvenHealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Dune ]
+          damage:
+            Burn: -0.45
+            Toxin: -0.1
+            Airloss: -0.25
+            Brute: -0.7
     Poison:
       effects:
       - !type:HealthChange
@@ -31,7 +40,7 @@
         damage:
           types:
             Caustic: 0.5
-            Poison: 2
+            Poison: 1
   footstepSound:
     collection: FootstepBlood
     params:

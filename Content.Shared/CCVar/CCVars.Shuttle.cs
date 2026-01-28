@@ -31,7 +31,7 @@ public sealed partial class CCVars
     ///     Whether the arrivals shuttle is enabled.
     /// </summary>
     public static readonly CVarDef<bool> ArrivalsShuttles =
-        CVarDef.Create("shuttle.arrivals", true, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.arrivals", false, CVar.SERVERONLY); /// SP-edit false
 
     /// <summary>
     ///     The map to use for the arrivals station.
@@ -95,10 +95,17 @@ public sealed partial class CCVars
         CVarDef.Create("shuttle.arrival_time", 5f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     How much time needs to pass before a shuttle can FTL again.
+    ///     How much time in seconds that needs to pass before a non-arrivals shuttle can FTL again.
     /// </summary>
     public static readonly CVarDef<float> FTLCooldown =
-        CVarDef.Create("shuttle.cooldown", 10f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.cooldown", 60f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How much time in seconds that needs to pass before the arrivals shuttle can FTL again.
+    ///     If this is adjusted, ensure that shuttle.arrivals_cooldown is longer than this value.
+    /// </summary>
+    public static readonly CVarDef<float> ArrivalsFTLCooldown =
+        CVarDef.Create("shuttle.arrivals_ftl_cooldown", 10f, CVar.SERVERONLY);
 
     /// <summary>
     ///     The maximum <see cref="PhysicsComponent.Mass"/> a grid can have before it becomes unable to FTL.

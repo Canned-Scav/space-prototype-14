@@ -117,5 +117,5 @@
     sprite: Objects/Consumable/Drinks/vacuumflask.rsi
   - type: Tool
     qualities:
-    - Rolling # Perfectly cylindrical flask
+      Rolling: 0.5 # Perfectly cylindrical flask
     speedModifier: 0.75

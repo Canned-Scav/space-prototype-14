@@ -35,3 +35,13 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+
+- type: entity
+  name: dart thrower
+  parent: InjectorGun
+  id: InjectorGunFilled
+  suffix: Заполненный
+  description: Fires small, harmless darts that inject substances on impact.
+  components:
+  - type: BallisticAmmoProvider
+    proto: InjectorShellTranquilizer

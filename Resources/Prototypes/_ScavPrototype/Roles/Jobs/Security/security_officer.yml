@@ -1,0 +1,73 @@
+- type: job
+  id: SPComplexSecurityOfficer
+  name: job-name-SPComplexSecurityOfficer
+  description: job-description-SPComplexSecurityOfficer
+  playTimeTracker: SPJobSecurityOfficer
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 10h
+    - !type:SpeciesRequirement
+      species:
+      - Human
+  startingGear: SPComplexSecurityGear
+  icon: "JobIconSecurityOfficer"
+#  supervisors: job-supervisors-hos
+  access:
+  - Cryogenics
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - GenpopEnter
+  - GenpopLeave
+
+- type: startingGear
+  id: SPComplexSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsJackFilled
+    outerClothing: ClothingOuterArmorBasic
+    ears: ClothingHeadsetSecurity
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: Shoker
+    pocket2: WeaponPistolMk58
+    belt: ClothingBeltSecurity
+    id: SecurityPDA
+  storage:
+    back:
+    - InjectorGunFilled
+    - InjectorShellTranquilizer
+    - InjectorShellTranquilizer
+    - InjectorShellTranquilizer
+    - InjectorShellAntisomnin
+    - InjectorShellAntisomnin
+    - SyringeDormitive
+    - ChainCuff
+    belt:
+    - Truncheon
+    - Zipties
+    - Zipties
+    - Zipties
+    - Handcuffs
+    - RadioHandheldSecurity
+    - SecurityWhistle
+

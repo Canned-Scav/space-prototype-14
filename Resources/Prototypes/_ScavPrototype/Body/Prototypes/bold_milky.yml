@@ -1,0 +1,49 @@
+- type: body
+  id: BoldMilky
+  name: "Bold milky"
+  root: torso
+  slots:
+    head:
+      part: HeadBoldMilky
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoBoldMilky
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganSpecimanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganSpecimanStomach
+        liver: OrganSpecimanLiver
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmBoldMilky
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmBoldMilky
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandBoldMilky
+    left_hand:
+      part: LeftHandBoldMilky
+    right_leg:
+      part: RightLegBoldMilky
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegBoldMilky
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootBoldMilky
+    left_foot:
+      part: LeftFootBoldMilky

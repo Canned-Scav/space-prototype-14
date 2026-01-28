@@ -11,3 +11,5 @@ marking-MilkyScarChestVertical = Вертикальный шрам на теле
 
 marking-MilkyScarLeftEye = Шрам на левом глазу
 marking-MilkyScarRightEye = Шрам на правом глазу
+
+marking-MilkyTailTorn = Оборваный хвост милки

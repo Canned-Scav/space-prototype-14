@@ -16,7 +16,7 @@
                 sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
                 state: icon
               doAfter: 5
-        - to: wirecutter
+        - to: incompleteWirecutter
           steps:
             - material: Steel
               amount: 2
@@ -40,7 +40,7 @@
             - material: Steel
               amount: 2
             - material: WoodPlank
-              amount: 3
+              amount: 1
             - tag: Rope
               name: construction-graph-tag-rope
               icon:
@@ -51,6 +51,17 @@
     - node: screwdriver
       entity: ImprovisedScrewdriver
 
+    - node: incompleteWirecutter
+      entity: IncompleteWirecutter
+      edges:
+        - to: wirecutter
+          steps:
+            - tool: Slicing
+              doAfter: 5
+              qualityLevel: 0.5
+            - tool: Screwing
+              doAfter: 3
+              qualityLevel: 0.5
     - node: wirecutter
       entity: ImprovisedWirecutter
 
@@ -61,17 +72,12 @@
           steps:
             - tool: Slicing
               doAfter: 5
+              qualityLevel: 0.4
             - tool: Cutting
               doAfter: 3
+              qualityLevel: 0.5
     - node: crowbar
       entity: ImprovisedCrowbar
 
     - node: incompleteKnife
       entity: IncompleteKnife
-      edges:
-        - to: knife
-          steps:
-            - tool: Cutting
-              doAfter: 10
-    - node: knife
-      entity: ImprovisedKnife

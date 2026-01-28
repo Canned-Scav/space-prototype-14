@@ -24,4 +24,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Enabled;
+
+    [DataField]
+    public bool SpeakLoud = false; //Space Prototype change
 }

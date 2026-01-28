@@ -20,7 +20,7 @@
       - Knife
   - type: Tool
     qualities:
-    - Slicing
+      Slicing: 1.2
 
 #Shortswords
 - type: entity

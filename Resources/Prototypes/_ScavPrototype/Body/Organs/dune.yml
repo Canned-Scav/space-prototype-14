@@ -1,0 +1,21 @@
+- type: entity
+  id: OrganDuneStomach
+  parent: OrganSpecimanStomach
+  name: жёлтый желудок дюны
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 65
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: YellowBlood
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 4
+    metabolizerTypes: [ Animal, Speciman, Dune ]
+    groups:
+    - id: Food
+    - id: Drink

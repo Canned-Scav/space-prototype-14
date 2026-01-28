@@ -1,0 +1,171 @@
+- type: species
+  id: BoldMilky
+  name: species-name-bold-milky
+  roundStart: true
+  prototype: MobBoldMilky
+  sprites: MobBoldMilkySprites
+  markingLimits: MobBoldMilkyMarkingLimits
+  dollPrototype: MobBoldMilkyDummy
+  maleFirstNames: SpecimanUnisex
+  femaleFirstNames: SpecimanUnisex
+  skinColoration: TintedHues
+  naming: First
+  minAge: 10
+  youngAge: 15
+  oldAge: 25
+  maxAge: 40
+
+- type: speciesBaseSprites
+  id: MobBoldMilkySprites
+  sprites:
+    Head: MobBoldMilkyHead
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobBoldMilkyTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobBoldMilkyLArm
+    RArm: MobBoldMilkyRArm
+    LHand: MobBoldMilkyLHand
+    RHand: MobBoldMilkyRHand
+    LLeg: MobBoldMilkyLLeg
+    RLeg: MobBoldMilkyRLeg
+    LFoot: MobBoldMilkyLFoot
+    RFoot: MobBoldMilkyRFoot
+    Eyes: MobBoldMilkyEyes
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyEyes
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobBoldMilkyMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ BoldMilkyEarsBase ]
+    Head:
+      points: 1
+      required: false
+      defaultMarkings: [ BoldMilkyEyesBase ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+      defaultMarkings: [ BoldMilkyFinBase ]
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ BoldMilkyTailBase ]
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyHead
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyHeadMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyHeadFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyTorso
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyTorsoMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyTorsoFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyLLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyLHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyLArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyLFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyRLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyRHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyRArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobBoldMilkyRFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: r_foot

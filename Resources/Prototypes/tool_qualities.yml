@@ -74,3 +74,11 @@
   toolName: tool-quality-brushing-tool-name
   spawn: WireBrush
   icon: { sprite: Objects/Specific/Janitorial/wirebrush.rsi, state: icon }
+
+#Space Prototype changes
+- type: tool
+  id: Crushing
+  name: tool-quality-crushing-name
+  toolName: tool-quality-crushing-tool-name
+  spawn: Sledgehammer
+  icon: { sprite: Objects/Weapons/Melee/sledgehammer.rsi, state: icon }

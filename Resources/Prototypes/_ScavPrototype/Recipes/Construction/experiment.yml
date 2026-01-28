@@ -46,7 +46,7 @@
   id: ImprovisedKnifeCraft
   graph: ImprovisedTools
   startNode: start
-  targetNode: knife
+  targetNode: incompleteKnife
   category: construction-category-speciman
   entityWhitelist:
     tags:

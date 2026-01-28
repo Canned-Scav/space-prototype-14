@@ -6,6 +6,8 @@
       edges:
         - to: cratesecure
           steps:
+            - material: MetalRod
+              amount: 2
             - material: Steel
               amount: 5
             - material: Cable
@@ -31,6 +33,9 @@
               amount: 5
             - !type:SpawnPrototype
               prototype: CableApcStack1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
               amount: 2
             - !type:EmptyAllContainers
             - !type:DeleteEntity

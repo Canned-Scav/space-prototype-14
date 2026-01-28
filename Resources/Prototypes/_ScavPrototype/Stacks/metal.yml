@@ -1,0 +1,6 @@
+- type: stack
+  parent: BaseMediumStack
+  id: SheetScrap
+  name: stack-scrap
+  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: silver }
+  spawn: SheetScrap1

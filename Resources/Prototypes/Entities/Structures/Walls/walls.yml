@@ -1286,11 +1286,14 @@
   - type: Construction
     graph: Barricade
     node: woodWall
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -1299,7 +1302,7 @@
           collection: WoodDestroyHeavy
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 250
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -1673,6 +1676,40 @@
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
+
+- type: entity
+  parent: WallCobblebrick
+  id: WallIronsandCobblebrick
+  name: ironsand brick wall
+  description: The pale, rounded shapes that make up this wall look strikingly different from the iron sands they were allegedly made from.
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/cobblebrick_ironsand.rsi
+  - type: Icon
+    sprite: Structures/Walls/cobblebrick_ironsand.rsi
+  - type: IconSmooth
+    key: cobblebricks
+    base: cobblebrick
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SteelOre1:
+            min: 0
+            max: 2
 
 # Cardboard
 

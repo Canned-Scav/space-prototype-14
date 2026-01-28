@@ -1,0 +1,37 @@
+- type: entity
+  id: SPSpawnPointSecurityOfficer
+  parent: SpawnPointJobBase
+  name: Complex Security Officer
+  suffix: Job Spawn
+  components:
+  - type: SpawnPoint
+    job_id: SPComplexSecurityOfficer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: seniorofficer
+
+- type: entity
+  id: SPSpawnPointScientist
+  parent: SpawnPointJobBase
+  name: Complex Scientist
+  suffix: Job Spawn
+  components:
+  - type: SpawnPoint
+    job_id: SPComplexScientist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: scientist
+
+- type: entity
+  id: SPSpawnPointTestSubjects
+  parent: SpawnPointJobBase
+  name: Test Subjects
+  suffix: Job Spawn
+  components:
+  - type: SpawnPoint
+    job_id: SPComplexTestSubjects
+  - type: Sprite
+    layers:
+    - state: green

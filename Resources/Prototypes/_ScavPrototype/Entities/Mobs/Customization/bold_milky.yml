@@ -1,0 +1,86 @@
+#---------База
+- type: marking
+  id: BoldMilkyEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/milky_parts.rsi
+    state: ears_milkybase
+
+- type: marking
+  id: BoldMilkyTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/milky_parts.rsi
+    state: tail_milkybase
+
+- type: marking
+  id: BoldMilkyEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: eyes
+
+- type: marking
+  id: BoldMilkyFinBase
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/milky_parts.rsi
+    state: fin_milkybase
+
+#--------Шрамы
+- type: marking
+  id: BoldMilkyEarScarRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/scars.rsi
+    state: milky_ears_scar_right
+
+- type: marking
+  id: BoldMilkyEarScarLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [BoldMilky]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/scars.rsi
+    state: milky_ears_scar_left
+
+- type: marking
+  id: BoldMilkyScarLeftEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [BoldMilky]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/scars.rsi
+    state: scar_lefteye
+
+- type: marking
+  id: BoldMilkyScarRightEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [BoldMilky]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/BoldMilky/scars.rsi
+    state: scar_righteye

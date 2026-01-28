@@ -1,0 +1,144 @@
+- type: entity
+  id: BasePlanetBlock
+  parent: BaseWall
+  name: base planet block
+  abstract: true
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
+
+- type: entity
+  id: Soil
+  parent: BasePlanetBlock
+  name: почва
+  description: Это почва.
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+
+- type: entity
+  id: Gravel
+  parent: BasePlanetBlock
+  name: гравий
+  description: Это гравий.
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+
+- type: entity
+  id: Clay
+  parent: Gravel
+  name: глина
+  description: Это глина.
+
+- type: entity
+  id: LightRock
+  parent: BasePlanetBlock
+  name: Легкий булыжник
+  description: Это булыга.
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+
+- type: entity
+  id: Scrap
+  parent: BasePlanetBlock
+  name: Металлолом
+  description: Это гора металлического мусора.
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetScrap1:
+            min: 1
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6

@@ -59,7 +59,7 @@
       path: /Audio/Weapons/smash.ogg
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.5
     speedModifier: 0.5 # its very big, awkward to use
   - type: Appearance
   - type: Tag

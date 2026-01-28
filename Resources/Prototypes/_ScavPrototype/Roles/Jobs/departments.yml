@@ -1,0 +1,24 @@
+- type: department
+  id: SPComplexSecurity
+  name: department-SPComplexSecurity
+  description: department-SPComplexSecurity-description
+  color: "#a41806"
+  roles:
+  - SPComplexSecurityOfficer
+
+- type: department
+  id: SPComplexScientist
+  name: department-SPComplexScientist
+  description: department-SPComplexScientist-description
+  color: "#6506a4"
+  roles:
+  - SPComplexScientist
+
+- type: department
+  id: SPComplexSubjects
+  name: department-SPComplexSubjects
+  description: department-SPComplexSubjects-description
+  color: "#A46106"
+  roles:
+  - SPComplexTestSubjects
+

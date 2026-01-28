@@ -1,0 +1,17 @@
+- type: gameMap
+  id: SPScienceComplex
+  mapName: 'Science Complex'
+  mapPath: /Maps/_ScavPrototype/Maps/scienceComplex.yml
+  minPlayers: 0
+  stations:
+    ScienceComplex:
+      stationProto: SPStandardStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Science Complex'
+        - type: StationJobs
+          availableJobs:
+            SPComplexSecurityOfficer: [ 1, 1 ]
+            SPComplexScientist: [ 1, 1 ]
+            SPComplexTestSubjects: [ -1, -1 ]
+

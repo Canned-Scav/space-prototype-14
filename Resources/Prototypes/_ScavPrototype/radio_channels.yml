@@ -5,3 +5,11 @@
   frequency: 3203
   color: "#dddd55"
   longRange: true
+
+- type: radioChannel
+  id: Orbital
+  keycode: 'o'
+  name: chat-radio-orbital
+  frequency: 3303
+  color: "#cccccc"
+  longRange: true

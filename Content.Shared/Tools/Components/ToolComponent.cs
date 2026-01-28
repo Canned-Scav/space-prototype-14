@@ -2,21 +2,39 @@ using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
+//Space Prototype changes
+using Content.Shared.Damage;
 
 namespace Content.Shared.Tools.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedToolSystem))]
 public sealed partial class ToolComponent : Component
 {
-    [DataField]
-    public PrototypeFlags<ToolQualityPrototype> Qualities  = [];
+    //Space Prototype changes start
+    [ViewVariables]
+    [AutoNetworkedField]
+    public Dictionary<string, float> Qualities = new();
+
+    [DataField("qualities")]
+    public Dictionary<ProtoId<ToolQualityPrototype>, float> QualitiesLevels = new();
+
+    [DataField, ViewVariables]
+    public DamageSpecifier? DamagePerUse;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool EnergyTool = false;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float ChargeUse = 5f;
+    //Space Prototype end
 
     /// <summary>
     ///     For tool interactions that have a delay before action this will modify the rate, time to wait is divided by this value
     /// </summary>
     [DataField]
-    public float SpeedModifier  = 1;
+    public float SpeedModifier = 1f;
 
     [DataField]
     public SoundSpecifier? UseSound;

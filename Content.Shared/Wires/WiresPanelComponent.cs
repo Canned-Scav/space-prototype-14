@@ -42,6 +42,12 @@ public sealed partial class WiresPanelComponent : Component
     [DataField]
     public ProtoId<ToolQualityPrototype> OpeningTool = "Screwing";
 
+    //Space Prototype changes start
+    [DataField]
+    public float OpeningToolQualityLevel = 0.1f;
+
+    //Space Prototype changes end
+
     /// <summary>
     /// Text showed on examine when the panel is closed.
     /// </summary>

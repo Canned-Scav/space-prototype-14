@@ -30,7 +30,7 @@
       sprite: Objects/Weapons/Melee/baseball_bat.rsi
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.5
     speedModifier: 0.75 # a bit unwieldly but does the job
   - type: Clothing
     quickEquip: false

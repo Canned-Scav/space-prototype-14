@@ -29,7 +29,7 @@
     noRot: true
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: StrongMetallic #Space Prototype change
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -40,6 +40,13 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
+      #Space Prototype changes start
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+      #Space Prototype changes end
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Construction

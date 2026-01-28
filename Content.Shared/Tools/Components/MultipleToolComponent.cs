@@ -1,6 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+//Space Prototype changes
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Tools.Components;
 
@@ -10,8 +12,14 @@ public sealed partial class MultipleToolComponent : Component
     [DataDefinition]
     public sealed partial class ToolEntry
     {
-        [DataField(required: true)]
-        public PrototypeFlags<ToolQualityPrototype> Behavior = new();
+        //Space Prototype changes start
+        [ViewVariables]
+        public Dictionary<string, float> Behavior = new();
+
+        [DataField("behavior", required: true)]
+        public Dictionary<ProtoId<ToolQualityPrototype>, float> BehaviorLevels = new();
+
+        //Space Prototype end
 
         [DataField]
         public SoundSpecifier? UseSound;

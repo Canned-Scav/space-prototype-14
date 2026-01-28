@@ -1,6 +1,56 @@
+#Space Prototype changes start
+- type: entity
+  parent: BaseItem
+  id: BaseTool
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassCrack
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tool
+    damagePerUse:
+      types:
+        Blunt: 1
+
+- type: entity
+  parent: BaseItem
+  id: BaseEnergyTool
+  abstract: true
+  components:
+  - type: Tool
+    energyTool: true
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot {}
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+#Space Prototype changes end
+
 - type: entity
   name: wirecutter
-  parent: BaseItem
+  parent: BaseTool
   id: Wirecutter
   description: This kills the wire.
   components:
@@ -27,7 +77,8 @@
       path: "/Audio/Items/wirecutter.ogg"
   - type: Tool
     qualities:
-      - Cutting
+      Cutting: 1
+      Slicing: 0.4
     useSound:
       path: /Audio/Items/wirecutter.ogg
   - type: RandomSprite
@@ -46,7 +97,7 @@
 
 - type: entity
   name: screwdriver
-  parent: BaseItem
+  parent: BaseTool
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
@@ -75,7 +126,7 @@
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Tool
     qualities:
-      - Screwing
+      Screwing: 1
     useSound:
       collection: Screwdriver
   - type: RandomSprite
@@ -90,7 +141,7 @@
 
 - type: entity
   name: wrench
-  parent: BaseItem
+  parent: BaseTool
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
   components:
@@ -118,7 +169,8 @@
       collection: MetalThud
   - type: Tool
     qualities:
-      - Anchoring
+      Anchoring: 1
+      Crushing: 0.5
     useSound:
       path: /Audio/Items/ratchet.ogg
   - type: PhysicalComposition
@@ -132,7 +184,7 @@
 
 - type: entity
   name: multitool
-  parent: BaseItem
+  parent: BaseEnergyTool
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
@@ -154,7 +206,7 @@
     - Belt
   - type: Tool
     qualities:
-      - Pulsing
+      Pulsing: 1
   - type: NetworkConfigurator
   - type: ActivatableUI
     key: enum.NetworkConfiguratorUiKey.List
@@ -239,7 +291,7 @@
 #Later on these should switch probably switch damage when changing the tool behavior.
 - type: entity
   name: power drill
-  parent: BaseItem
+  parent: BaseEnergyTool
   id: PowerDrill
   description: A simple powered hand drill.
   components:
@@ -254,13 +306,14 @@
     size: Small
   - type: Tool
     qualities:
-      - Screwing
+      Screwing: 2
     speedModifier: 1.5
     useSound: /Audio/Items/drill_use.ogg
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
+      - behavior:
+          Screwing: 2
         sprite:
           sprite: Objects/Tools/drill.rsi
           state: drill_screw
@@ -268,7 +321,8 @@
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+      - behavior:
+          Anchoring: 2
         sprite:
           sprite: Objects/Tools/drill.rsi
           state: drill_bolt
@@ -396,7 +450,7 @@
 
 - type: entity
   name: omnitool
-  parent: BaseItem
+  parent: BaseEnergyTool
   id: Omnitool
   description: A drone's best friend.
   components:
@@ -413,14 +467,15 @@
     enabled: false
   - type: Tool
     qualities:
-      - Screwing
+      Screwing: 3
     speedModifier: 1.2 # Kept for future adjustments. Currently 1.2x for balance
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
+      - behavior:
+          Screwing: 3
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-screwing
@@ -428,7 +483,8 @@
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
+      - behavior:
+          Prying: 3
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-prying
@@ -436,7 +492,8 @@
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+      - behavior:
+          Anchoring: 3
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-wrenching
@@ -444,7 +501,8 @@
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
+      - behavior:
+          Cutting: 3
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-snipping
@@ -452,7 +510,8 @@
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
+      - behavior:
+          Pulsing: 3
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-pulsing
@@ -488,7 +547,7 @@
   - type: Shovel
 
 - type: entity
-  parent: BaseItem
+  parent: BaseTool
   id: RollingPin
   name: rolling pin
   description: A tool used to shape and flatten dough.
@@ -514,7 +573,8 @@
       collection: MetalThud
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 1
+      Crushing: 0.4
   - type: PhysicalComposition
     materialComposition:
       Wood: 100

@@ -383,7 +383,7 @@
     - type: ToolTileCompatible
     - type: Tool
       qualities:
-      - Screwing
+        Screwing: 5
       speedModifier: 2 # Very powerful multitool to balance out the desire to sell or scrap for points
       useSound: /Audio/Items/drill_use.ogg
     - type: Tag
@@ -392,27 +392,32 @@
     - type: MultipleTool
       statusShowBehavior: true
       entries:
-      - behavior: Screwing
+      - behavior:
+          Screwing: 5
         useSound:
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
+      - behavior:
+          Prying: 5
         useSound:
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+      - behavior:
+          Anchoring: 5
         useSound:
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
+      - behavior:
+          Cutting: 5
         useSound:
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
+      - behavior:
+          Pulsing: 5
         changeSound:
           path: /Audio/Items/change_drill.ogg
 
@@ -493,10 +498,9 @@
         - !type:NestedSelector
           tableId: GenericTrashItems
           weight: 35
-        - !type:AllSelector
+        - !type:NestedSelector
+          tableId: AllPlushiesTable
           weight: 1
-          children:
-          - id: ToySpawner
 
 - type: entity
   id: XenoArtifactEffectLightFlicker

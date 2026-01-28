@@ -22,7 +22,7 @@
     sprite: Objects/Consumable/Drinks/alco-bottle.rsi # fallback
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.7
     speedModifier: 0.75 # not as good as a rolling pin but does the job
   - type: TrashOnSolutionEmpty
     solution: drink

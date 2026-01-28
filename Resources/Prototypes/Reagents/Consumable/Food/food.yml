@@ -63,6 +63,23 @@
         damage:
           groups:
             Brute: -0.4
+      - !type:EvenHealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Speciman ]
+          damage:
+            Burn: -0.1
+            Toxin: -0.05
+            Brute: -0.1
+      - !type:EvenHealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Dune ]
+          damage:
+            Burn: -0.1
+            Toxin: -0.05
+            Airloss: -0.1
+            Brute: -0.15
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
       - !type:SatiateHunger

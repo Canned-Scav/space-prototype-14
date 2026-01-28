@@ -6,6 +6,8 @@
     edges:
     - to: done
       steps:
+      - material: MetalRod
+        amount: 2
       - material: Steel
         amount: 5
       - material: Cable
@@ -38,5 +40,8 @@
       - !type:SpawnPrototype
         prototype: FreezerElectronics
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:EmptyAllContainers
       - !type:DeleteEntity

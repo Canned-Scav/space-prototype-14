@@ -40,7 +40,7 @@
     - back
   - type: Tool
     qualities:
-      - Prying
+      Prying: 1.2
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay

@@ -1,3 +1,7 @@
 - type: metabolizerType
   id: Speciman
   name: metabolizer-type-speciman
+
+- type: metabolizerType
+  id: Dune
+  name: metabolizer-type-dune

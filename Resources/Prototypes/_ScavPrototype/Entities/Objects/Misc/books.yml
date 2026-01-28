@@ -31,3 +31,51 @@
       - state: icon_briefcase
     - type: Paper
       content: book-text-student
+
+- type: entity
+  parent: BookBase
+  id: BookKolobok
+  name: Колобок
+  description: Сказка.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_strong
+        color: "#b7653d"
+      - state: icon_briefcase
+    - type: Paper
+      content: book-text-fairy-tales-3
+
+- type: entity
+  parent: BookBase
+  id: BookThreeBears
+  name: Три медведя
+  description: Сказка.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_strong
+        color: "#b7653d"
+      - state: icon_briefcase
+    - type: Paper
+      content: book-text-fairy-tales-1
+
+- type: entity
+  parent: BookBase
+  id: BookTurnip
+  name: Репка
+  description: Сказка.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_strong
+        color: "#b7653d"
+      - state: icon_briefcase
+    - type: Paper
+      content: book-text-fairy-tales-2

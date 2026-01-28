@@ -13,8 +13,8 @@
 
 - type: entity
   parent: BaseItem
-  name: незавершенный самодельный лом
-  description: Кажется его нужно обработать
+  name: незавершенный самодельная монтировка
+  description: Кажется её нужно обработать
   id: IncompleteCrowbar
   components:
   - type: Sprite
@@ -26,8 +26,21 @@
 
 - type: entity
   parent: BaseItem
+  name: незавершенный самодельные кусачки
+  description: Кажется их нужно заострить
+  id: IncompleteWirecutter
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Materials/not_completed.rsi
+    state: cutters
+  - type: Construction
+    graph: ImprovisedTools
+    node: incompleteWirecutter
+
+- type: entity
+  parent: BaseItem
   name: незавершенный самодельный ножик
-  description: Кажется его нужно заострить
+  description: Кажется его нужно наточить
   id: IncompleteKnife
   components:
   - type: Sprite
@@ -36,3 +49,7 @@
   - type: Construction
     graph: ImprovisedTools
     node: incompleteKnife
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ImprovisedKnife

@@ -37,8 +37,6 @@
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
     state: "head_m"
-  - type: InputMover
-  - type: GhostOnMove
 
 - type: entity
   id: LeftArmSpeciman

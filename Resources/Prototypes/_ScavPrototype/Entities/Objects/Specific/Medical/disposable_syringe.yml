@@ -1,7 +1,7 @@
 - type: entity
   name: одноразовый шприц
   parent: BaseItem
-  description: Одноразовый шприц, может только вводить вещества.
+  description: Одноразовый шприц, может только вводить вещества. После применения становиться мягким и безвредным.
   id: DisposableSyringe
   components:
   - type: Sprite
@@ -23,13 +23,9 @@
       injector:
         maxVol: 15
   - type: Injector
-    injectOnly: true
-    toggleState: Inject
-    currentTransferAmount: 15
-    transferAmounts:
-    - 5
-    - 10
-    - 15
+    activeModeProtoId: SyringeInjectMode
+    allowedModes:
+    - SyringeInjectMode
   - type: ExaminableSolution
     solution: injector
     exactVolume: true

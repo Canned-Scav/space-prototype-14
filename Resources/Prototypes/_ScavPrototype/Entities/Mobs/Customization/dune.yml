@@ -1,0 +1,32 @@
+#---------База
+- type: marking
+  id: DuneAntennasBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Dune]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Dune/dune_parts.rsi
+    state: ears_dunebase
+
+- type: marking
+  id: DuneTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Dune]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Dune/dune_parts.rsi
+    state: tail_dunebase
+
+- type: marking
+  id: DuneEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Dune]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: eyes

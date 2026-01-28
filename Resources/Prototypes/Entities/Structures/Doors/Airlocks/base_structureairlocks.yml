@@ -152,8 +152,15 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        #Space Prototype changes start
+        damage: 700
       behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          AirlockAssembly:
+            min: 1
+            max: 1
+      #Space Prototype changes end
       - !type:DoActsBehavior
         acts: ["Destruction"]
       # TODO this should go to the broken node first
@@ -184,6 +191,14 @@
     - Airlocks
     - WirePanels
     - Networking
+  #Space Prototype changes start
+  - type: PassiveDamage
+    damage:
+      types:
+        Structural: -0.02
+      groups:
+        Brute: -0.05
+  #Space Prototype changes end
   placement:
     mode: SnapgridCenter
 

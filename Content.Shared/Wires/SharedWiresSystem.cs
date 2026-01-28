@@ -63,7 +63,8 @@ public abstract class SharedWiresSystem : EntitySystem
                 ent,
                 (float) ent.Comp.OpenDelay.TotalSeconds,
                 ent.Comp.OpeningTool,
-                new WirePanelDoAfterEvent()))
+                new WirePanelDoAfterEvent(),
+                qualitiyLevelNeed: ent.Comp.OpeningToolQualityLevel))
         {
             return;
         }

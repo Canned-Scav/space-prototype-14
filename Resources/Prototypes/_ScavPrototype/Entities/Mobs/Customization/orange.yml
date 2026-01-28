@@ -1,0 +1,50 @@
+#---------База
+- type: marking
+  id: OrangeEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Orange]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Orange/orange_parts.rsi
+    state: ears_orangebase
+
+- type: marking
+  id: OrangeTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Orange]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Orange/orange_parts.rsi
+    state: tail_orangebase
+
+- type: marking
+  id: OrangeEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Orange]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: eyes
+
+- type: marking
+  id: OrangeLowArmsBase
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Orange]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: low_l_arm
+  - sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: low_r_arm
+  - sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: low_l_hand
+  - sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: low_r_hand
+

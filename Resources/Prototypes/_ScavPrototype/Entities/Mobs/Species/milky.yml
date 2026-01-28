@@ -14,8 +14,6 @@
     - HeadSide
   - type: Body
     prototype: Milky
-  - type: Sprite
-    drawdepth: Mobs
   - type: Vocal
     sounds:
       Male: MaleSpeciman
@@ -42,14 +40,21 @@
       types:
         Piercing: 2
         Slash: 4
-        Structural: 6
+        Structural: 5
   - type: MobThresholds
     thresholds:
       0: Alive
-      90: Critical
-      180: Dead
+      80: Critical
+      160: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.7
+      70: 0.5
   - type: Bloodstream
-    bloodReagent: YellowBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 250
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Speciman
@@ -72,7 +77,7 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 50
+    damageCap: 80
     damage:
       types:
         Heat: -0.04
@@ -81,6 +86,9 @@
       groups:
         Brute: -0.07
         Toxin: -0.04
+  - type: Stamina
+    baseCritThreshold: 80
+    decay: 2.5
   - type: Hunger
     baseDecayRate: 0.033
     starvationDamage:
@@ -90,7 +98,7 @@
   - type: Thirst
     baseDecayRate: 0.17
   - type: ScaleVisuals
-    scale: 0.8, 0.8
+    scale: 0.75, 0.75
   - type: Tag
     tags:
     - CanPilot
