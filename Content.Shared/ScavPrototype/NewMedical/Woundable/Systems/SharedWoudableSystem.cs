@@ -1,5 +1,5 @@
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
-using Content.Shared.ScavPrototype.NewMedical.Targeting.Events;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -14,7 +14,7 @@ public abstract class SharedWoundableSystem : EntitySystem
         SubscribeLocalEvent<WoundableComponent, ComponentInit>(WoundableInit);
     }
 
-    private void WoundableInit(Entity<WoundableComponent> ent, ref ComponentInit _)
+    private void WoundableInit(Entity<WoundableComponent> ent, ref ComponentInit args)
     {
         UpdateWoundable(ent.Owner);
     }
@@ -32,6 +32,7 @@ public abstract class SharedWoundableSystem : EntitySystem
             return;
 
         UpdateWoundable(bodyUid);
+        RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart.PartType, bodyPart.Symmetry, integrityChanged), uid);
     }
 
     public float GetMaxDamage(EntityUid uid)
@@ -42,7 +43,7 @@ public abstract class SharedWoundableSystem : EntitySystem
         return component.MaxDamage;
     }
 
-    public virtual void UpdateWoundable(EntityUid uid)
+    public void UpdateWoundable(EntityUid uid)
     {
         if (!TryComp<BodyComponent>(uid, out var body)
             || body.RootContainer == null

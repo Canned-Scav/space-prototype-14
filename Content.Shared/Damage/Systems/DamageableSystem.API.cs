@@ -82,7 +82,7 @@ public sealed partial class DamageableSystem
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         bool ignoreGlobalModifiers = false,
-        TargetBodyPart? targetPart = null,
+        TargetBodyPart targetPart = TargetBodyPart.All,
         SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
         bool canMiss = false
     )
@@ -111,7 +111,7 @@ public sealed partial class DamageableSystem
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         bool ignoreGlobalModifiers = false,
-        TargetBodyPart? targetPart = null,
+        TargetBodyPart targetPart = TargetBodyPart.All,
         SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
         bool canMiss = false
     )
@@ -140,7 +140,7 @@ public sealed partial class DamageableSystem
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         bool ignoreGlobalModifiers = false,
-        TargetBodyPart? targetPart = null,
+        TargetBodyPart targetPart = TargetBodyPart.All,
         SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
         bool canMiss = false
     )
@@ -162,10 +162,8 @@ public sealed partial class DamageableSystem
         //SpacePrototype Changes start
 
         // For entities with a body, route damage through body parts and then sum it up
-            if (_bodyQuery.TryGetComponent(ent, out var body))
+            if (_bodyQuery.TryGetComponent(ent, out var body) && targetPart != TargetBodyPart.None)
             {
-                if (targetPart == null) targetPart = TargetBodyPart.All;
-
                 var appliedDamage = ApplyDamageToBodyParts(ent, damage, origin, ignoreResistances,
                     interruptsDoAfters, targetPart, splitDamage, canMiss);
 
@@ -173,7 +171,7 @@ public sealed partial class DamageableSystem
 
                 return appliedDamage;
             }
-
+        //SpacePrototype Changes end
 
         // Apply resistances
         if (!ignoreResistances)
@@ -533,7 +531,7 @@ public sealed partial class DamageableSystem
                     var modifiedDamage = damagePerPart + surplusHealing;
 
                     // Apply damage to this part
-                    var partDamageResult = ChangeDamageOnBodyPart((partId, partDamageable), modifiedDamage, origin, ignoreResistances, interruptsDoAfters, partComp);
+                    var partDamageResult = ChangeDamageOnBodyPart((partId, partDamageable), modifiedDamage, origin, ignoreResistances, interruptsDoAfters, partComp, uid);
 
                     if (partDamageResult != null && !partDamageResult.Empty)
                     {
@@ -603,7 +601,7 @@ public sealed partial class DamageableSystem
                 if (!_damageableQuery.TryComp(chosenTarget.Id, out var partDamageable))
                     return null;
 
-                totalAppliedDamage = ChangeDamageOnBodyPart((chosenTarget.Id, partDamageable), adjustedDamage, origin, ignoreResistances, interruptsDoAfters, Comp<BodyPartComponent>(chosenTarget.Id));
+                totalAppliedDamage = ChangeDamageOnBodyPart((chosenTarget.Id, partDamageable), adjustedDamage, origin, ignoreResistances, interruptsDoAfters, Comp<BodyPartComponent>(chosenTarget.Id), uid);
             }
 
             return totalAppliedDamage;
@@ -683,7 +681,8 @@ public sealed partial class DamageableSystem
             EntityUid? origin,
             bool ignoreResistances,
             bool interruptsDoAfters,
-            BodyPartComponent partComp)
+            BodyPartComponent partComp,
+            EntityUid bodyUid)
         {
             var appliedDamage = new DamageSpecifier();
 
@@ -695,60 +694,12 @@ public sealed partial class DamageableSystem
             if(ent.Comp.Damage.GetTotal() >= partMaxDamage) damage /= 20; //Потом изменить
 
             appliedDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
-            UpdateParentDamageFromBodyPart(ent.Owner, appliedDamage, interruptsDoAfters, origin);
 
             _woundable.ChangeIntegrity(ent.Owner, (float)appliedDamage.GetTotal());
+
+            ChangeDamage(bodyUid, appliedDamage, ignoreResistances, interruptsDoAfters, origin, targetPart: TargetBodyPart.None);
 
             return appliedDamage;
         }
 
-
-
-    /// <summary>
-    /// Updates the parent entity's damage values by summing damage from all body parts.
-    /// Should be called after damage is applied to any body part.
-    /// </summary>
-    /// <param name="bodyPartUid">The body part that received damage</param>
-    /// <param name="appliedDamage">The damage that was applied to the body part</param>
-    /// <param name="interruptsDoAfters">Whether this damage change interrupts do-afters</param>
-    /// <param name="origin">The entity that caused the damage</param>
-    /// <returns>True if parent damage was updated, false otherwise</returns>
-    private bool UpdateParentDamageFromBodyPart(
-            EntityUid bodyPartUid,
-            DamageSpecifier? appliedDamage,
-            bool interruptsDoAfters,
-            EntityUid? origin,
-            BodyPartComponent? bodyPart = null)
-        {
-            // Check if this is a body part and get the parent body
-            if (!Resolve(bodyPartUid, ref bodyPart, logMissing: false)
-                || bodyPart.Body is not { } body
-                || !TryComp(body, out DamageableComponent? parentDamageable))
-                return false;
-
-            // Reset the parent's damage values
-            foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
-                parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
-
-            // Sum up damage from all body parts
-            foreach (var (partId, _) in _body.GetBodyChildren(body))
-            {
-                if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                    continue;
-
-                foreach (var (type, value) in partDamageable.Damage.DamageDict)
-                {
-                    if (value == 0)
-                        continue;
-
-                    if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
-                        parentDamageable.Damage.DamageDict[type] = existing + value;
-                }
-            }
-
-            // Raise the damage changed event on the parent
-            OnEntityDamageChanged((body, parentDamageable), appliedDamage, interruptsDoAfters, origin);
-
-            return true;
-        }
 }

@@ -44,15 +44,12 @@ public sealed partial class PartStatusControl : UIWidget
         //OnKeyBindDown += OnClicked;
     }
 
-    public void SetTextures(List<(BodyPartType type, BodyPartSymmetry symmetry, float integrity)> partsWoundable)
+    public void SetTexture(BodyPartType type, BodyPartSymmetry symmetry, float integrity)
     {
-        foreach (var (type, symmetry, integrity) in partsWoundable)
-        {
-            string enumName = GetBodyPartName(type, symmetry);
-            int enumValue = (int) (Math.Abs(integrity-1)*6);
-            var texture = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_ScavPrototype/Interface/PartsStatus/{enumName}.rsi"), $"{enumName}_{enumValue}");
-            _partStatusControls[enumName].Texture = _controller.GetTexture(texture);
-        }
+        string enumName = GetBodyPartName(type, symmetry);
+        int enumValue = (int) (Math.Abs(integrity-1)*6);
+        var texture = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_ScavPrototype/Interface/PartsStatus/{enumName}.rsi"), $"{enumName}_{enumValue}");
+        _partStatusControls[enumName].Texture = _controller.GetTexture(texture);
     }
 
     /*private void OnClicked(GUIBoundKeyEventArgs args)

@@ -11,6 +11,7 @@ namespace Content.Shared.ScavPrototype.NewMedical.Targeting;
 [Flags]
 public enum TargetBodyPart : ushort
 {
+    None = 0,
     Head = 1,
     Torso = 1 << 1,
     Groin = 1 << 2,

@@ -9,6 +9,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Timing;
 using Content.Client.ScavPrototype.NewMedical.Woundable;
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Events;
 
 namespace Content.Client.ScavPrototype.NewMedical.UserInterface.PartStatus;
 
@@ -43,7 +44,10 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
             PartStatusControl.SetVisible(_woundableComponent != null);
 
             if (_woundableComponent != null)
-                PartStatusControl.SetTextures(_woundableComponent.PartsWoundable);
+                foreach (var (type, symmetry, integrity) in _woundableComponent.PartsWoundable)
+                {
+                    PartStatusControl.SetTexture(type, symmetry, integrity);
+                }
         }
     }
 
@@ -55,7 +59,10 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
         {
             PartStatusControl.SetVisible(_woundableComponent != null);
             if (_woundableComponent != null)
-                PartStatusControl.SetTextures(_woundableComponent.PartsWoundable);
+                foreach (var (type, symmetry, integrity) in _woundableComponent.PartsWoundable)
+                {
+                    PartStatusControl.SetTexture(type, symmetry, integrity);
+                }
         }
 
     }
@@ -68,10 +75,10 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
         _woundableComponent = null;
     }
 
-    public void UpdatePartStatusControl(WoundableComponent component)
+    public void UpdatePartStatusControl(WoundablePartChangeEvent args)
     {
-        if (PartStatusControl != null && _woundableComponent != null)
-            PartStatusControl.SetTextures(_woundableComponent.PartsWoundable);
+        if (PartStatusControl != null && args != null)
+            PartStatusControl.SetTexture(args.Type, args.Symmetry, args.Integrity);
     }
 
     public Texture GetTexture(SpriteSpecifier specifier)
