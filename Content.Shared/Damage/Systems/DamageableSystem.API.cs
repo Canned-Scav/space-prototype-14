@@ -691,13 +691,14 @@ public sealed partial class DamageableSystem
 
             var partMaxDamage = _woundable.GetMaxDamage(ent.Owner);
 
-            if(ent.Comp.Damage.GetTotal() >= partMaxDamage) damage /= 20; //Потом изменить
+            if(ent.Comp.Damage.GetTotal() >= partMaxDamage)
+                damage /= 20; //Потом изменить
 
             appliedDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
 
             _woundable.ChangeIntegrity(ent.Owner, (float)appliedDamage.GetTotal());
 
-            ChangeDamage(bodyUid, appliedDamage, ignoreResistances, interruptsDoAfters, origin, targetPart: TargetBodyPart.None);
+            ChangeDamage(bodyUid, appliedDamage, true, interruptsDoAfters, origin, targetPart: TargetBodyPart.None);
 
             return appliedDamage;
         }

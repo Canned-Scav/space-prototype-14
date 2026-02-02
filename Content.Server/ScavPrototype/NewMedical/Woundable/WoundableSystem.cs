@@ -1,18 +1,15 @@
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
-using Content.Shared.ScavPrototype.NewMedical.Targeting.Events;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Events;
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Systems;
+using Content.Shared.Body.Part;
 
 namespace Content.Server.ScavPrototype.NewMedical.Woundable;
 public sealed class WoundableSystem : SharedWoundableSystem
 {
-    /*public override void UpdateWoundable(EntityUid uid)
+    public override void UpdateIntegrity(EntityUid uid, BodyPartComponent bodyPart, float integrityChanged)
     {
-        base.UpdateWoundable(uid);
+        base.UpdateIntegrity(uid, bodyPart, integrityChanged);
 
-        if (TryComp<WoundableComponent>(uid, out var woundable))
-        {
-            Dirty(uid, woundable);
-            RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid)), uid);
-        }
-    }*/
+        RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart.PartType, bodyPart.Symmetry, integrityChanged), uid);
+    }
 }

@@ -32,7 +32,13 @@ public abstract class SharedWoundableSystem : EntitySystem
             return;
 
         UpdateWoundable(bodyUid);
-        RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart.PartType, bodyPart.Symmetry, integrityChanged), uid);
+        //RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart.PartType, bodyPart.Symmetry, integrityChanged), bodyUid);
+        UpdateIntegrity(bodyUid, bodyPart, integrityChanged);
+    }
+
+    public virtual void UpdateIntegrity(EntityUid uid, BodyPartComponent bodyPart, float integrityChanged)
+    {
+
     }
 
     public float GetMaxDamage(EntityUid uid)
