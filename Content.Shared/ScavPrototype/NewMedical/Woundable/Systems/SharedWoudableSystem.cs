@@ -1,5 +1,7 @@
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Events;
+using Content.Shared.ScavPrototype.NewMedical.Targeting;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -11,61 +13,67 @@ public abstract class SharedWoundableSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<WoundableComponent, ComponentInit>(WoundableInit);
+        //SubscribeLocalEvent<WoundableComponent, ComponentInit>(WoundableInit);
+        SubscribeLocalEvent<WoundablePartComponent, DamageChangedEvent>(ChangeIntegrity);
+        SubscribeLocalEvent<WoundableComponent, BodyPartsInitializedEvent>(OnBodyPartsInit);
     }
 
-    private void WoundableInit(Entity<WoundableComponent> ent, ref ComponentInit args)
+    private void OnBodyPartsInit(Entity<WoundableComponent> ent, ref BodyPartsInitializedEvent args)
     {
-        UpdateWoundable(ent.Owner);
-    }
-
-    public void ChangeIntegrity(EntityUid uid, float totalDamage)
-    {
-        if(!TryComp<WoundablePartComponent>(uid, out var component))
+        if (!TryComp<BodyComponent>(ent.Owner, out var body) || body.RootContainer == null)
             return;
 
-        var integrityChanged =  Math.Clamp(component.Integrity - totalDamage / component.MaxDamage, 0, 1f);
-        component.Integrity = integrityChanged;
+        var _partsWoundable = new Dictionary<TargetBodyPart, EntityUid>();
 
-        if (!TryComp<BodyPartComponent>(uid, out var bodyPart)
+        foreach (var (partUid, partComp) in _body.GetBodyChildren(ent.Owner, body))
+        {
+            var targetPart = _body.GetTargetBodyPart(partComp.PartType, partComp.Symmetry);
+
+            _partsWoundable.Add(targetPart, partUid);
+        }
+
+        ent.Comp.PartsWoundable = _partsWoundable;
+    }
+
+    public void ChangeIntegrity(Entity<WoundablePartComponent> ent, ref DamageChangedEvent args)
+    {
+        if (args.DamageDelta == null)
+            return;
+
+        var integrityChanged =  Math.Clamp(ent.Comp.Integrity - (float)(args.DamageDelta.GetTotal() / ent.Comp.MaxDamage), 0f, 1f);
+        ent.Comp.Integrity = integrityChanged;
+
+        if (!TryComp<BodyPartComponent>(ent.Owner, out var bodyPart)
             || bodyPart.Body is not { } bodyUid)
             return;
 
-        UpdateWoundable(bodyUid);
-        //RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart.PartType, bodyPart.Symmetry, integrityChanged), bodyUid);
-        UpdateIntegrity(bodyUid, bodyPart, integrityChanged);
+        UpdateIntegrity(bodyUid, _body.GetTargetBodyPart(bodyPart.PartType, bodyPart.Symmetry), integrityChanged);
     }
 
-    public virtual void UpdateIntegrity(EntityUid uid, BodyPartComponent bodyPart, float integrityChanged)
+    public virtual void UpdateIntegrity(EntityUid uid, TargetBodyPart bodyPart, float integrityChanged)
     {
 
     }
 
-    public float GetMaxDamage(EntityUid uid)
+    public float GetMaxDamage(Entity<WoundablePartComponent?> ent)
     {
-        if(!TryComp<WoundablePartComponent>(uid, out var component))
+        if (!Resolve(ent, ref ent.Comp, false))
             return 0;
 
-        return component.MaxDamage;
+        return ent.Comp.MaxDamage;
     }
 
-    public void UpdateWoundable(EntityUid uid)
+    public bool HasTargetPartUid(Entity<WoundableComponent?> ent, TargetBodyPart targetPart, out EntityUid? partUid)
     {
-        if (!TryComp<BodyComponent>(uid, out var body)
-            || body.RootContainer == null
-            || !TryComp<WoundableComponent>(uid, out var woundable))
-            return;
-
-        var _partsWoundable = new List<(BodyPartType type, BodyPartSymmetry symmetry, float integrity)>();
-
-        foreach (var (partUid, partComp) in _body.GetBodyChildren(uid, body))
-        {
-            if (!TryComp<WoundablePartComponent>(partUid, out var partWoundable))
-                continue;
-
-            _partsWoundable.Add((partComp.PartType, partComp.Symmetry, partWoundable.Integrity));
+        if (!Resolve(ent, ref ent.Comp, false) || !ent.Comp.PartsWoundable.ContainsKey(targetPart)) {
+            partUid = null;
+            return false;
         }
 
-        woundable.PartsWoundable = _partsWoundable;
+        partUid = ent.Comp.PartsWoundable[targetPart];
+        if (partUid == null)
+            return false;
+
+        return true;
     }
 }

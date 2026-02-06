@@ -39,32 +39,14 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
 
     public void OnStateEntered(GameplayState state)
     {
-        if (PartStatusControl != null)
-        {
-            PartStatusControl.SetVisible(_woundableComponent != null);
-
-            if (_woundableComponent != null)
-                foreach (var (type, symmetry, integrity) in _woundableComponent.PartsWoundable)
-                {
-                    PartStatusControl.SetTexture(type, symmetry, integrity);
-                }
-        }
+        WoundableInit();
     }
 
     public void AddPartStatusControl(WoundableComponent component)
     {
         _woundableComponent = component;
 
-        if (PartStatusControl != null)
-        {
-            PartStatusControl.SetVisible(_woundableComponent != null);
-            if (_woundableComponent != null)
-                foreach (var (type, symmetry, integrity) in _woundableComponent.PartsWoundable)
-                {
-                    PartStatusControl.SetTexture(type, symmetry, integrity);
-                }
-        }
-
+        WoundableInit();
     }
 
     public void RemovePartStatusControl()
@@ -78,7 +60,7 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
     public void UpdatePartStatusControl(WoundablePartChangeEvent args)
     {
         if (PartStatusControl != null && args != null)
-            PartStatusControl.SetTexture(args.Type, args.Symmetry, args.Integrity);
+            PartStatusControl.SetTexture(args.PartType, args.Integrity);
     }
 
     public Texture GetTexture(SpriteSpecifier specifier)
@@ -87,6 +69,19 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
             _spriteSystem = _entManager.System<SpriteSystem>();
 
         return _spriteSystem.Frame0(specifier);
+    }
+
+    public void WoundableInit()
+    {
+        if (PartStatusControl != null)
+        {
+            PartStatusControl.SetVisible(_woundableComponent != null);
+            if (_woundableComponent != null)
+                foreach (var part in _woundableComponent.PartsWoundable)
+                {
+                    PartStatusControl.SetTexture(part.Key, 0f);
+                }
+        }
     }
 
     /*public void GetPartStatusMessage()

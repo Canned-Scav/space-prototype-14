@@ -121,7 +121,7 @@ public partial class SharedBodySystem
 
         // Setup the rest of the body entities.
         SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
-        MapInitParts(rootPartUid, prototype);
+        MapInitParts(rootPartUid, prototype, bodyEntity); //Space Protype change
     }
 
     private void OnBodyCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)
@@ -132,7 +132,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// Sets up all of the relevant body parts for a particular body entity and root part.
     /// </summary>
-    private void MapInitParts(EntityUid rootPartId, BodyPrototype prototype)
+    private void MapInitParts(EntityUid rootPartId, BodyPrototype prototype, EntityUid bodyEntity)
     {
         // Start at the root part and traverse the body graph, setting up parts as we go.
         // Basic BFS pathfind.
@@ -186,6 +186,8 @@ public partial class SharedBodySystem
                 frontier.Enqueue(connection);
             }
         }
+
+        RaiseLocalEvent(bodyEntity, new BodyPartsInitializedEvent()); //Space Protype change
     }
 
     private void SetupOrgans(Entity<BodyPartComponent> ent, Dictionary<string, string> organs)
@@ -367,3 +369,9 @@ public partial class SharedBodySystem
         }
     }
 }
+
+//Space prototype changes start
+public sealed class BodyPartsInitializedEvent : EntityEventArgs
+{
+}
+//Space prototype changes end

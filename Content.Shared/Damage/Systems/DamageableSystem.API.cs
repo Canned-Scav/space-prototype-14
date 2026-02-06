@@ -696,8 +696,6 @@ public sealed partial class DamageableSystem
 
             appliedDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
 
-            _woundable.ChangeIntegrity(ent.Owner, (float)appliedDamage.GetTotal());
-
             ChangeDamage(bodyUid, appliedDamage, true, interruptsDoAfters, origin, targetPart: TargetBodyPart.None);
 
             return appliedDamage;

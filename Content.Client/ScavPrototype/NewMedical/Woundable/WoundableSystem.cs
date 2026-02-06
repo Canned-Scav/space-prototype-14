@@ -22,7 +22,7 @@ public sealed class WoundableSystem : SharedWoundableSystem
         base.Initialize();
         SubscribeLocalEvent<WoundableComponent, LocalPlayerAttachedEvent>(HandlePlayerAttached);
         SubscribeLocalEvent<WoundableComponent, LocalPlayerDetachedEvent>(HandlePlayerDetached);
-        SubscribeLocalEvent<WoundableComponent, ComponentStartup>(OnPartStatusStartup);
+        SubscribeLocalEvent<WoundableComponent, BodyPartsInitializedEvent>(OnPartStatusStartup);
         SubscribeLocalEvent<WoundableComponent, ComponentShutdown>(OnPartStatusShutdown);
         SubscribeNetworkEvent<WoundablePartChangeEvent>(OnWoundableIntegrityChange);
     }
@@ -37,7 +37,7 @@ public sealed class WoundableSystem : SharedWoundableSystem
         PartStatusShutdown?.Invoke();
     }
 
-    private void OnPartStatusStartup(EntityUid uid, WoundableComponent component, ComponentStartup args)
+    private void OnPartStatusStartup(EntityUid uid, WoundableComponent component, BodyPartsInitializedEvent args)
     {
         if (_playerManager.LocalEntity != uid)
             return;

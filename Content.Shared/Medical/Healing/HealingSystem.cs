@@ -16,6 +16,12 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
+//Space Prototype changes
+using Content.Shared.ScavPrototype.NewMedical.Targeting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Systems;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
 
 namespace Content.Shared.Medical.Healing;
 
@@ -31,6 +37,9 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    //Space Prototype changes
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedWoundableSystem _woundable = default!;
 
     public override void Initialize()
     {
@@ -50,8 +59,15 @@ public sealed class HealingSystem : EntitySystem
         if (!TryComp(args.Used, out HealingComponent? healing))
             return;
 
+        //Space Prototype changes start
+        if (!TryComp(args.Target, out DamageableComponent? targetDamageable))
+            return;
+        Entity<DamageableComponent?> directTarget = args.Target.Value;
+        directTarget.Comp = targetDamageable;
+        //Space Prototype changes end
+
         if (healing.DamageContainers is not null &&
-            target.Comp.DamageContainerID is not null &&
+            directTarget.Comp.DamageContainerID is not null &&
             !healing.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
         {
             return;
@@ -77,7 +93,7 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
-        if (!_damageable.TryChangeDamage(target.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        if (!_damageable.TryChangeDamage(directTarget.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
             return;
 
         var total = healed.GetTotal();
@@ -110,7 +126,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
+        args.Repeat = HasDamage((args.Used.Value, healing), directTarget) && !dontRepeat;
         args.Handled = true;
 
         if (!args.Repeat)
@@ -179,15 +195,25 @@ public sealed class HealingSystem : EntitySystem
         if (!Resolve(target, ref target.Comp, false))
             return false;
 
+        //Space Prototype changes start
+
+       var bodyEnt = target;
+        if (TryComp(user, out TargetingComponent? userTargeting) && _woundable.HasTargetPartUid(target.Owner, userTargeting.Target, out var partUid) && partUid != null)
+        {
+            if (TryComp<DamageableComponent>(partUid.Value, out var partDamageable))
+            {
+                target.Owner = partUid.Value;
+                target.Comp = partDamageable;
+            }
+        }
+
         if (healing.Comp.DamageContainers is not null &&
             target.Comp.DamageContainerID is not null &&
             !healing.Comp.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
         {
             return false;
         }
-
-        if (user != target.Owner && !_interactionSystem.InRangeUnobstructed(user, target.Owner, popup: true))
-            return false;
+        //Space Prototype changes end
 
         if (TryComp<StackComponent>(healing, out var stack) && stack.Count < 1)
             return false;
@@ -200,20 +226,20 @@ public sealed class HealingSystem : EntitySystem
 
         _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
-        var isNotSelf = user != target.Owner;
+        var isNotSelf = user != bodyEnt.Owner;
 
         if (isNotSelf)
         {
             var msg = Loc.GetString("medical-item-popup-target", ("user", Identity.Entity(user, EntityManager)), ("item", healing.Owner));
-            _popupSystem.PopupEntity(msg, target, target, PopupType.Medium);
+            _popupSystem.PopupEntity(msg, bodyEnt, bodyEnt, PopupType.Medium);
         }
 
         var delay = isNotSelf
             ? healing.Comp.Delay
-            : healing.Comp.Delay * GetScaledHealingPenalty(target, healing.Comp.SelfHealPenaltyMultiplier);
+            : healing.Comp.Delay * GetScaledHealingPenalty(bodyEnt, healing.Comp.SelfHealPenaltyMultiplier);
 
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: healing)
+            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), bodyEnt, target: target, used: healing)
             {
                 // Didn't break on damage as they may be trying to prevent it and
                 // not being able to heal your own ticking damage would be frustrating.
