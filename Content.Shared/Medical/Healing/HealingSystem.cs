@@ -62,13 +62,11 @@ public sealed class HealingSystem : EntitySystem
         //Space Prototype changes start
         if (!TryComp(args.Target, out DamageableComponent? targetDamageable))
             return;
-        Entity<DamageableComponent?> directTarget = args.Target.Value;
-        directTarget.Comp = targetDamageable;
         //Space Prototype changes end
 
         if (healing.DamageContainers is not null &&
-            directTarget.Comp.DamageContainerID is not null &&
-            !healing.DamageContainers.Contains(target.Comp.DamageContainerID.Value))
+            targetDamageable.DamageContainerID is not null &&
+            !healing.DamageContainers.Contains(targetDamageable.DamageContainerID.Value))
         {
             return;
         }
@@ -93,7 +91,7 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0 && bloodstream != null)
             _bloodstreamSystem.TryModifyBloodLevel((target.Owner, bloodstream), healing.ModifyBloodLevel);
 
-        if (!_damageable.TryChangeDamage(directTarget.Owner, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
+        if (!_damageable.TryChangeDamage(args.Target.Value, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, true, origin: args.Args.User) && healing.BloodlossModifier != 0)
             return;
 
         var total = healed.GetTotal();
@@ -126,7 +124,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage((args.Used.Value, healing), directTarget) && !dontRepeat;
+        args.Repeat = HasDamage((args.Used.Value, healing), args.Target.Value) && !dontRepeat;
         args.Handled = true;
 
         if (!args.Repeat)
@@ -140,8 +138,11 @@ public sealed class HealingSystem : EntitySystem
             args.Args.Delay = healing.Delay * GetScaledHealingPenalty(target.Owner, healing.SelfHealPenaltyMultiplier);
     }
 
-    private bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent> target)
+    private bool HasDamage(Entity<HealingComponent> healing, Entity<DamageableComponent?> target)
     {
+        if (!Resolve(target, ref target.Comp, false))
+            return false;
+
         var damageableDict = target.Comp.Damage.DamageDict;
         var healingDict = healing.Comp.Damage.DamageDict;
         foreach (var type in healingDict)
