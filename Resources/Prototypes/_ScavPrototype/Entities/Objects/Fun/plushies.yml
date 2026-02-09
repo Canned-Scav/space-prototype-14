@@ -30,3 +30,35 @@
     sprite: _ScavPrototype/Objects/Fun/milky_plushie.rsi
     slots:
     - HEAD
+
+- type: entity
+  parent: PlushieExperiment
+  id: PlushieAlbino
+  name: плюшка альбино
+  description: Белая версия эксперементальной плюшки.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Fun/albino_plushie.rsi
+  - type: Item
+    sprite: _ScavPrototype/Objects/Fun/albino_plushie.rsi
+  - type: EmitSoundOnUse
+    sound: &PlushieSound
+      path: /Audio/Items/Toys/arf.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound: *PlushieSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieSound
+  - type: Edible
+    useSound: *PlushieSound
+  - type: MeleeWeapon
+    soundHit: *PlushieSound
+  - type: Clothing
+    sprite: _ScavPrototype/Objects/Fun/albino_plushie.rsi
+    slots:
+    - HEAD

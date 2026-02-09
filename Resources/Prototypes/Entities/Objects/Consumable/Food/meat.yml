@@ -63,7 +63,7 @@
     - Meat
   - type: Perishable
     # raw meat rots in 5 minutes, get it into the freezer fast
-    rotAfter: 300
+    rotAfter: 1800 #space prototype - Default 300
     # don't want meat giving off ammonia only bodies
     molsPerSecondPerUnitMass: 0
   - type: RotInto

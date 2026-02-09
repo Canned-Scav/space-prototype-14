@@ -3,57 +3,39 @@
   name: guide-entry-species
   text: "/ServerInfo/Guidebook/Mobs/Species.xml"
   children:
-  - Arachnid
-  - Diona
-  - Dwarf
+  - Albino
+  - Dune
+  - Speciman
+  - Milky
+  - Orange
   - Human
-  - Moth
-  - Reptilian
-  - SlimePerson
-  - Vox
-  - Vulpkanin
 
 - type: guideEntry
-  id: Arachnid
-  name: species-name-arachnid
-  text: "/ServerInfo/Guidebook/Mobs/Arachnid.xml"
+  id: Albino
+  name: Альбино
+  text: "/ServerInfo/_ScavPrototype/Guidebook/Mobs/Albino.xml"
 
 - type: guideEntry
-  id: Diona
-  name: species-name-diona
-  text: "/ServerInfo/Guidebook/Mobs/Diona.xml"
+  id: Dune
+  name: Дюна
+  text: "/ServerInfo/_ScavPrototype/Guidebook/Mobs/Dune.xml"
 
 - type: guideEntry
-  id: Dwarf
-  name: species-name-dwarf
-  text: "/ServerInfo/Guidebook/Mobs/Dwarf.xml"
+  id: Speciman
+  name: Эксперимент
+  text: "/ServerInfo/_ScavPrototype/Guidebook/Mobs/Experiment.xml"
+
+- type: guideEntry
+  id: Milky
+  name: Милки
+  text: "/ServerInfo/_ScavPrototype/Guidebook/Mobs/Milky.xml"
+
+- type: guideEntry
+  id: Orange
+  name: Орандж
+  text: "/ServerInfo/_ScavPrototype/Guidebook/Mobs/Orange.xml"
 
 - type: guideEntry
   id: Human
-  name: species-name-human
+  name: Человек
   text: "/ServerInfo/Guidebook/Mobs/Human.xml"
-
-- type: guideEntry
-  id: Moth
-  name: species-name-moth
-  text: "/ServerInfo/Guidebook/Mobs/Moth.xml"
-
-- type: guideEntry
-  id: Reptilian
-  name: species-name-reptilian
-  text: "/ServerInfo/Guidebook/Mobs/Reptilian.xml"
-
-- type: guideEntry
-  id: SlimePerson
-  name: species-name-slime
-  text: "/ServerInfo/Guidebook/Mobs/SlimePerson.xml"
-
-- type: guideEntry
-  id: Vox
-  name: species-name-vox
-  text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
-
-- type: guideEntry
-  id: Vulpkanin
-  name: species-name-vulpkanin
-  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"

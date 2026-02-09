@@ -34,6 +34,7 @@
     tags:
     - WhitelistChameleon
     - Backpack
+  - type: AllowsSleepInside # Frontier
 
 - type: entity
   parent: ClothingBackpack

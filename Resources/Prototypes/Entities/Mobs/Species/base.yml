@@ -13,6 +13,7 @@
   - type: Targeting
   - type: Woundable
   # Space Prototype Changes end
+  - type: CanEscapeInventory # Carrying system from nyanotrasen.
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -225,6 +226,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  - type: Carriable # Goobstation
   - type: Barotrauma
     damage:
       types:
