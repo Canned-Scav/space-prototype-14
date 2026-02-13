@@ -10,6 +10,8 @@ using Robust.Shared.Timing;
 using Content.Client.ScavPrototype.NewMedical.Woundable;
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
 using Content.Shared.ScavPrototype.NewMedical.Woundable.Events;
+using Content.Shared.ScavPrototype.NewMedical.Targeting;
+using Robust.Shared.Log;
 
 namespace Content.Client.ScavPrototype.NewMedical.UserInterface.PartStatus;
 
@@ -39,14 +41,14 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
 
     public void OnStateEntered(GameplayState state)
     {
-        WoundableInit();
+        WoundableClientInit();
     }
 
-    public void AddPartStatusControl(WoundableComponent component)
+    public void AddPartStatusControl(WoundableComponent component, List<TargetBodyPart> parts)
     {
         _woundableComponent = component;
 
-        WoundableInit();
+        WoundableClientInit(parts);
     }
 
     public void RemovePartStatusControl()
@@ -71,16 +73,17 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
         return _spriteSystem.Frame0(specifier);
     }
 
-    public void WoundableInit()
+    public void WoundableClientInit(List<TargetBodyPart>? parts = null)
     {
         if (PartStatusControl != null)
         {
             PartStatusControl.SetVisible(_woundableComponent != null);
-            if (_woundableComponent != null)
-                foreach (var part in _woundableComponent.PartsWoundable)
+            if (parts != null) {
+                foreach (var part in parts)
                 {
-                    PartStatusControl.SetTexture(part.Key, 0f);
+                    PartStatusControl.SetTexture(part, 1f);
                 }
+            }
         }
     }
 

@@ -7,10 +7,10 @@ using Content.Shared.Body.Part;
 namespace Content.Server.ScavPrototype.NewMedical.Woundable;
 public sealed class WoundableSystem : SharedWoundableSystem
 {
-    public override void UpdateIntegrity(EntityUid uid, TargetBodyPart bodyPart, float integrityChanged)
+    public override void UpdateIntegrity(EntityUid uid, TargetBodyPart bodyPart, float integrity)
     {
-        base.UpdateIntegrity(uid, bodyPart, integrityChanged);
+        base.UpdateIntegrity(uid, bodyPart, integrity);
 
-        RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart, integrityChanged), uid);
+        RaiseNetworkEvent(new WoundablePartChangeEvent(GetNetEntity(uid), bodyPart, integrity), uid);
     }
 }

@@ -13,7 +13,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;
-using Content.Shared.ScavPrototype.NewMedical.Woundable.Systems;
+using Content.Shared.ScavPrototype.NewMedical.Woundable.Components;
 
 namespace Content.Shared.Damage.Systems;
 
@@ -689,16 +689,57 @@ public sealed partial class DamageableSystem
             if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
                 return appliedDamage;
 
-            var partMaxDamage = _woundable.GetMaxDamage(ent.Owner);
+            var partMaxDamage = 100f;
+            if (TryComp<WoundablePartComponent>(ent.Owner, out var woudablePart))
+                partMaxDamage = woudablePart.MaxDamage;
 
             if(ent.Comp.Damage.GetTotal() >= partMaxDamage)
                 damage /= 20; //Потом изменить
 
             appliedDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
 
-            ChangeDamage(bodyUid, appliedDamage, true, interruptsDoAfters, origin, targetPart: TargetBodyPart.None);
+            UpdateParentDamageFromBodyPart(ent.Owner, appliedDamage, interruptsDoAfters, origin, partComp);
 
             return appliedDamage;
+        }
+
+    private bool UpdateParentDamageFromBodyPart(
+            EntityUid bodyPartUid,
+            DamageSpecifier? appliedDamage,
+            bool interruptsDoAfters,
+            EntityUid? origin,
+            BodyPartComponent? bodyPart = null)
+        {
+            // Check if this is a body part and get the parent body
+            if (!Resolve(bodyPartUid, ref bodyPart, logMissing: false)
+                || bodyPart.Body is not { } body
+                || !TryComp(body, out DamageableComponent? parentDamageable))
+                return false;
+
+            // Reset the parent's damage values
+            foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
+                parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
+
+            // Sum up damage from all body parts
+            foreach (var (partId, _) in _body.GetBodyChildren(body))
+            {
+                if (!_damageableQuery.TryComp(partId, out var partDamageable))
+                    continue;
+
+                foreach (var (type, value) in partDamageable.Damage.DamageDict)
+                {
+                    if (value == 0)
+                        continue;
+
+                    if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
+                        parentDamageable.Damage.DamageDict[type] = existing + value;
+                }
+            }
+
+            // Raise the damage changed event on the parent
+            OnEntityDamageChanged((body, parentDamageable), appliedDamage, interruptsDoAfters, origin);
+
+            return true;
         }
 
 }

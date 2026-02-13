@@ -14,6 +14,7 @@ using Robust.Shared.Utility;
 
 //SpacePrototype Changes
 using Content.Shared.Mobs.Systems;
+using Content.Shared.ScavPrototype.NewMedical.Targeting;
 
 namespace Content.Shared.Body.Systems;
 
@@ -186,8 +187,6 @@ public partial class SharedBodySystem
                 frontier.Enqueue(connection);
             }
         }
-
-        RaiseLocalEvent(bodyEntity, new BodyPartsInitializedEvent()); //Space Protype change
     }
 
     private void SetupOrgans(Entity<BodyPartComponent> ent, Dictionary<string, string> organs)
@@ -368,10 +367,21 @@ public partial class SharedBodySystem
             }
         }
     }
-}
 
-//Space prototype changes start
-public sealed class BodyPartsInitializedEvent : EntityEventArgs
-{
+
+    public EntityUid? GetPartUidByTarget(Entity<BodyComponent?> ent, TargetBodyPart targetPart)
+    {
+        if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.RootContainer == null)
+            return null;
+
+        foreach (var (partUid, partComp) in GetBodyChildren(ent.Owner, ent.Comp))
+        {
+            var currentPart = GetTargetBodyPart(partComp.PartType, partComp.Symmetry);
+
+            if (currentPart == targetPart)
+                return partUid;
+        }
+
+        return null;
+    }
 }
-//Space prototype changes end

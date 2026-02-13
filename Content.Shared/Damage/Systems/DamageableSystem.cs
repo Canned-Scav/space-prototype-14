@@ -15,7 +15,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.ScavPrototype.NewMedical.Woundable.Systems;
 
 namespace Content.Shared.Damage.Systems;
 
@@ -34,7 +33,6 @@ public sealed partial class DamageableSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedWoundableSystem _woundable = default!;
     private EntityQuery<BodyComponent> _bodyQuery;
 
     private EntityQuery<AppearanceComponent> _appearanceQuery;

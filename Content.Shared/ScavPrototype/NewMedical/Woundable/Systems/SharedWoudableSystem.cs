@@ -14,46 +14,43 @@ public abstract class SharedWoundableSystem : EntitySystem
     public override void Initialize()
     {
         //SubscribeLocalEvent<WoundableComponent, ComponentInit>(WoundableInit);
-        SubscribeLocalEvent<WoundablePartComponent, DamageChangedEvent>(ChangeIntegrity);
-        SubscribeLocalEvent<WoundableComponent, BodyPartsInitializedEvent>(OnBodyPartsInit);
+        SubscribeLocalEvent<WoundablePartComponent, DamageChangedEvent>(OnDamageChanged);
+        //SubscribeLocalEvent<WoundableComponent, BodyPartsInitializedEvent>(OnBodyPartsInit);
     }
 
-    private void OnBodyPartsInit(Entity<WoundableComponent> ent, ref BodyPartsInitializedEvent args)
+    /*public virtual void OnBodyPartsInit(Entity<WoundableComponent> ent, ref BodyPartsInitializedEvent args)
     {
         if (!TryComp<BodyComponent>(ent.Owner, out var body) || body.RootContainer == null)
             return;
 
-        var _partsWoundable = new Dictionary<TargetBodyPart, EntityUid>();
+        var partsOnInit = new List<TargetBodyPart>();
 
         foreach (var (partUid, partComp) in _body.GetBodyChildren(ent.Owner, body))
         {
             var targetPart = _body.GetTargetBodyPart(partComp.PartType, partComp.Symmetry);
 
-            _partsWoundable.Add(targetPart, partUid);
+            partsOnInit.Add(targetPart);
         }
 
-        ent.Comp.PartsWoundable = _partsWoundable;
-    }
+        ent.Comp.PartsOnInit = partsOnInit;
+        Dirty(ent.Owner, ent.Comp);
+    }*/
 
-    public void ChangeIntegrity(Entity<WoundablePartComponent> ent, ref DamageChangedEvent args)
+    public void OnDamageChanged(Entity<WoundablePartComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta == null)
             return;
 
-        var integrityChanged =  Math.Clamp(ent.Comp.Integrity - (float)(args.DamageDelta.GetTotal() / ent.Comp.MaxDamage), 0f, 1f);
-        ent.Comp.Integrity = integrityChanged;
+        var integrity =  Math.Clamp(ent.Comp.Integrity - (float)(args.DamageDelta.GetTotal() / ent.Comp.MaxDamage), 0f, 1f);
+        ent.Comp.Integrity = integrity;
 
         if (!TryComp<BodyPartComponent>(ent.Owner, out var bodyPart)
             || bodyPart.Body is not { } bodyUid)
             return;
 
-        UpdateIntegrity(bodyUid, _body.GetTargetBodyPart(bodyPart.PartType, bodyPart.Symmetry), integrityChanged);
+        UpdateIntegrity(bodyUid, _body.GetTargetBodyPart(bodyPart.PartType, bodyPart.Symmetry), integrity);
     }
 
-    public virtual void UpdateIntegrity(EntityUid uid, TargetBodyPart bodyPart, float integrityChanged)
-    {
-
-    }
 
     public float GetMaxDamage(Entity<WoundablePartComponent?> ent)
     {
@@ -63,17 +60,7 @@ public abstract class SharedWoundableSystem : EntitySystem
         return ent.Comp.MaxDamage;
     }
 
-    public bool HasTargetPartUid(Entity<WoundableComponent?> ent, TargetBodyPart targetPart, out EntityUid? partUid)
+    public virtual void UpdateIntegrity(EntityUid uid, TargetBodyPart bodyPart, float integrity)
     {
-        if (!Resolve(ent, ref ent.Comp, false) || !ent.Comp.PartsWoundable.ContainsKey(targetPart)) {
-            partUid = null;
-            return false;
-        }
-
-        partUid = ent.Comp.PartsWoundable[targetPart];
-        if (partUid == null)
-            return false;
-
-        return true;
     }
 }
