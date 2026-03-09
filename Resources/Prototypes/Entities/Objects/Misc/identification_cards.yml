@@ -149,8 +149,19 @@
       state: ResearchDirector
   - type: Item
     heldPrefix: silver
-  - type: PresetIdCard
-    job: ResearchDirector
+  - type: Access
+    tags:
+    - Research
+    - Command
+    - Maintenance
+    - ResearchDirector
+    - Brig
+    - Cryogenics
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -169,8 +180,24 @@
       state: HeadOfSecurity
   - type: Item
     heldPrefix: silver
-  - type: PresetIdCard
-    job: HeadOfSecurity
+  - type: Access
+    tags:
+    - HeadOfSecurity
+    - Command
+    - Maintenance
+    - Brig
+    - Security
+    - Armory
+    - External
+    - Detective
+    - GenpopEnter
+    - GenpopLeave
+    - Cryogenics
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -389,8 +416,15 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: ResearchAssistant
-  - type: PresetIdCard
-    job: ResearchAssistant
+  - type: Access
+    tags:
+    - Research
+    - Maintenance
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -407,8 +441,15 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Scientist
-  - type: PresetIdCard
-    job: Scientist
+  - type: Access
+    tags:
+    - Research
+    - Maintenance
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: ResearchIDCard
@@ -443,8 +484,18 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SecurityCadet
-  - type: PresetIdCard
-    job: SecurityCadet
+  - type: Access
+    tags:
+    - Security
+    - Brig
+    - External
+    - Cryogenics
+    - Maintenance
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -461,8 +512,18 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SecurityOfficer
-  - type: PresetIdCard
-    job: SecurityOfficer
+  - type: Access
+    tags:
+    - Security
+    - Brig
+    - External
+    - Cryogenics
+    - Maintenance
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -479,8 +540,22 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Warden
-  - type: PresetIdCard
-    job: Warden
+  - type: Access
+    tags:
+    - Maintenance
+    - Brig
+    - Security
+    - Armory
+    - External
+    - Detective
+    - GenpopEnter
+    - GenpopLeave
+    - Cryogenics
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard

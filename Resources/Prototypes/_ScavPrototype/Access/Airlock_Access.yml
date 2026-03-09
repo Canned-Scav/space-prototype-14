@@ -1,0 +1,149 @@
+- type: entity
+  name: шлюз мед-отсека
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: Airlock
+  id: AirlockMedicExperimentLocked
+  suffix: Experiment, Medic, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/medical.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentMedic]
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  name: стеклянный шлюз мед-отсека
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: AirlockGlass
+  id: AirlockMedicalExperimentGlass
+  suffix: Experiment, Medical
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/medical.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentMedic]
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  name: шлюз блока Б
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: Airlock
+  id: AirlockBExperimentLocked
+  suffix: Experiment, B, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBClass]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: стеклянный шлюз блока Б
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: AirlockGlass
+  id: AirlockBExperimentGlass
+  suffix: Experiment, B
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBClass]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: шлюз уборочной
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: Airlock
+  id: AirlockCleanerExperimentLocked
+  suffix: Experiment, Janitor, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentCleaner]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: стеклянный шлюз уборочной
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: AirlockGlass
+  id: AirlockCleanerExperimentGlass
+  suffix: Experiment, Janitor
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentCleaner]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: шлюз повара
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: Airlock
+  id: AirlockCookExperimentLocked
+  suffix: Experiment, Chef, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentCook]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: стеклянный шлюз повара
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: AirlockGlass
+  id: AirlockCookExperimentGlass
+  suffix: Experiment, Chef
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentCook]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: шлюз защитника
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: Airlock
+  id: AirlockSecurityExperimentLocked
+  suffix: Experiment, Security, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/security.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentGuard]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  name: стеклянный шлюз защитника
+  description: Шлюз предназначенный для того, чтобы держать существ без необходимого доступа снаружи.
+  parent: AirlockGlass
+  id: AirlockSecurityExperimentGlass
+  suffix: Experiment, Security
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/security.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExperimentGuard]
+  - type: Wires
+    layoutId: AirlockSecurity

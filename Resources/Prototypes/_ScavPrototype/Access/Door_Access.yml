@@ -1,0 +1,49 @@
+- type: entity
+  name: электросхема шлюза
+  description: Электросхема предназначанная для логической работы шлюза.
+  parent: DoorElectronics
+  id: DoorElectronicsExperimentMedic
+  suffix: Experiment, Medic, Locked
+  components:
+  - type: AccessReader
+    access: [["Medic-Experiment"]]
+
+- type: entity
+  name: электросхема шлюза
+  description: Электросхема предназначанная для логической работы шлюза.
+  parent: DoorElectronics
+  id: DoorElectronicsExperimentCook
+  suffix: Experiment, Chef, Locked
+  components:
+  - type: AccessReader
+    access: [["Cook-Experiment"]]
+
+- type: entity
+  name: электросхема шлюза
+  description: Электросхема предназначанная для логической работы шлюза.
+  parent: DoorElectronics
+  id: DoorElectronicsExperimentGuard
+  suffix: Experiment, Guard, Locked
+  components:
+  - type: AccessReader
+    access: [["Guard-Experiment"]]
+
+- type: entity
+  name: электросхема шлюза
+  description: Электросхема предназначанная для логической работы шлюза.
+  parent: DoorElectronics
+  id: DoorElectronicsExperimentCleaner
+  suffix: Experiment, Janitor, Locked
+  components:
+  - type: AccessReader
+    access: [["Cleaner-Experiment"]]
+
+- type: entity
+  name: электросхема шлюза
+  description: Электросхема предназначанная для логической работы шлюза.
+  parent: DoorElectronics
+  id: DoorElectronicsBClass
+  suffix: Experiment, B, Locked
+  components:
+  - type: AccessReader
+    access: [["B-Experiment"]]
