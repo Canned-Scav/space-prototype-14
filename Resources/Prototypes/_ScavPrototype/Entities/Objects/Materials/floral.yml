@@ -30,9 +30,9 @@
     - Rope
 
 - type: entity
-  name: лист
+  name: полотно
   parent: BaseItem
-  description: Крепкий лист из листвы.
+  description: Полотно из листвы.
   id: FoilageCanvas
   components:
   - type: Sprite

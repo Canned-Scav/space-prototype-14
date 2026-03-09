@@ -1,0 +1,11 @@
+- type: microwaveMealRecipe #Added to metamorph recipes
+  id: RecipeWoodenSoup
+  name: рецепт супа из опилок
+  result: FoodWoodenSoup
+  time: 10
+  group: Savory
+  reagents:
+    Cellulose: 10
+    Water: 15
+  solids:
+    FoodBowlBig: 1

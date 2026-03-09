@@ -13,13 +13,13 @@
                 state: icon
               doAfter: 5
             - tag: Canvas
-              name: лист
+              name: полотно
               icon:
                 sprite: _ScavPrototype/Objects/Items/canvas.rsi
                 state: icon
               doAfter: 5
             - tag: Canvas
-              name: лист
+              name: полотно
               icon:
                 sprite: _ScavPrototype/Objects/Items/canvas.rsi
                 state: icon
