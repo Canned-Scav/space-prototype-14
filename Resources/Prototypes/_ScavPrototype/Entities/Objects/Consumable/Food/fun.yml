@@ -1,0 +1,24 @@
+- type: entity
+  parent: FoodBowlBase
+  id: FoodWoodenSoup
+  name: суп из опилок
+  description: На самый крайний случай
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Consumable/Food/woodensoup.rsi
+    layers:
+    - state: bowl
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Water
+          Quantity: 13
+        - ReagentId: Cellulose
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - stupidy

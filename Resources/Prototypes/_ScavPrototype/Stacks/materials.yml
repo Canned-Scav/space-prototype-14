@@ -2,5 +2,5 @@
   id: String
   parent: BaseVerySmallStack
   name: нить
-  icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: silver }
+  icon: { sprite: _ScavPrototype/Objects/Items/thread.rsi, state: icon }
   spawn: FoilageString
