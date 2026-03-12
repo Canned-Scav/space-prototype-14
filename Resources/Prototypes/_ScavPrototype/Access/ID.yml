@@ -1,0 +1,74 @@
+- type: entity
+  parent: IDCardStandard
+  id: ExperimentMedicIDCard
+  name: айди карта образца медика
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: pirate
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Access
+    tags:
+    - Medic-Experiment
+
+- type: entity
+  parent: IDCardStandard
+  id: ExperimentCleanerIDCard
+  name: айди карта образца уборщика
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Access
+    tags:
+    - Cleaner-Experiment
+
+- type: entity
+  parent: IDCardStandard
+  id: ExperimentGuardIDCard
+  name: айди карта образца защитника
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: orange
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Access
+    tags:
+    - Guard-Experiment
+
+- type: entity
+  parent: IDCardStandard
+  id: ExperimentCookerIDCard
+  name: айди карта образца повара
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: black
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Access
+    tags:
+    - Cook-Experiment
+
+- type: entity
+  parent: IDCardStandard
+  id: ExperimentBIDCard
+  name: айди карта образца блока Б
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: silver
+  - type: Clothing
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Access
+    tags:
+    - B-Experiment

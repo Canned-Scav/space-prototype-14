@@ -1,0 +1,19 @@
+- type: accessLevel
+  id: Medic-Experiment
+  name: Образец-Медик
+
+- type: accessLevel
+  id: Cook-Experiment
+  name: Образец-Повар
+
+- type: accessLevel
+  id: Guard-Experiment
+  name: Образец-Защитник
+
+- type: accessLevel
+  id: Cleaner-Experiment
+  name: Образец-Уборщик
+
+- type: accessLevel
+  id: B-Experiment
+  name: Образец-Б
