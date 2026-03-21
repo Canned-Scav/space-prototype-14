@@ -9,3 +9,21 @@
   name: Fish Theme
   path:
     path: /Audio/_ScavPrototype/Jukebox/FishTheme.ogg
+
+- type: jukebox
+  id: SwampTheme
+  name: Swamp Theme
+  path:
+    path: /Audio/_ScavPrototype/63662_Rulers_Crown_2.ogg
+
+- type: jukebox
+  id: SwampTheme
+  name: Swamp Theme
+  path:
+    path: /Audio/_ScavPrototype/63662_Rulers_Crown_2.ogg
+
+- type: jukebox
+  id: BublesTheme
+  name: OFF_OST
+  path:
+    path: /Audio/_ScavPrototype/58825_OFF_OST_Empty_Warehouse_out_Extended_1.ogg
