@@ -70,7 +70,7 @@
 - type: marking
   id: DuneTailPainted
   bodyPart: Tail
-  markingCategory: Overlay
+  markingCategory: Tail
   forcedColoring: true
   speciesRestriction: [Dune]
   sprites:

@@ -106,6 +106,8 @@
     - SpiderCraft
     - AnomalyHost
   - type: Sharp
+  - type: TypingIndicator
+    proto: spider
   - type: Inventory
     speciesId: Velvet
     templateId: speciman

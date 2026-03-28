@@ -68,7 +68,7 @@
     damage:
       types:
         Piercing: 4
-        Slash: 7
+        Slash: 6
         Structural: 10
   - type: MobThresholds
     thresholds:
