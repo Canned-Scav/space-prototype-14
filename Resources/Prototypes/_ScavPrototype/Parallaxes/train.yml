@@ -1,0 +1,41 @@
+- type: parallax
+  id: FastTrainSpace
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/layer1.png"
+      slowness: 0.5
+      scale: "3, 3"
+      scrolling: "-1.0, 0.0"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+      slowness: 0.25
+      scrolling: "-4.0, 0.0"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizards_star_slower"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+      slowness: 0.15
+      scrolling: "-6.5, 0.0"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+      slowness: 0.375
+      scrolling: "-3.5, 0.0"
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: "hq_wizard_stars_dim_faster"
+        configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
+      slowness: 0.125
+      scrolling: "-8.0, 0.0"
+  layersLQ:
+    - texture:
+        !type:GeneratedParallaxTextureSource
+        id: ""
+        configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+      slowness: 0.5
+      scrolling: "-2.0, 0.0"
+  layersLQUseHQ: false
