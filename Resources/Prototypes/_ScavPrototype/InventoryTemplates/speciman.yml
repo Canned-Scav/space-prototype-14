@@ -8,9 +8,6 @@
       uiWindowPos: 1,0
       strippingWindowPos: 1,3
       displayName: Shoes
-      whitelist:
-        tags:
-        - SpecimanShoes
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING
