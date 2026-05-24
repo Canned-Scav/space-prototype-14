@@ -5,6 +5,7 @@
   color: "#a41806"
   roles:
   - SPComplexSecurityOfficer
+  editorHidden: true #not used
 
 - type: department
   id: SPComplexScientist
@@ -13,6 +14,7 @@
   color: "#6506a4"
   roles:
   - SPComplexScientist
+  editorHidden: true #not used
 
 - type: department
   id: SPComplexSubjects
@@ -21,4 +23,5 @@
   color: "#A46106"
   roles:
   - SPComplexTestSubjects
+  editorHidden: true #not used
 

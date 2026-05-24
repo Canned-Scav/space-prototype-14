@@ -75,6 +75,9 @@
   - TowelColorMime
   - TowelColorSilver
   - TowelColorGold
+  # Space-Prototype-Loadouts
+  - MittsBlueWhite
+  - MittsBlackPink
 
 - type: loadoutGroup
   id: Glasses
