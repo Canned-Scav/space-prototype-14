@@ -89,6 +89,7 @@
     scale: 0.875, 0.875
   - type: Tag
     tags:
+    - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - SpecimanCraft

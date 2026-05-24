@@ -92,6 +92,7 @@
     baseDecayRate: 0.2
   - type: Tag
     tags:
+    - CanPilot
     - FootstepSound
     - DoorBumpOpener
     - SpecimanCraft
