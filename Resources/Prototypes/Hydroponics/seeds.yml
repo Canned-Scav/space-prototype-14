@@ -1180,8 +1180,12 @@
       PotencyDivisor: 50
     Bicaridine:
       Min: 1
-      Max: 20
+      Max: 18
       PotencyDivisor: 5
+    Opium:
+      Min: 0.5
+      Max: 1.5
+      PotencyDivisor: 70
 
 - type: seed
   id: aloe
