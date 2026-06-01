@@ -4,11 +4,11 @@
 
 Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
 
-Это репозиторий первого русскоязычного сервера по Space Station 14 - Space Protype, целью которого является частичный перенос механик из игры Scav Prottype(Casualities Unknown). Данный репозиторий основан на билде [space-syndicate/space-station-14](https://github.com/space-syndicate/space-station-14)
+Данный репозиторий основан на билде [space-syndicate/space-station-14](https://github.com/space-syndicate/space-station-14)
 
 ## Ссылки
 
-[Наш Discord](https://discord.gg/zb3nMdQCRe) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
+[Наш Discord](0) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
 
 ## Документация
 
@@ -16,7 +16,7 @@ Space Station 14 это ремейк SS13, который работает на 
 
 ## Контрибьют
 
-Мы рады принять вклад от любого человека. Заходите в Discord, если хотите помочь. Обратитесь к Lev008 если хотите помочь в развитии проекта.
+Мы рады принять вклад от любого человека.
 
 ## Сборка
 
