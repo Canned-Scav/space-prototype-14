@@ -66,15 +66,11 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
-    - name: Package and Push to Watchdog
+    - name: Publish version
       run: |
-        sudo apt-get update && sudo apt-get install -y zip
-        cd release/
-        zip -r ../server.zip .
-        cd ..
         curl -X POST "http://89.22.237.25:5000/api/instance/${{ vars.FORK_ID }}/update" \
              -H "Authorization: Bearer ${{ secrets.PUBLISH_TOKEN }}" \
-             -F "file=@server.zip"
+             -F "file=@release/SS14.Server_linux-x64.zip"
 
     #    - name: Publish changelog (Discord)
     #      continue-on-error: true
