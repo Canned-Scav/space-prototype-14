@@ -66,13 +66,15 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
-    - name: Publish version
-      run: Tools/publish_multi_request.py
-      env:
-        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        FORK_ID: ${{ vars.FORK_ID }}
-        WATCHDOG_URL: "http://89.22.237.25:5000/"
+    - name: Package and Push to Watchdog
+      run: |
+        sudo apt-get update && sudo apt-get install -y zip
+        cd release/
+        zip -r ../server.zip .
+        cd ..
+        curl -X POST "http://89.22.237.25:5000/api/instance/${{ vars.FORK_ID }}/update" \
+             -H "Authorization: Bearer ${{ secrets.PUBLISH_TOKEN }}" \
+             -F "file=@server.zip"
 
     #    - name: Publish changelog (Discord)
     #      continue-on-error: true
