@@ -70,8 +70,9 @@ jobs:
       run: Tools/publish_multi_request.py
       env:
         PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
-        GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
         FORK_ID: ${{ vars.FORK_ID }}
+        WATCHDOG_URL: "http://89.22.237.25:5000/"
 
     #    - name: Publish changelog (Discord)
     #      continue-on-error: true
