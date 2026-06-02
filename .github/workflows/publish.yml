@@ -23,27 +23,6 @@ jobs:
       with:
         submodules: 'recursive'
 
-    # Corvax-Secrets-Start
-    - name: Setup secrets
-      env:
-        SSH_KEY: ${{ secrets.SECRETS_PRIVATE_KEY }}
-      if: ${{ env.SSH_KEY != '' }}
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SECRETS_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        echo "HOST *" > ~/.ssh/config
-        echo "  Hostname github.com" >> ~/.ssh/config
-        echo "  Port 22" >> ~/.ssh/config
-        echo "  StrictHostKeyChecking no" >> ~/.ssh/config
-        git clone git@github.com:corvax-nexus/secrets.git Secrets
-        cp -R Secrets/Resources/Prototypes Resources/Prototypes/CorvaxSecrets
-        cp -R Secrets/Resources/ServerPrototypes Resources/Prototypes/CorvaxSecretsServer
-        cp -R Secrets/Resources/Locale Resources/Locale/ru-RU/corvax-secrets
-        cp -R Secrets/Resources/Textures Resources/Textures/CorvaxSecrets
-        cp -R Secrets/Resources/Audio Resources/Audio/CorvaxSecrets
-    # Corvax-Secrets-End
-
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4.1.0
       with:
@@ -53,66 +32,35 @@ jobs:
       run: |
         cd RobustToolbox
         git fetch --depth=1
-
+        
     - name: Install dependencies
       run: dotnet restore
 
     - name: Build Packaging
-      run: |
-        dotnet build Content.Packaging --configuration Release --no-restore /m
-        dotnet build Content.Server --configuration Release --no-restore /m
-        dotnet build Content.Client --configuration Release --no-restore /m
+      run: dotnet build Content.Packaging --configuration Release --no-restore /m
 
     - name: Package server
-      run: |
-        dotnet run --project Content.Packaging server -c Release \
-        --platform linux-x64 \
-        /p:PublishTrimmed=false /p:EnableTrimAnalyzer=false
+      run: dotnet run --project Content.Packaging server --platform win-x64 --platform win-arm64 --platform linux-x64 --platform linux-arm64 --platform osx-x64 --platform osx-arm64
 
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
-    - name: Upload Build to VPS
-      uses: appleboy/scp-action@v0.1.7
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: root
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "release/*"
-        target: "/tmp/ss14_build"
-        rm: true
+    - name: Publish version
+      run: Tools/publish_multi_request.py
+      env:
+        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
+        FORK_ID: ${{ vars.FORK_ID }}
 
-    - name: Unpack Build and Trigger Watchdog
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: root
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          SERVER_DIR="/home/ss14/watchdog/instances/rmc-server"
-          BIN_DIR="$SERVER_DIR/bin"
-          
-          systemctl stop ss14-watchdog.service
-          pkill -9 Robust.Server || true
-          
-          if [ -f /tmp/ss14_build/release/SS14.Server_linux-x64.zip ]; then
-            mkdir -p /tmp/unpack_server
-            unzip -q -o /tmp/ss14_build/release/SS14.Server_linux-x64.zip -d /tmp/unpack_server/
-            cp -r /tmp/unpack_server/* "$BIN_DIR/"
-            rm -rf /tmp/unpack_server
-          fi
-          
-          if [ -f /tmp/ss14_build/release/SS14.Client.zip ]; then
-            mkdir -p "$SERVER_DIR/Content.Client"
-            unzip -q -o /tmp/ss14_build/release/SS14.Client.zip -d "$SERVER_DIR/Content.Client/"
-          fi
-          
-          rm -rf /tmp/ss14_build
-          
-          chmod -R +x "$BIN_DIR"
-          chown -R ss14:ss14 "$SERVER_DIR"
-          systemctl start ss14-watchdog.service
-          
-          sleep 10
-          curl -i -X POST "http://127.0.0.1:5000/server_api/rmc-server/restart" \
-               -H "Authorization: ${{ secrets.PUBLISH_TOKEN }}" || true
+    #    - name: Publish changelog (Discord)
+    #      continue-on-error: true
+    #      run: Tools/actions_changelogs_since_last_run.py
+    #      env:
+    #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+
+    #    - name: Publish changelog (RSS)
+    #      continue-on-error: true
+    #      run: Tools/actions_changelog_rss.py
+    #      env:
+    #        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
