@@ -66,11 +66,38 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
-    - name: Publish version
+    - name: Package server
       run: |
-        curl -X POST "http://89.22.237.25:5000/api/instance/${{ vars.FORK_ID }}/update" \
-             -H "Authorization: Bearer ${{ secrets.PUBLISH_TOKEN }}" \
-             -F "file=@release/SS14.Server_linux-x64.zip"
+        dotnet run --project Content.Packaging server -c Release \
+        --platform linux-x64 \
+        /p:PublishTrimmed=false /p:EnableTrimAnalyzer=false
+
+    - name: Upload Server Build to VPS
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "release/SS14.Server_linux-x64.zip"
+        target: "/tmp/ss14_build"
+        rm: true
+
+    - name: Unpack Build and Trigger Watchdog
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          SERVER_BIN_DIR="/home/ss14/watchdog/instances/rmc-server/bin"
+          mkdir -p "$SERVER_BIN_DIR"
+
+          unzip -q -o /tmp/ss14_build/release/SS14.Server_linux-x64.zip -d "$SERVER_BIN_DIR/"
+          
+          rm -rf /tmp/ss14_build
+
+          curl -i -X POST "http://127.0.0.1:5000/api/instance/rmc-server/update" \
+               -H "Authorization: Bearer ${{ secrets.PUBLISH_TOKEN }}"
 
     #    - name: Publish changelog (Discord)
     #      continue-on-error: true
