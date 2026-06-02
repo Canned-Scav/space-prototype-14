@@ -86,30 +86,18 @@ jobs:
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          SERVER_BIN_DIR="/home/ss14/watchdog/instances/rmc-server/bin"
+          SERVER_DIR="/home/ss14/watchdog/instances/rmc-server"
+          BIN_DIR="$SERVER_DIR/bin"
           
-          unzip -q -o /tmp/ss14_build/release/SS14.Server_linux-x64.zip -d "$SERVER_BIN_DIR/"
+          mkdir -p /tmp/unpack_ss14
+          unzip -q -o /tmp/ss14_build/release/SS14.Server_linux-x64.zip -d /tmp/unpack_ss14/
+          
+          cp -r /tmp/unpack_ss14/* "$BIN_DIR/"
+          
           rm -rf /tmp/ss14_build
-
-          chmod -R +x "$SERVER_BIN_DIR"
+          rm -rf /tmp/unpack_ss14
           
-          chown -R ss14:ss14 /home/ss14/watchdog/instances/rmc-server/
-
+          chmod -R +x "$BIN_DIR"
+          chown -R ss14:ss14 "$SERVER_DIR"
+          
           systemctl restart ss14-watchdog.service
-          
-          sleep 10
-          curl -i -X POST "http://127.0.0.1:5000/api/instance/rmc-server/restart" \
-               -H "Authorization: ${{ secrets.PUBLISH_TOKEN }}"
-
-    #    - name: Publish changelog (Discord)
-    #      continue-on-error: true
-    #      run: Tools/actions_changelogs_since_last_run.py
-    #      env:
-    #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
-
-    #    - name: Publish changelog (RSS)
-    #      continue-on-error: true
-    #      run: Tools/actions_changelog_rss.py
-    #      env:
-    #        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
