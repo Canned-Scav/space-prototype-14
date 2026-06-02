@@ -99,7 +99,9 @@ jobs:
           
           rm -rf /tmp/ss14_build
 
-          curl -i -X POST "http://127.0.0.1:5000/api/instance/rmc-server/update" \
+          chmod +x "$SERVER_BIN_DIR/Content.Server"
+
+          curl -i -X POST "http://127.0.0.1:5000/api/instance/rmc-server/restart" \
                -H "Authorization: Bearer ${{ secrets.PUBLISH_TOKEN }}"
 
     #    - name: Publish changelog (Discord)
