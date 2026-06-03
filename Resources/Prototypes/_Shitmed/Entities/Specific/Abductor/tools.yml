@@ -26,7 +26,7 @@
   - type: Tool
     speedModifier: 2
     qualities:
-      - Prying
+      Prying: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: GuideHelp
@@ -59,7 +59,7 @@
       path: "/Audio/Items/wirecutter.ogg"
   - type: Tool
     qualities:
-      - Cutting
+      Cutting: 1
     useSound:
       path: /Audio/Items/wirecutter.ogg
   - type: Item
@@ -116,7 +116,7 @@
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Tool
     qualities:
-      - Screwing
+      Screwing: 1
     useSound:
       collection: Screwdriver
   - type: PhysicalComposition
@@ -156,7 +156,7 @@
   - type: Tool
     speedModifier: 2
     qualities:
-      - Anchoring
+      Anchoring: 1
     useSound:
       path: /Audio/Items/ratchet.ogg
   - type: GuideHelp
@@ -194,8 +194,8 @@
     useSound:
       collection: Welder
     qualities:
-    - Welding
-    - Axing # Goobstation
+      Welding: 1
+      Axing: 1 # Goobstation
   - type: ToolTileCompatible # Goobstation
     delay: 2
   - type: GuideHelp
@@ -248,7 +248,7 @@
       - ShowWires
   - type: Tool
     qualities:
-      - Pulsing
+      Pulsing: 1
   - type: NetworkConfigurator
     showLabel: false
   - type: LimitedCharges
@@ -265,7 +265,7 @@
         components:
           - type: Tool
             qualities:
-              - Pulsing
+              Pulsing: 1
           - type: NetworkConfigurator
             showLabel: false
         soundStateActivate:

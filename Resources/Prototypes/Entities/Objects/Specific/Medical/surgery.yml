@@ -307,7 +307,7 @@
     storedRotation: 90
   - type: Tool
     qualities:
-      - Sawing
+      Sawing: 1
   # Shitmed Change
   - type: BoneSaw
   - type: SurgeryTool

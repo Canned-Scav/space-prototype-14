@@ -45,8 +45,8 @@
     - back
   - type: Tool
     qualities:
-    - Prying
-    - Axing
+      Prying: 1
+      Axing: 1
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay

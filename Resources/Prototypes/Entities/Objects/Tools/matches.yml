@@ -86,7 +86,7 @@
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: Tool #Goob
     qualities:
-    - Ignition
+      Ignition: 1
 
 - type: entity
   parent: Matchstick

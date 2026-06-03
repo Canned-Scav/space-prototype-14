@@ -96,9 +96,9 @@
     - suitStorage  # Goobstation
   - type: Tool
     qualities:
-      - Prying
+      Prying: 1
       # Goobstation - Fireaxe plating prying
-      - Axing
+      Axing: 1
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay

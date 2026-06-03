@@ -59,7 +59,7 @@
     malus: 0.75
   - type: Tool # Omu
     qualities:
-      - Prying
+      Prying: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Prying

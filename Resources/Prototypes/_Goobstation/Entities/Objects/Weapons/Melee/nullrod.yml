@@ -124,7 +124,7 @@
     - HolyClaymore
   - type: Tool
     qualities:
-      - Slicing
+      Slicing: 1
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
 
@@ -205,7 +205,7 @@
     speed: 0.3
   - type: Tool
     qualities:
-    - Prying
+      Prying: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
@@ -477,7 +477,7 @@
     delay: 0
   - type: Tool
     qualities:
-    - Screwing
+      Screwing: 1
     speedModifier: 1.2
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
@@ -486,7 +486,8 @@
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-    - behavior: Screwing
+    - behavior: 
+        Screwing: 1
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
@@ -494,7 +495,8 @@
         path: /Audio/Items/drill_use.ogg
       changeSound:
         path: /Audio/Items/change_drill.ogg
-    - behavior: Prying
+    - behavior: 
+        Prying: 1
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
@@ -502,7 +504,8 @@
         path: /Audio/Items/jaws_pry.ogg
       changeSound:
         path: /Audio/Items/change_drill.ogg
-    - behavior: Anchoring
+    - behavior: 
+        Anchoring: 1
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
@@ -510,7 +513,8 @@
         path: /Audio/Items/ratchet.ogg
       changeSound:
         path: /Audio/Items/change_drill.ogg
-    - behavior: Cutting
+    - behavior: 
+        Cutting: 1
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
@@ -518,7 +522,8 @@
         path: /Audio/Items/jaws_cut.ogg
       changeSound:
         path: /Audio/Items/change_drill.ogg
-    - behavior: Pulsing
+    - behavior: 
+        Pulsing: 1
       sprite:
         sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon

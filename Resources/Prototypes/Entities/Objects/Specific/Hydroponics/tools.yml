@@ -92,7 +92,7 @@
   # Goobstation changes
   - type: Tool
     qualities:
-    - Cutting
+      Cutting: 1
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.25    

@@ -50,8 +50,8 @@
   - type: Unremoveable
   - type: Tool
     qualities:
-    - Slicing
-    - Prying
+      Slicing: 1
+      Prying: 1
   - type: DisarmMalus
     malus: 0
 

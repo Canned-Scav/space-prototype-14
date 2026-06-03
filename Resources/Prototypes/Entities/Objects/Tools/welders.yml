@@ -203,9 +203,9 @@
     useSound:
       collection: Welder
     qualities:
-    - Welding
-    - Axing # Goobstation
-    - Ignition
+      Welding: 1
+      Axing: 1 # Goobstation
+      Ignition: 1
   - type: WeldingSparks # Goobstation
   - type: ToolTileCompatible # Goobstation
     delay: 2

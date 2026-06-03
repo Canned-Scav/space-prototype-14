@@ -254,7 +254,7 @@
         acts: [ "Destruction" ]
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 1
     speedModifier: 0.75
   - type: PhysicalComposition
     materialComposition:
@@ -296,7 +296,7 @@
         acts: [ "Destruction" ]
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 1
     speedModifier: 0.75 # not as good as a rolling pin but does the job
   - type: PhysicalComposition
     materialComposition:

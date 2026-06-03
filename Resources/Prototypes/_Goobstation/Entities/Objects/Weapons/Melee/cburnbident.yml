@@ -71,4 +71,4 @@
     price: 800
   - type: Tool
     qualities:
-    - Prying
+      Prying: 1

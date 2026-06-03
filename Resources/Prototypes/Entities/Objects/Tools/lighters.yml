@@ -180,7 +180,7 @@
   - type: PhysicalComposition
   - type: Tool #Goob
     qualities:
-    - Ignition
+      Ignition: 1
   - type: Tag #Goobstation - whitelisted cig pack strorage (added new tag)
     tags:
     - Lighter

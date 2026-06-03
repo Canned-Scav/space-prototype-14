@@ -35,7 +35,7 @@
     - Hammer
   - type: Tool
     qualities:
-    - Hammering
+      Hammering: 1
     useSound:
       path: /Audio/Items/trayhit2.ogg
   - type: Construction

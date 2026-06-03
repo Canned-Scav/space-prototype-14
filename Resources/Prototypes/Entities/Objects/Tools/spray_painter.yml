@@ -49,7 +49,7 @@
   # Goobstation
   - type: Tool
     qualities:
-    - Painting
+      Painting: 1
   - type: LimitedCharges
     maxCharges: 15
     lastCharges: 15

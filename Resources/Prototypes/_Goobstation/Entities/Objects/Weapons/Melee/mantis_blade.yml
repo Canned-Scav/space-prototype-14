@@ -45,4 +45,4 @@
     heldPrefix: popout
   - type: Tool
     qualities:
-    - Slicing
+      Slicing: 1

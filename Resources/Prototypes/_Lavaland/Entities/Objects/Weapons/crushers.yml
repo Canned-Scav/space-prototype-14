@@ -239,7 +239,7 @@
     useSound:
       path: /Audio/Items/trayhit2.ogg
     qualities:
-    - Hammering
+      Hammering: 1
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSalvageContraband ]

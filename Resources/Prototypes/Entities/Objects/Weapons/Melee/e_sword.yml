@@ -233,7 +233,7 @@
     temperature: 700
   - type: Tool
     qualities:
-    - Ignition
+      Ignition: 1
   - type: UserInterface # Goobstation-EsColorPicker
     interfaces:
       enum.EsColorPickerMenu.Key:
