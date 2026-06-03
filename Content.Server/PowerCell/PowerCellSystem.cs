@@ -234,7 +234,7 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
     /// Returns whether the entity has a slotted battery and charge for the requested action.
     /// </summary>
     /// <param name="user">Popup to this user with the relevant detail if specified.</param>
-    public bool HasCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
+    public override bool HasCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
     {
         if (!TryGetBatteryFromSlot(uid, out var battery, component))
         {
@@ -258,7 +258,7 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
     /// <summary>
     /// Tries to use charge from a slotted battery.
     /// </summary>
-    public bool TryUseCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
+    public override bool TryUseCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null) ///Canned-Scav
     {
         if (!TryGetBatteryFromSlot(uid, out var batteryEnt, out var battery, component))
         {
