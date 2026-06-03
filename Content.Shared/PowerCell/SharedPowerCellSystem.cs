@@ -130,6 +130,18 @@ public abstract class SharedPowerCellSystem : EntitySystem
         Dirty(ent, ent.Comp);
     }
 
+/// Canned-Scav 
+    public virtual bool HasCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
+    {
+        return true;
+    }
+
+    public virtual bool TryUseCharge(EntityUid uid, float charge, PowerCellSlotComponent? component = null, EntityUid? user = null)
+    {
+        return true;
+    }
+/// Canned-Scav
+
     /// <summary>
     /// Returns whether the entity has a slotted battery and <see cref="PowerCellDrawComponent.UseRate"/> charge.
     /// </summary>
