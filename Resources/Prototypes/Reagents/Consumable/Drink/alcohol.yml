@@ -316,18 +316,18 @@
       # Alchohol bad for specimans
       - !type:HealthChange
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: Ethanol
           min: 8
-        - !type:MetabolizerTypeCondition
-          type: [ Speciman ]
+        - !type:OrganType
+          type: Speciman
         damage:
           types:
             Poison: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Speciman ]
+        - !type:OrganType
+          type: Speciman
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -335,16 +335,16 @@
       - !type:Vomit
         probability: 0.02
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Speciman ]
-        - !type:ReagentCondition
+        - !type:OrganType
+          type: Speciman
+        - !type:ReagentThreshold
           reagent: Ethanol
           min: 8
       - !type:Drunk
         boozePower: 1
         conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Speciman ]
+        - !type:OrganType
+          type: Speciman
 
 - type: reagent
   id: Gin

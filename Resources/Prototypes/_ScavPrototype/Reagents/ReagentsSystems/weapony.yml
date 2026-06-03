@@ -10,21 +10,22 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: SleepToxin
           min: 2
         type: Local
         visualType: Medium
         messages: [ "sleeptoxin-effect-paralysis" ]
         probability: 0.15
-      - !type:MovementSpeedModifier
+      - !type:MovespeedModifier
         walkSpeedModifier: 0.45
         sprintSpeedModifier: 0.45
-      - !type:ModifyParalysis
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentThreshold
           reagent: SleepToxin
-          max: 2
+          min: 2
         time: 20
         type: Add
 
@@ -43,7 +44,8 @@
         effectProto: StatusEffectStunned
         time: 4
         type: Add
-      - !type:ModifyKnockdown
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
         time: 4
         type: Add
       - !type:GenericStatusEffect

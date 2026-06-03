@@ -43,9 +43,17 @@
     access: [ [ "Research" ] ]
   - type: Lock
     locked: false
-  - type: ToggleComponentsOnTrigger
+  - type: ItemToggleOnTrigger
     keysIn:
     - lock
+    canActivate: true
+    canDeactivate: true
+    predicted: false
+    showPopup: false
+    targetUser: false
+  - type: ItemToggle
+    activated: false
+  - type: ComponentToggler
     components:
     - type: Unremoveable
   - type: TriggerOnLock

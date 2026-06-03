@@ -96,16 +96,16 @@
             Brute: -0.8
       - !type:EvenHealthChange
           conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Speciman ]
+          - !type:OrganType
+            type: Speciman
           damage:
             Burn: -0.1
             Toxin: -0.05
             Brute: -0.1
       - !type:EvenHealthChange
           conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Dune ]
+          - !type:OrganType
+            type: Dune
           damage:
             Burn: -0.1
             Toxin: -0.05
