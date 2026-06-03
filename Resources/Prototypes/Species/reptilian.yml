@@ -23,7 +23,7 @@
 - type: species
   id: Reptilian
   name: species-name-reptilian
-  roundStart: false #Space Prototype change
+  roundStart: true
   prototype: MobReptilian
   sprites: MobReptilianSprites
   defaultSkinTone: "#34a223"

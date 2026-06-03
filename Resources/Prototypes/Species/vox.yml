@@ -19,7 +19,7 @@
 - type: species
   id: Vox
   name: species-name-vox
-  roundStart: false #Space Prototype change
+  roundStart: true
   prototype: MobVox
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
