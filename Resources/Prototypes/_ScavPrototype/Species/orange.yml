@@ -19,8 +19,8 @@
   id: MobOrangeSprites
   sprites:
     Head: MobOrangeHead
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
     Chest: MobOrangeTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -65,10 +65,10 @@
       points: 1
       required: false
       defaultMarkings: [ OrangeEyesBase ]
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
     Chest:

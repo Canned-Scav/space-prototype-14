@@ -19,8 +19,8 @@
   id: MobAlbinoSprites
   sprites:
     Head: MobAlbinoHead
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
     Chest: MobAlbinoTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -65,10 +65,10 @@
       points: 1
       required: false
       defaultMarkings: [ AlbinoEyesBase ]
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
     Chest:

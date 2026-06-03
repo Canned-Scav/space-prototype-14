@@ -19,8 +19,8 @@
   id: MobBoldMilkySprites
   sprites:
     Head: MobBoldMilkyHead
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
     Chest: MobBoldMilkyTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -65,10 +65,10 @@
       points: 1
       required: false
       defaultMarkings: [ BoldMilkyEyesBase ]
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
     Chest:

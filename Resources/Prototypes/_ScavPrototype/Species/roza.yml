@@ -19,8 +19,8 @@
   id: MobRozaSprites
   sprites:
     Head: MobRozaHead
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
     Chest: MobRozaTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -65,10 +65,10 @@
       points: 1
       required: false
       defaultMarkings: [ RozaEyesBase ]
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: false
     Chest:
