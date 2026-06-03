@@ -1,0 +1,32 @@
+#---------База
+- type: marking
+  id: RozaTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Roza]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Roza/roza_parts.rsi
+    state: tail_rozabase
+
+- type: marking
+  id: RozaEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Roza]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: eyes
+
+- type: marking
+  id: RozaEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Roza]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Roza/roza_parts.rsi
+    state: ears_rozabase

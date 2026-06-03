@@ -1,0 +1,138 @@
+- type: entity
+  id: PartSpeciman
+  parent: [BaseItem, BasePart]
+  name: "Speciman body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoSpeciman
+  name: "Speciman torso"
+  parent: [PartSpeciman, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadSpeciman
+  name: "Speciman head"
+  parent: [PartSpeciman, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmSpeciman
+  name: "left Speciman arm"
+  parent: [PartSpeciman, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmSpeciman
+  name: "right Speciman arm"
+  parent: [PartSpeciman, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandSpeciman
+  name: "left Speciman hand"
+  parent: [PartSpeciman, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandSpeciman
+  name: "right Speciman hand"
+  parent: [PartSpeciman, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegSpeciman
+  name: "left Speciman leg"
+  parent: [PartSpeciman, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegSpeciman
+  name: "right Speciman leg"
+  parent: [PartSpeciman, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootSpeciman
+  name: "left Speciman foot"
+  parent: [PartSpeciman, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootSpeciman
+  name: "right Speciman foot"
+  parent: [PartSpeciman, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "r_foot"

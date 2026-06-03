@@ -1,0 +1,24 @@
+- type: entity
+  name: стальная цепь
+  description: Стальная цепь, что-бы кого-то связать.
+  id: ChainCuff
+  parent: [BaseItem, BaseSecurityCommandContraband]
+  components:
+  - type: Item
+    size: Large
+    storedRotation: 90
+  - type: Handcuff
+    cuffedRSI: _ScavPrototype/Objects/Items/chain.rsi
+    bodyIconState: body-overlay
+    breakoutTime: 180
+    cuffTime: 15
+    uncuffTime: 15
+    stunBonus: 5
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/chain.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - Handcuffs
+  - type: UseDelay
+    delay: 3

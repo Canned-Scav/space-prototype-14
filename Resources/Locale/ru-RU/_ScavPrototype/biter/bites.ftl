@@ -1,0 +1,9 @@
+bite-action-popup-message-fail = Вы не можете укусить это
+bite-action-popup-message-succes = Вы подносите рот что-бы укусить { $target }
+bite-action-popup-message-succes-other = Вас хочет укусить { $user }
+bite-complete-popup-message = { CAPITALIZE($user) } кусает { $target }
+strong-bite-action-popup-message-succes = Вы начинете откусывать кусок плоти от { $target }
+strong-bite-action-popup-message-succes-other = { CAPITALIZE($user) } начинает откусывать от вас кусок плоти!
+strong-bite-complete-popup-message = { CAPITALIZE($user) } откусывает от { $target } кусок плоти!
+dead-bite-action-popup-message-succes = { CAPITALIZE($user) } вгрызается зубами в плоть { $target }!
+dead-bite-complete-popup-message = { CAPITALIZE($user) } пожирает часть от { $target }!

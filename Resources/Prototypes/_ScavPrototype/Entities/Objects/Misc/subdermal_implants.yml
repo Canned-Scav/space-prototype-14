@@ -1,0 +1,58 @@
+- type: entity
+  id: AdvancedTrackingImplant
+  name: продвинутый отслеживающий имплант
+  description: Этот имплант позволит отслеживат локацию имплантировано, а так-же следить его глазами и ушами.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Eye
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+        - SurveillanceCamera
+        - SurveillanceCameraMonitor
+        - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraImplant
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    setupAvailableNetworks:
+      - SurveillanceCameraImplant
+  - type: SubdermalImplant
+    whitelist:
+      components:
+      - MobState
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+  - type: RadioImplant
+    radioChannels:
+    - ImplantChannel
+
+
+- type: entity
+  id: SelfDiagnosticImplant
+  name: самодиагностический имплант
+  description: Имплант для отслеживания своего здоровья.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionOpenMedicalImplant
+      whitelist:
+        components:
+        - MobState
+    - type: HealthAnalyzer
+      scanningEndSound:
+        path: "/Audio/Items/Medical/healthscanner.ogg"
+    - type: UserInterface
+      interfaces:
+        enum.HealthAnalyzerUiKey.Key:
+          type: HealthAnalyzerBoundUserInterface
+    - type: Tag
+      tags:
+      - SubdermalImplant
+      - HideContextMenu

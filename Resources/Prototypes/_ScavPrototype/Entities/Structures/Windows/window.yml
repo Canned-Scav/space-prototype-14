@@ -1,0 +1,57 @@
+- type: entity
+  parent: Window
+  id: WindowLaboratoty
+  name: laboratoty window
+  suffix: Space Prototype
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _ScavPrototype/Structures/Window/basic.rsi
+    layers:
+    - state: dirt
+    - map: [ "enum.EdgeLayer.South" ]
+      state: dirt_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: dirt_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: dirt_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: dirt_west
+  - type: Icon
+    sprite: _ScavPrototype/Structures/Window/basic.rsi
+    state: dirt
+
+- type: entity
+  parent: ReinforcedWindow
+  id: WindowReinforcedLaboratoty
+  name: laboratoty reinforced window
+  suffix: Space Prototype
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _ScavPrototype/Structures/Window/reinforced.rsi
+    layers:
+    - state: dirt
+    - map: [ "enum.EdgeLayer.South" ]
+      state: dirt_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: dirt_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: dirt_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: dirt_west
+  - type: Icon
+    sprite: _ScavPrototype/Structures/Window/reinforced.rsi
+    state: dirt

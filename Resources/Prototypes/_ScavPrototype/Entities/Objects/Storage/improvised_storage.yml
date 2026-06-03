@@ -1,0 +1,37 @@
+- type: entity
+  name: сумка из листвы
+  parent: BoxBase
+  id: FoilagePouch
+  description: Сумка сделаная своими лапками из листвы.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,2
+  - type: Storage
+    grid:
+    - 0,0,3,2
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/foilage_pouch.rsi
+    state: icon
+  - type: Construction
+    graph: ImprovisedStorage
+    node: pouch
+  - type: Tag
+    tags:
+    - Pouch
+
+- type: entity
+  name: рюкзак из листвы
+  parent: ClothingBackpack
+  id: FoilageBag
+  description: Рюкзак сделаная своими лапками из листвы.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/barset.rsi
+  - type: Construction
+    graph: ImprovisedStorage
+    node: imbag

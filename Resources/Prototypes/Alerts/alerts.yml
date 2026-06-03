@@ -473,15 +473,6 @@
   description: alerts-piloting-desc
 
 - type: alert
-  id: Peckish
-  category: Hunger
-  icons:
-  - sprite: /Textures/Interface/Alerts/hunger.rsi
-    state: peckish
-  name: alerts-hunger-name
-  description: alerts-hunger-desc
-
-- type: alert
   id: Stamina
   category: Stamina
   icons:
@@ -505,6 +496,42 @@
   maxSeverity: 6
 
 - type: alert
+  id: Overfed
+  category: Hunger
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: overfed
+  name: alerts-hunger-overfed-name
+  description: alerts-hunger-overfed-desc
+
+- type: alert
+  id: Goodfed
+  category: Hunger
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: goodfed
+  name: alerts-hunger-goodfed-name
+  description: alerts-hunger-goodfed-desc
+
+- type: alert
+  id: HungerOkay
+  category: Hunger
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: okay
+  name: alerts-hunger-okay-name
+  description: alerts-hunger-okay-desc
+
+- type: alert
+  id: Peckish
+  category: Hunger
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: peckish
+  name: alerts-hunger-name
+  description: alerts-hunger-desc
+
+- type: alert
   id: Starving
   category: Hunger
   icons:
@@ -512,6 +539,33 @@
     state: starving
   name: alerts-starving-name
   description: alerts-starving-desc
+
+- type: alert
+  id: HungerDead
+  category: Hunger
+  icons:
+  - sprite: /Textures/Interface/Alerts/hunger.rsi
+    state: dead
+  name: alerts-hunger-dead-name
+  description: alerts-hunger-dead-desc
+
+- type: alert
+  id: OverHydrated
+  category: Thirst
+  icons:
+  - sprite: /Textures/Interface/Alerts/thirst.rsi
+    state: overhydrated
+  name: alerts-overhydrated-name
+  description: alerts-overhydrated-desc
+
+- type: alert
+  id: HigHydrated
+  category: Thirst
+  icons:
+  - sprite: /Textures/Interface/Alerts/thirst.rsi
+    state: highydrated
+  name: alerts-highydrated-name
+  description: alerts-highydrated-desc
 
 - type: alert
   id: Thirsty
@@ -530,6 +584,15 @@
     state: parched
   name: alerts-parched-name
   description: alerts-parched-desc
+
+- type: alert
+  id: ThirstDead
+  category: Thirst
+  icons:
+  - sprite: /Textures/Interface/Alerts/thirst.rsi
+    state: dead
+  name: alerts-thirst-dead-name
+  description: alerts-thirst-dead-desc
 
 - type: alert
   id: Muted

@@ -593,8 +593,19 @@
     - state: idresearchdirector
   - type: Item
     heldPrefix: silver
-  - type: PresetIdCard
-    job: ResearchDirector
+  - type: Access
+    tags:
+    - Research
+    - Command
+    - Maintenance
+    - ResearchDirector
+    - Brig
+    - Cryogenics
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard
@@ -607,8 +618,24 @@
     - state: idheadofsecurity
   - type: Item
     heldPrefix: silver
-  - type: PresetIdCard
-    job: HeadOfSecurity
+  - type: Access
+    tags:
+    - HeadOfSecurity
+    - Command
+    - Maintenance
+    - Brig
+    - Security
+    - Armory
+    - External
+    - Detective
+    - GenpopEnter
+    - GenpopLeave
+    - Cryogenics
+    - Medic-Experiment
+    - Cleaner-Experiment
+    - Guard-Experiment
+    - Cook-Experiment
+    - B-Experiment
 
 - type: entity
   parent: IDCardStandard

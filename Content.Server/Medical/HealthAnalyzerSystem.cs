@@ -144,6 +144,9 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Goobstation.Maths.FixedPoint;
 using System.Linq;
 using Content.Shared.Mobs.Systems; // Goobstation
+using Content.Server.Body.Systems;
+//Space Prototype changes
+using Content.Shared.Implants.Components;
 
 namespace Content.Server.Medical;
 
@@ -177,6 +180,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             subs.Event<HealthAnalyzerModeSelectedMessage>(OnHealthAnalyzerModeSelected);
         });
         // Shitmed Change End
+        SubscribeLocalEvent<HealthAnalyzerComponent, OpenMedicalImplantEvent>(OnImplantActivate);
     }
 
     public override void Update(float frameTime)
@@ -188,7 +192,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             if (component.NextUpdate > _timing.CurTime)
                 continue;
 
-            if (component.ScannedEntity is not {} patient)
+            if (component.ScannedEntity is not { } patient)
                 continue;
 
             if (Deleted(patient))
@@ -579,4 +583,24 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         return solutionsList;
     }
+
+    //Space Prototype changes start
+    private void OnImplantActivate(Entity<HealthAnalyzerComponent> ent, ref OpenMedicalImplantEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var uiOpen = _uiSystem.IsUiOpen(ent.Owner, HealthAnalyzerUiKey.Key, args.Performer);
+
+        if (uiOpen)
+            _uiSystem.CloseUi(ent.Owner, HealthAnalyzerUiKey.Key, args.Performer);
+        else
+        {
+            OpenUserInterface(args.Performer, ent.Owner);
+            BeginAnalyzingEntity(ent, args.Performer);
+        }
+
+        args.Handled = true;
+    }
+    //Space Prototype end
 }

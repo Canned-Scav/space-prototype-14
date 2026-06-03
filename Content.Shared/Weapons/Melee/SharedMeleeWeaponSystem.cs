@@ -766,6 +766,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
         RaiseLocalEvent(target.Value, attackedEvent);
+
+        if (user == target.Value) //Space Prototype change
+        {
+            damage *= 0.8;
+        }
+
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
         modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
 		
@@ -786,7 +792,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
             }
 
-            if (meleeUid == user)
+            if (user == target.Value) //Space Prototype changes start
+            {
+                PopupSystem.PopupEntity(Loc.GetString("selfharm-popup-message-others", ("performer", Identity.Entity(user, EntityManager))), user, Filter.PvsExcept(user), true, PopupType.MediumCaution);
+
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} act SELFHARM and dealt {damageResult.GetTotal():damage} damage");
+            }
+            else if (meleeUid == user) //Space Prototype changes end
             {
                 AdminLogger.Add(LogType.MeleeHit,
                     LogImpact.Medium,

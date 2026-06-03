@@ -238,6 +238,8 @@
   id: BaseWall
   components:
   - type: Occluder # Breaks on diagonal walls
+  - type: Isolation # Space Prototype change
+    isolation: 0.6
 
 - type: entity
   abstract: true
@@ -271,6 +273,8 @@
         - FullTileMask
         layer:
         - WallLayer
+  - type: Isolation #Space Prototype change
+    isolation: 0.3
 
 - type: entity
   parent: BaseWall
@@ -894,6 +898,8 @@
   # </Goobstation>
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  - type: Isolation #Space Prototype change
+    isolation: 2.5
 
 - type: entity
   parent: WallReinforced
@@ -1459,11 +1465,14 @@
   - type: Construction
     graph: Barricade
     node: woodWall
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 400
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -1472,7 +1481,7 @@
           collection: WoodDestroyHeavy
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 250
       behaviors:
       - !type:PlaySoundBehavior
         sound:

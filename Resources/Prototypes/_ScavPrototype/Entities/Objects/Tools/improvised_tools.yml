@@ -1,0 +1,149 @@
+- type: entity
+  parent: BaseTool
+  id: BaseImprovisedTool
+  abstract: true
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassCrack
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [Screwdriver, BaseImprovisedTool]
+  name: самодельная отвёртка
+  id: ImprovisedScrewdriver
+  description: Отвертка сделаная из подручных материалов. Хуже, но лучше чем ничего.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/improvised_screwdriver.rsi
+    layers:
+      - state: screwdriver
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: screwdriver-screwybits
+  - type: Item
+    sprite: _ScavPrototype/Objects/Items/improvised_screwdriver.rsi
+  - type: Tool
+    qualities:
+      Screwing: 0.5
+    useSound:
+      collection: Screwdriver
+    speedModifier: 0.4
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          screwdriver: Rainbow
+  - type: Construction
+    graph: ImprovisedTools
+    node: screwdriver
+
+- type: entity
+  name: самодельные кусачки
+  parent: [Wirecutter, BaseImprovisedTool]
+  id: ImprovisedWirecutter
+  description: Кусачки сделаные из подручных материалов. Хуже, но лучше чем ничего.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/improvised_cutters.rsi
+    layers:
+    - state: cutters
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: cutters-cutty-thingy
+  - type: Tool
+    qualities:
+      Cutting: 0.5
+      Slicing: 0.2
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+    speedModifier: 0.4
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cutters: Rainbow
+  - type: Item
+    sprite: _ScavPrototype/Objects/Items/improvised_cutters.rsi
+    storedRotation: -90
+  - type: Construction
+    graph: ImprovisedTools
+    node: wirecutter
+
+- type: entity
+  name: самодельный лом
+  description: Лом сделаный из подручных материалов. Хуже, но лучше чем ничего.
+  parent: [BaseCrowbar, BaseImprovisedTool]
+  id: ImprovisedCrowbar
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: MetalThud
+  - type: Tool
+    qualities:
+      Prying: 0.5
+      Crushing: 0.4
+    speedModifier: 0.4
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/improvised_crowbar.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ScavPrototype/Objects/Items/improvised_crowbar.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Item
+    sprite: _ScavPrototype/Objects/Items/improvised_crowbar.rsi
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: Construction
+    graph: ImprovisedTools
+    node: crowbar
+
+- type: entity
+  parent: [BaseKnife, BaseImprovisedTool]
+  id: ImprovisedKnife
+  name: самодельный ножик
+  description: Нож сделаный из подручных материалов. Хуже, но лучше чем ничего.
+  components:
+  - type: Execution
+    doAfterDuration: 6.0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 9
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/improvised_knife.rsi
+    state: icon
+  - type: Item
+    sprite: _ScavPrototype/Objects/Items/improvised_knife.rsi
+    size: Small
+  - type: Tool
+    qualities:
+      Slicing: 0.5
+    speedModifier: 0.4
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Construction
+    graph: ImprovisedTools
+    node: knife

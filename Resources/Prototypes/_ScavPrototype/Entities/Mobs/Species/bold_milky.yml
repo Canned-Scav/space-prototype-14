@@ -1,0 +1,105 @@
+- type: entity
+  save: false
+  parent: MobMilky
+  id: MobBoldMilky
+  name: Урист МакЛысик
+  components:
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: BoldMilky
+    hideLayersOnEquip:
+    - HeadTop
+    - HeadSide
+  - type: Body
+    prototype: BoldMilky
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 2
+        Slash: 4
+        Structural: 5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Speciman
+  - type: Temperature
+    heatDamageThreshold: 335
+    coldDamageThreshold: 262
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.2 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      295: 0.9
+      282: 0.8
+      262: 0.7
+  - type: PassiveDamage
+    damage:
+      types:
+        Heat: -0.04
+        Cold: -0.04
+        Shock: -0.02
+      groups:
+        Brute: -0.06
+        Toxin: -0.04
+  - type: Stamina
+    baseCritThreshold: 75
+    decay: 2.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.26
+        density: 100
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: BoldMilky
+    templateId: speciman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobBoldMilkyDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: BoldMilky

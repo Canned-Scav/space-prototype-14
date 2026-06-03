@@ -81,7 +81,7 @@
     attackRate: 2
   - type: Tool
     qualities:
-    - Cutting
+      Cutting: 0.4
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.05
@@ -106,7 +106,7 @@
         Blunt: 0.1 #poke poke poke
   - type: Tool
     qualities:
-    - Screwing
+      Screwing: 0.4
     useSound:
       collection: Screwdriver
     speedModifier: 0.05
@@ -129,7 +129,7 @@
         Blunt: 0.1
   - type: Tool
     qualities:
-    - Anchoring
+      Anchoring: 0.4
     useSound:
       path: /Audio/Items/ratchet.ogg
     speedModifier: 0.05
@@ -153,7 +153,7 @@
     damage: 5 #have you ever been hit with a plastic bat? that shit hurts
   - type: Tool
     qualities:
-    - Prying
+      Prying: 0.4
   - type: ToolTileCompatible
     delay: 10
   - type: Prying
@@ -174,7 +174,7 @@
     sprite: Objects/Tools/Cowtools/mooltitool.rsi
   - type: Tool
     qualities:
-    - Pulsing
+      Pulsing: 0.4
   - type: Tag
     tags:
       - Multitool

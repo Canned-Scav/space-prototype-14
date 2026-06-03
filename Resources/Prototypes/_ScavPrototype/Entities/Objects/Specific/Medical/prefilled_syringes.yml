@@ -1,0 +1,14 @@
+- type: entity
+  suffix: снотворное
+  parent: PrefilledSyringe
+  id: SyringeDormitive
+  components:
+  - type: Label
+    currentLabel: reagent-name-dormitive
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Dormitive
+          Quantity: 15

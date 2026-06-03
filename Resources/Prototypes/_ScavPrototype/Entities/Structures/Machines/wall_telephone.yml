@@ -1,0 +1,83 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: OrbitalConectionDevice
+  name: устройство орбитальной связи
+  description: "Устройство с экраном и нескольками кнопками. Нужно чтобы связывать орбиту и планету."
+  components:
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    powerRequired: true
+    unobstructedRequired: true
+    listenRange: 2
+    toggleOnInteract: false
+    enabled: true
+    broadcastChannel: Orbital
+  - type: RadioSpeaker
+    toggleOnInteract: false
+    speakLoud: true
+    enabled: true
+    channels:
+    - Orbital
+  - type: Speech
+    speechVerb: Robotic
+  - type: VoiceOverride # This is for the wire that makes an electricity zapping noise.
+    speechVerbOverride: Electricity
+    enabled: false
+  - type: Appearance
+  - type: Sprite
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/intercom.rsi
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalGlassBreak
+              params:
+                volume: -4
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Broadcasting:
+        enum.RadioDeviceVisualLayers.Broadcasting:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RadioDeviceVisuals.Speaker:
+        enum.RadioDeviceVisualLayers.Speaker:
+          True: { visible: true }
+          False: { visible: false }

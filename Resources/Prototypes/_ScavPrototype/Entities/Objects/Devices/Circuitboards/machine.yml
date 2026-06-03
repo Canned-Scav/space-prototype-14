@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SurveillanceCameraImplantWirelessRouterCircuitboard
+  name: surveillance wireless camera monitor board
+  description: A computer printed circuit board for a surveillance wireless camera monitor.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: MachineBoard
+    prototype: SurveillanceCameraImplantWirelessRouter

@@ -1,0 +1,46 @@
+- type: entity
+  parent: OreBase
+  id: SheetScrap
+  name: Металлолом
+  suffix: Полный
+  description: Самое ценное в этой куче - медь.
+  components:
+  - type: Stack
+    stackType: SheetScrap
+  - type: Sprite
+    state: silver
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Scrap: 100
+  - type: Extractable
+    grindableSolutionName: металлолом
+  - type: SolutionContainerManager
+    solutions:
+      silverore:
+        reagents:
+        - ReagentId: Iron
+          Quantity: 9
+        - ReagentId: Oil
+          Quantity: 1
+  - type: Item
+    heldPrefix: scrap
+  - type: Tag
+    tags:
+    - Ore
+
+- type: entity
+  parent: SheetScrap
+  id: SheetScrap1
+  suffix: Один
+  components:
+  - type: Stack
+    count: 1
+
+- type: material
+  id: Scrap
+  stackEntity: SheetScrap1
+  name: materials-scrap
+  icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: steel }
+  price: 0.05 # $5 for 1 unit
+

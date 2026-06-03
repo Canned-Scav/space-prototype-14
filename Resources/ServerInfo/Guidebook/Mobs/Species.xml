@@ -15,7 +15,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
   # Расы
 
-  Нанотразен нанимает разнообразные разумные виды.
+  Существуют интересные виды существ
 
   <Box>
     <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
@@ -44,6 +44,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   <Box>
     <GuideEntityEmbed Entity="MobShadowkin" Caption="Тенекин"/>
+  </Box>
+  <GuideEntityEmbed Entity="MobAlbino" Caption="Альбино"/>
+  <GuideEntityEmbed Entity="MobMilky" Caption="Милки"/>
+  <GuideEntityEmbed Entity="MobDune" Caption="Дюна"/>
+  <GuideEntityEmbed Entity="MobSpeciman" Caption="Эксперимент"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="MobOrange" Caption="Орандж"/>
   </Box>
 
 </Document>

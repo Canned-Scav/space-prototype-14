@@ -1,0 +1,49 @@
+- type: body
+  id: Velvet
+  name: "Velvet"
+  root: torso
+  slots:
+    head:
+      part: HeadVelvet
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoVelvet
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganSpecimanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganSpecimanStomach
+        liver: OrganSpecimanLiver
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmVelvet
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmVelvet
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandVelvet
+    left_hand:
+      part: LeftHandVelvet
+    right_leg:
+      part: RightLegVelvet
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegVelvet
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootVelvet
+    left_foot:
+      part: LeftFootVelvet

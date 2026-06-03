@@ -245,16 +245,30 @@
   - ClothingNeckNovaPin
   - ClothingNeckSolarisPin
   - ClothingNeckWhiteListPin
-  # CorvaxGoob-Loadouts-End
-  # Begin DeltaV Additions
-  - GoldRing
-  - SilverRing
-  - Cane
-  - WhiteCane
-  - TapeRecorder
-  - DrinkOniGourd
-  # End DeltaV Additions
-
+  # Corvax-Loadouts-End
+  - TowelColorWhite
+  - TowelColorGray
+  - TowelColorBlack
+  - TowelColorRed
+  - TowelColorOrange
+  - TowelColorLightBrown
+  - TowelColorYellow
+  - TowelColorDarkGreen
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorDarkBlue
+  - TowelColorPurple
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorSilver
+  - TowelColorGold
+  # Space-Prototype-Loadouts
+  - MittsBlueWhite
+  - MittsBlackPink
+  # Space-Prototype-Loadouts
+  - MittsBlueWhite
+  - MittsBlackPink
+  
 - type: loadoutGroup
   id: Glasses
   name: loadout-group-glasses

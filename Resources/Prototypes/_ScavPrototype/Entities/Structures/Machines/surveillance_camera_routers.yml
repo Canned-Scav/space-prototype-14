@@ -1,0 +1,80 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: SurveillanceCameraImplantWirelessRouter
+  name: маршрутизатор камер (импланты слежения)
+  description: Маршрутизатор для беспроводных камер наблюдения. Он маршрутизирует. Возможно.
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCamera
+      transmitFrequencyId: SurveillanceCamera
+    - type: DeviceNetworkRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.SurveillanceCameraSetupUiKey.Router:
+          type: SurveillanceCameraSetupBoundUi
+    - type: Machine
+      board: SurveillanceCameraImplantWirelessRouterCircuitboard
+    - type: Sprite
+      sprite: Structures/Machines/server.rsi
+      layers:
+        - state: server-off
+        - state: server-on
+          visible: false
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: server_o
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Appearance
+    - type: AmbientOnPowered
+    - type: AmbientSound
+      volume: -9
+      range: 5
+      enabled: false
+      sound:
+        path: /Audio/Ambience/Objects/server_fans.ogg
+    - type: WiresVisuals
+    - type: WiresPanel
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraImplant
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterContaiment
+  name: маршрутизатор камер (содержание)
+  suffix: Содержание
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraContaiment
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterPhysicalTesting
+  name: маршрутизатор камер (Физ. Тестирование)
+  suffix: Физ. Тестирование
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraPhysicalTesting
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterPsyhoTesting
+  name: маршрутизатор камер (Псих. Тестирование)
+  suffix: Псих. Тестирование
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraPsyhoTesting
+
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterIntermediate
+  name: маршрутизатор камер (Промежуточная зона)
+  suffix: Промежуточная зона
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraIntermediate

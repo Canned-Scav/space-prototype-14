@@ -1,0 +1,170 @@
+- type: species
+  id: Roza
+  name: species-name-roza
+  roundStart: true
+  prototype: MobRoza
+  sprites: MobRozaSprites
+  markingLimits: MobRozaMarkingLimits
+  dollPrototype: MobRozaDummy
+  maleFirstNames: SpecimanUnisex
+  femaleFirstNames: SpecimanUnisex
+  skinColoration: TintedHues
+  naming: First
+  minAge: 10
+  youngAge: 15
+  oldAge: 25
+  maxAge: 40
+
+- type: speciesBaseSprites
+  id: MobRozaSprites
+  sprites:
+    Head: MobRozaHead
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobRozaTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobRozaLArm
+    RArm: MobRozaRArm
+    LHand: MobRozaLHand
+    RHand: MobRozaRHand
+    LLeg: MobRozaLLeg
+    RLeg: MobRozaRLeg
+    LFoot: MobRozaLFoot
+    RFoot: MobRozaRFoot
+    Eyes: MobRozaEyes
+
+- type: humanoidBaseSprite
+  id: MobRozaEyes
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobRozaMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ RozaEarsBase ]
+    Head:
+      points: 1
+      required: false
+      defaultMarkings: [ RozaEyesBase ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ RozaTailBase ]
+
+- type: humanoidBaseSprite
+  id: MobRozaHead
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobRozaHeadMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobRozaHeadFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobRozaTorso
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobRozaTorsoMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobRozaTorsoFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobRozaLLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobRozaLHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobRozaLArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobRozaLFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobRozaRLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobRozaRHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobRozaRArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobRozaRFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: r_foot

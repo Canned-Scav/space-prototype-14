@@ -1,0 +1,83 @@
+- type: constructionGraph
+  id: ImprovisedTools
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: screwdriver
+          steps:
+            - material: MetalRod
+              amount: 2
+            - material: Plastic
+              amount: 1
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+        - to: incompleteWirecutter
+          steps:
+            - material: Steel
+              amount: 2
+            - material: Plastic
+              amount: 2
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+        - to: incompleteCrowbar
+          steps:
+            - material: Steel
+              amount: 2
+            - material: MetalRod
+              amount: 4
+              doAfter: 5
+        - to: incompleteKnife
+          steps:
+            - material: Steel
+              amount: 2
+            - material: WoodPlank
+              amount: 1
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+
+    - node: screwdriver
+      entity: ImprovisedScrewdriver
+
+    - node: incompleteWirecutter
+      entity: IncompleteWirecutter
+      edges:
+        - to: wirecutter
+          steps:
+            - tool: Slicing
+              doAfter: 5
+              qualityLevel: 0.5
+            - tool: Screwing
+              doAfter: 3
+              qualityLevel: 0.5
+    - node: wirecutter
+      entity: ImprovisedWirecutter
+
+    - node: incompleteCrowbar
+      entity: IncompleteCrowbar
+      edges:
+        - to: crowbar
+          steps:
+            - tool: Slicing
+              doAfter: 5
+              qualityLevel: 0.4
+            - tool: Cutting
+              doAfter: 3
+              qualityLevel: 0.5
+    - node: crowbar
+      entity: ImprovisedCrowbar
+
+    - node: incompleteKnife
+      entity: IncompleteKnife

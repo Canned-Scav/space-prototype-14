@@ -1,0 +1,164 @@
+- type: entity
+  id: PoweredWallLightReinforced
+  name: укрепленный светильник
+  description: Лампочка под слоем укрепленного стекла.
+  suffix: Обычный
+  parent: AlwaysPoweredWallLight
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+    drawdepth: WallMountedItems
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+    state: base
+  - type: PointLight
+    color: "#FFE4CE" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: RCDDeconstructable
+    cost: 5
+    delay: 4
+    fx: EffectRCDDeconstruct2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Appearance
+  - type: PoweredLightVisuals
+    blinkingSound:
+      path: "/Audio/Machines/light_tube_on.ogg"
+    spriteStateMap:
+      empty: empty
+      off: base
+      on: base
+      broken: broken
+      burned: burned
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SmartLight
+  - type: PoweredLight
+    ejectBulbDelay: 300
+    unarmedHitShock: 10
+    bulb: Tube
+    hasLampOnSpawn: ReinforcedLightTube
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  name: укрепленный маленький светильник
+  description: Лампочка под слоем укрепленного стекла.
+  id: SmallLightReinforced
+  suffix: Обычный
+  parent: PoweredWallLightReinforced
+  components:
+    - type: AmbientSound
+      enabled: false
+      volume: -15
+      range: 2
+      sound:
+        path: /Audio/Ambience/Objects/light_hum.ogg
+    - type: Sprite
+      sprite: Structures/Wallmounts/Lighting/light_small.rsi
+      state: base
+    - type: PointLight
+      enabled: true
+      energy: 1.0
+      radius: 6
+      softness: 1.1
+      color: "#FF8A0C"
+    - type: PoweredLight
+      bulb: Bulb
+      hasLampOnSpawn: ReinforcedLightbulb
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.1,0.255,0.1,0.5"
+          density: 190
+          mask:
+          - None
+          layer:
+          - TabletopMachineLayer
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors: #excess damage, don't spawn entities.
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 1
+              max: 1
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+
+- type: entity
+  name: укрепленный маленький светильник
+  description: Лампочка под слоем укрепленного стекла.
+  id: WarmSmallLightReinforced
+  suffix: Тёплый
+  parent: SmallLightReinforced
+  components:
+    - type: Sprite
+      state: base
+    - type: PointLight
+      enabled: true
+      radius: 6
+      energy: 1
+      softness: 3
+      color: "#FF8A0C"
+    - type: PoweredLight
+      hasLampOnSpawn: ReinforcedWarmLightBulb

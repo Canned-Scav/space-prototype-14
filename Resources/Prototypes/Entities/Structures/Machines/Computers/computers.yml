@@ -1559,6 +1559,11 @@
           type: SurveillanceCameraMonitorBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+  #SpacePrototype Change start
+  - type: Speech
+    speechVerb: Robotic
+  - type: SurveillanceCameraSpeaker
+  #SpacePrototype Change end
 
 - type: entity
   parent: BaseComputer

@@ -116,3 +116,6 @@ public sealed partial class OpenUplinkImplantEvent : InstantActionEvent
 {
 
 }
+
+/// Used for opening medical implant.
+public sealed partial class OpenMedicalImplantEvent : InstantActionEvent;

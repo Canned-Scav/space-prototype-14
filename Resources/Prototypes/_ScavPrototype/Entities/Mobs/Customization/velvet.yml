@@ -1,0 +1,43 @@
+#---------База
+- type: marking
+  id: VelvetEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Velvet]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Velvet/velvet_parts.rsi
+    state: ears_velvetbase
+
+- type: marking
+  id: VelvetTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Velvet]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Velvet/velvet_parts.rsi
+    state: tail_velvetbase
+
+- type: marking
+  id: VelvetEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Velvet]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: eyes
+
+- type: marking
+  id: VelvetBacklegsBase
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Velvet]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Velvet/velvet_parts.rsi
+    state: backlegs_velvetbase

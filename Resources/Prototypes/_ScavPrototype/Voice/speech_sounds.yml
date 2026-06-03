@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: MaleSpeciman
+  saySound:
+    path: /Audio/_ScavPrototype/Voices/Speciman/avali_1.ogg
+  askSound:
+    path: /Audio/_ScavPrototype/Voices/Speciman/avali_1_ask.ogg
+  exclaimSound:
+    path: /Audio/_ScavPrototype/Voices/Speciman/avali_1_exclaim.ogg

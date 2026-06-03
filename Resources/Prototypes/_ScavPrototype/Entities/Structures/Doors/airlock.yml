@@ -1,0 +1,39 @@
+- type: entity
+  parent: Airlock
+  id: AirlockLaboratoty
+  suffix: Space Prototype
+  components:
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/_ScavPrototype/Doors/door_open.ogg
+    closeSound:
+      path: /Audio/_ScavPrototype/Doors/door_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Sprite
+    sprite: _ScavPrototype/Structures/Doors/Airlocks/basic.rsi
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockLaboratotyGlass
+  suffix: Space Prototype, Glass
+  components:
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/_ScavPrototype/Doors/door_open.ogg
+    closeSound:
+      path: /Audio/_ScavPrototype/Doors/door_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Sprite
+    sprite: _ScavPrototype/Structures/Doors/Airlocks/basic_glass.rsi
+  - type: Wires
+    layoutId: AirlockScience

@@ -1,0 +1,35 @@
+- type: Tag
+  id: SpecimanCraft
+
+- type: Tag
+  id: SpecimanShoes
+
+- type: Tag
+  id: ImplantMicrophone
+
+- type: Tag
+  id: InjectorGunAmmo
+
+- type: Tag
+  id: GlowPlantFruit
+
+- type: Tag
+  id: Foilage
+
+- type: Tag
+  id: Rope
+
+- type: Tag
+  id: Barbell
+
+- type: Tag
+  id: Canvas
+
+- type: Tag
+  id: String
+
+- type: Tag
+  id: Pouch
+
+- type: Tag
+  id: UnfinishedString

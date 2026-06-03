@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingElectrocollarAssemblly
+  name: сборка электроошейника
+  description: Бьет током при активации. Идеально подходит для наказания и контроля буйных экпериментов.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/Neck/utility/electrocollar.rsi
+    state: icon
+  - type: Construction
+    graph: Electrocollar
+    node: assembly
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingElectrocollar
+  name: электроошейник
+  description: Бьет током при активации. Идеально подходит для наказания и контроля буйных экпериментов.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/Neck/utility/electrocollar.rsi
+    layers:
+    - state: icon
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: Clothing
+    stripDelay: 5
+    equipDelay: 2 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+    unequipDelay: 2
+  - type: ShockOnTrigger
+    targetContainer: true
+    damage: 5
+    duration: 3
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: Construction
+    graph: Electrocollar
+    node: done
+  - type: AccessReader
+    access: [ [ "Research" ] ]
+  - type: Lock
+    locked: false
+  - type: ToggleComponentsOnTrigger
+    keysIn:
+    - lock
+    components:
+    - type: Unremoveable
+  - type: TriggerOnLock
+    keyOut: lock
+  - type: LockVisuals
+  - type: Appearance

@@ -1,0 +1,49 @@
+- type: body
+  id: Dune
+  name: "Dune"
+  root: torso
+  slots:
+    head:
+      part: HeadDune
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoDune
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganSpecimanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganDuneStomach
+        liver: OrganSpecimanLiver
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmDune
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmDune
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandDune
+    left_hand:
+      part: LeftHandDune
+    right_leg:
+      part: RightLegDune
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegDune
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootDune
+    left_foot:
+      part: LeftFootDune

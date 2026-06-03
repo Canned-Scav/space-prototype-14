@@ -1,0 +1,132 @@
+- type: entity
+  save: false
+  parent: MobSpeciman
+  id: MobAlbino
+  name: Урист МакБеляш
+  components:
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: Albino
+    hideLayersOnEquip:
+    - HeadTop
+    - HeadSide
+  - type: Body
+    prototype: Albino
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 3
+        Slash: 4
+        Structural: 8
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 300
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Speciman
+  - type: Temperature
+    heatDamageThreshold: 335
+    coldDamageThreshold: 240
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.85
+      260: 0.75
+      240: 0.65
+  - type: Hunger
+    baseDecayRate: 0.042
+    starvationDamage:
+      types:
+        Bloodloss: 0.75
+        Cold: 0.05
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 75
+    damage:
+      types:
+        Heat: -0.04
+        Cold: -0.05
+        Shock: -0.03
+      groups:
+        Brute: -0.07
+        Toxin: -0.04
+  - type: Stamina
+    baseCritThreshold: 90
+  - type: Thirst
+    baseDecayRate: 0.2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - SpecimanCraft
+    - AnomalyHost
+  - type: PointLight
+    radius: 1.4
+    energy: 0.4
+    color: "#ff9927"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.315
+        density: 120
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sharp
+  - type: Inventory
+    speciesId: Albino
+    templateId: speciman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAlbinoDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Albino

@@ -191,7 +191,7 @@
         Blunt: 0
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.4
     speedModifier: 0.25 # its small so takes longer to roll the entire dough flat
   - type: SpaceGarbage
   - type: TrashOnSolutionEmpty

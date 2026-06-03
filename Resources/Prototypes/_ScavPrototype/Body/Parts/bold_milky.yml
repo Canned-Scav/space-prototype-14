@@ -1,0 +1,138 @@
+- type: entity
+  id: PartBoldMilky
+  parent: [PartMilky, BasePart]
+  name: "BoldMilky body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoBoldMilky
+  name: "BoldMilky torso"
+  parent: [PartBoldMilky, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadBoldMilky
+  name: "BoldMilky head"
+  parent: [PartBoldMilky, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmBoldMilky
+  name: "left BoldMilky arm"
+  parent: [PartBoldMilky, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmBoldMilky
+  name: "right BoldMilky arm"
+  parent: [PartBoldMilky, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandBoldMilky
+  name: "left BoldMilky hand"
+  parent: [PartBoldMilky, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandBoldMilky
+  name: "right BoldMilky hand"
+  parent: [PartBoldMilky, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegBoldMilky
+  name: "left BoldMilky leg"
+  parent: [PartBoldMilky, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegBoldMilky
+  name: "right BoldMilky leg"
+  parent: [PartBoldMilky, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootBoldMilky
+  name: "left BoldMilky foot"
+  parent: [PartBoldMilky, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootBoldMilky
+  name: "right BoldMilky foot"
+  parent: [PartBoldMilky, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "r_foot"

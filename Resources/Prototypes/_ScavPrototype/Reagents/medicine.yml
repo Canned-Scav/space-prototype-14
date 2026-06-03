@@ -1,0 +1,19 @@
+- type: reagent
+  id: Antisomnin
+  name: reagent-name-antisomnin
+  group: Toxins
+  desc: reagent-desc-antisomnin
+  flavor: bitter
+  color: "#00AA55"
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 15
+        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove

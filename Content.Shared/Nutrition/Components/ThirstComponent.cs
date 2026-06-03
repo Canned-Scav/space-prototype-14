@@ -19,7 +19,9 @@ using Content.Shared.Alert;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -63,29 +65,54 @@ public sealed partial class ThirstComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan UpdateRate = TimeSpan.FromSeconds(1);
 
-    [DataField("thresholds")]
+    [DataField("thresholds", customTypeSerializer: typeof(DictionarySerializer<ThirstThreshold, float>))]
     [AutoNetworkedField]
     public Dictionary<ThirstThreshold, float> ThirstThresholds = new()
     {
-        {ThirstThreshold.OverHydrated, 600.0f},
-        {ThirstThreshold.Okay, 450.0f},
+        {ThirstThreshold.OverHydrated, 850.0f},
+        {ThirstThreshold.HigHydrated, 700.0f},
+        {ThirstThreshold.Okay, 550.0f},
         {ThirstThreshold.Thirsty, 300.0f},
         {ThirstThreshold.Parched, 150.0f},
         {ThirstThreshold.Dead, 0.0f},
     };
+
+    [DataField("thirstThresholdDecayModifiers", customTypeSerializer: typeof(DictionarySerializer<ThirstThreshold, float>))]
+    [AutoNetworkedField]
+    public Dictionary<ThirstThreshold, float> ThirstThresholdDecayModifiers = new()
+    {
+        { ThirstThreshold.OverHydrated, 1.4f },
+        { ThirstThreshold.HigHydrated, 1.2f },
+        { ThirstThreshold.Okay, 1f },
+        { ThirstThreshold.Thirsty, 0.8f },
+        { ThirstThreshold.Parched, 0.6f },
+        { ThirstThreshold.Dead, 0.4f }
+    };
+
+
+    [DataField("parchedSlowdownModifier"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public float ParchedSlowdownModifier = 0.85f;
+
+    [DataField("deadSlowdownModifier"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public float DeadSlowdownModifier = 0.65f;
+
 
     [DataField]
     public ProtoId<AlertCategoryPrototype> ThirstyCategory = "Thirst";
 
     public static readonly Dictionary<ThirstThreshold, ProtoId<AlertPrototype>> ThirstThresholdAlertTypes = new()
     {
+        {ThirstThreshold.OverHydrated, "OverHydrated"},
+        {ThirstThreshold.HigHydrated, "HigHydrated"},
         {ThirstThreshold.Thirsty, "Thirsty"},
         {ThirstThreshold.Parched, "Parched"},
-        {ThirstThreshold.Dead, "Parched"},
+        {ThirstThreshold.Dead, "ThirstDead"},
     };
 }
 
-[Flags]
+[Serializable, NetSerializable]
 public enum ThirstThreshold : byte
 {
     // Hydrohomies
@@ -93,5 +120,6 @@ public enum ThirstThreshold : byte
     Parched = 1 << 0,
     Thirsty = 1 << 1,
     Okay = 1 << 2,
-    OverHydrated = 1 << 3,
+    HigHydrated = 1 << 3,
+    OverHydrated = 1 << 4
 }

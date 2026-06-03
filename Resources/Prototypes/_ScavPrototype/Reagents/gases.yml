@@ -1,0 +1,50 @@
+- type: reagent
+  id: AsphyxiatingGas
+  name: reagent-name-asphyxiatin-gas
+  desc: reagent-desc-asphyxiatin-gas
+  physicalDesc: reagent-physical-desc-odorless
+  flavor: bitter
+  color: "#22BB44"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 0.4
+            Asphyxiation: 0.8
+      - !type:Oxygenate
+        factor: -4
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.1
+      - !type:PopupMessage
+        conditions:
+        type: Local
+        visualType: Medium
+        messages: [ "asphyxiating-effect-hard-breathing" ]
+        probability: 0.15
+    Gas:
+      effects:
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 0.4
+            Asphyxiation: 0.8
+      - !type:Oxygenate
+        factor: -4
+      - !type:Emote
+        emote: Cough
+        showInChat: true
+        probability: 0.1
+      - !type:PopupMessage
+        conditions:
+        type: Local
+        visualType: Medium
+        messages: [ "asphyxiating-effect-hard-breathing" ]
+        probability: 0.15

@@ -598,7 +598,8 @@
   - type: Tool
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities:
+      Welding: 0.2
   - type: SolutionRegeneration
     solution: Welder
     generated:

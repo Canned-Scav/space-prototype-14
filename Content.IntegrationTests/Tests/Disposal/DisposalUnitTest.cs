@@ -133,7 +133,7 @@ namespace Content.IntegrationTests.Tests.Disposal
   - type: Item
   - type: Tool
     qualities:
-      - Anchoring
+      Anchoring: 1
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

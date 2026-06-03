@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Abubben",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ears_velvetbase",
+            "directions": 4
+        },
+        {
+            "name": "tail_velvetbase",
+            "directions": 4
+        },
+        {
+            "name": "backlegs_velvetbase",
+            "directions": 4
+        }
+    ]
+}

@@ -152,14 +152,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using System.Collections.Immutable; // Goobstation - Starlight collective mind port
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
-using System.Globalization;
 using System.Globalization;
 using System.Linq;
-using System.Linq;
-using System.Text;
 using System.Text;
 using Content.Shared._RMC14.CCVar;
+//Space Prototype chages
+using Content.Shared.ScavPrototype.Chat;
 
 namespace Content.Server.Chat.Systems;
 
@@ -192,6 +190,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
+    //Space Prototype chages
+    [Dependency] private readonly IsolationSystem _isolationSystem = default!;
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -207,6 +207,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     public const bool WhisperRespectsLOS = false; // You can hear some whispers through walls.
     public const bool EmoteRespectsLOS = true; // You can still hear the noises, but you don't know who is making them.
     public const bool LocalOOCRespectsLOS = false; // LOOC can be seen through walls.
+
+    public const float MaxIsolation = 5f; //Space Prototype change
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;

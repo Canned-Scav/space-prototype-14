@@ -168,7 +168,8 @@
   components:
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.7
+      Crushing: 0.6
     speedModifier: 0.6 # fairly unwieldly but nice round surface
 
 - type: entity

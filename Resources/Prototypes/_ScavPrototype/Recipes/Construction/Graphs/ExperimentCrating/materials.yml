@@ -1,0 +1,87 @@
+- type: constructionGraph
+  id: SpecimanObjects
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: steel
+        completed:
+          - !type:SetStackCount
+            amount: 1
+        steps:
+          - material: SteelOre
+            amount: 10
+          - tag: GlowPlantFruit
+            name: construction-graph-tag-glow-plant-fruit
+            icon:
+              sprite: _ScavPrototype/Objects/Items/glow_plant_fruit.rsi
+              state: icon
+            doAfter: 7
+      - to: rope
+        steps:
+          - tag: Foilage
+            name: construction-graph-tag-foilage
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage.rsi
+              state: icon
+          - tag: Foilage
+            name: construction-graph-tag-foilage
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage.rsi
+              state: icon
+            doAfter: 3
+      - to: canvas
+        steps:
+          - tag: Foilage
+            name: construction-graph-tag-foilage
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage.rsi
+              state: icon
+            doAfter: 3
+          - tag: Foilage
+            name: construction-graph-tag-foilage
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage.rsi
+              state: icon
+            doAfter: 3
+          - tag: Foilage
+            name: construction-graph-tag-foilage
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage.rsi
+              state: icon
+            doAfter: 3
+      - to: unfinishedstring
+        steps:
+          - tag: Rope
+            name: верёвка
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+              state: icon
+            doAfter: 3
+          - tag: Rope
+            name: верёвка
+            icon:
+              sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+              state: icon
+            doAfter: 3
+
+  - node: unfinishedstring
+    entity: IncompleteThread
+    edges:
+      - to: string
+        steps:
+          - tool: Slicing
+            doAfter: 5
+            qualityLevel: 0.4
+
+  - node: steel
+    entity: SheetSteel
+
+  - node: rope
+    entity: FoilageRope
+
+  - node: canvas
+    entity: FoilageCanvas
+
+  - node: string
+    entity: FoilageString3

@@ -1,0 +1,151 @@
+- type: entity
+  id: WallLaboratoty
+  parent: BaseWall
+  name: laboratory wall
+  description: Keeps specimens inside and scientists outside
+  suffix: Space Prototype
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RadiationBlocker
+    resistance: 1.5
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: state
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
+  - type: Isolation
+    isolation: 3
+
+- type: entity
+  id: WallLaboratotyStrong
+  parent: BaseWall
+  name: укрепленная лабораторная стена
+  suffix: Space Prototype
+  components:
+  - type: Transform
+    noRot: true
+  - type: SmoothEdge
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: Sprite
+    sprite: _ScavPrototype/Structures/Walls/labaratory.rsi
+    layers:
+    - state: dirt
+    - map: [ "enum.EdgeLayer.South" ]
+      state: dirt_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: dirt_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: dirt_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: dirt_west
+  - type: Icon
+    sprite: _ScavPrototype/Structures/Walls/labaratory.rsi
+    state: dirt
+  - type: RadiationBlocker
+    resistance: 2
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: WallLaboratotySoft
+  parent: WallLaboratotyStrong
+  name: мягкая стена лаборатории
+  suffix: Space Prototype
+  components:
+  - type: SmoothEdge
+  - type: Sprite
+    sprite: _ScavPrototype/Structures/Walls/labaratory_alt.rsi
+    layers:
+    - state: dirt
+    - map: [ "enum.EdgeLayer.South" ]
+      state: dirt_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: dirt_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: dirt_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: dirt_west
+  - type: Icon
+    sprite: _ScavPrototype/Structures/Walls/labaratory_alt.rsi
+    state: dirt
+  - type: Isolation
+    isolation: 4.2
+
+- type: entity
+  id: WallHeatReinforced
+  parent: WallLaboratotyStrong
+  name: укрепленная тугоплавкая стена
+  suffix: Space Prototype
+  components:
+  - type: SmoothEdge
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: _ScavPrototype/Structures/Walls/heat_reinforced.rsi
+    layers:
+    - state: dirt
+    - map: [ "enum.EdgeLayer.South" ]
+      state: dirt_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: dirt_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: dirt_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: dirt_west
+  - type: Icon
+    sprite: _ScavPrototype/Structures/Walls/heat_reinforced.rsi
+    state: dirt

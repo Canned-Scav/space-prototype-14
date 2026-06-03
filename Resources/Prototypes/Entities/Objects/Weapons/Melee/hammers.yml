@@ -37,6 +37,10 @@
         Structural: 10
   - type: Item
     size: Large
+  - type: Tool
+    qualities:
+      Crushing: 2
+    speedModifier: 1.5
 
 - type: entity
   id: Mjollnir
@@ -86,8 +90,10 @@
         Blunt: 2
   - type: Item
     size: Ginormous
-  - type: Boomerang # Goobstation
-    maxHops: 20
+  - type: Tool
+    qualities:
+      Crushing: 5
+    speedModifier: 3
   - type: StaticPrice
     price: 50000
 
@@ -136,3 +142,7 @@
     size: Ginormous
   - type: StaticPrice
     price: 30000
+  - type: Tool
+    qualities:
+      Crushing: 0.4
+    speedModifier: 0.4

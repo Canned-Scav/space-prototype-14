@@ -1,0 +1,32 @@
+#---------База
+- type: marking
+  id: VoyagerEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Voyager]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Voyager/voyager_parts.rsi
+    state: ears_voyagerbase
+
+- type: marking
+  id: VoyagerTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Voyager]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Voyager/voyager_parts.rsi
+    state: tail_voyagerbase
+
+- type: marking
+  id: VoyagerEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Voyager]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: eyes

@@ -1,0 +1,52 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerSurveillanceImplantMonitor
+  name: консоль управления имплантами слежения
+  description: Консоль через которую можно видеть и слышать имплантом слежения, а так-же отправлять голосовые команды.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: cameras
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: Computer
+    board: ComputerSurveillanceImplantMonitorCircuitboard
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: DeviceNetworkRequiresPower
+  - type: Speech
+    speechVerb: Robotic
+  - type: SurveillanceCameraSpeaker
+  - type: SurveillanceCameraMonitor
+  - type: ActivatableUI
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: ActivatableUIRequiresVision
+  - type: UserInterface
+    interfaces:
+        enum.SurveillanceCameraMonitorUiKey.Key:
+          type: SurveillanceCameraMonitorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: ItemSlots
+    slots:
+      microphone_slot:
+        name: Микрофон
+        whitelist:
+          tags:
+            - ImplantMicrophone
+  - type: ContainerContainer
+    containers:
+      microphone_slot: !type:ContainerSlot {}
+  - type: ContainerFill
+    containers:
+      microphone_slot:
+      - MicrophoneImplant

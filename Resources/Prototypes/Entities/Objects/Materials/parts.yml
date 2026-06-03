@@ -67,6 +67,7 @@
       Steel: 50 #Half of a regular steel sheet to reflect the crafting recipe
   - type: Stack
     stackType: MetalRod
+    count: 10
     baseLayer: base
     layerStates:
     - rods
@@ -111,7 +112,6 @@
 - type: entity
   parent: PartRodMetal
   id: PartRodMetal10
-  name: metal rod
   suffix: 10
   components:
   - type: Tag
@@ -173,3 +173,14 @@
   - type: Stack
     lingering: true
     count: 0
+
+- type: entity
+  parent: PartRodMetal
+  id: PartRodMetal3
+  name: металический стержень
+  suffix: 3
+  components:
+  - type: Sprite
+    state: rods
+  - type: Stack
+    count: 3

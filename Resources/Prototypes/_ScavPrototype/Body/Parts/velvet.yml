@@ -1,0 +1,138 @@
+- type: entity
+  id: PartVelvet
+  parent: [BaseItem, BasePart]
+  name: "Velvet body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoVelvet
+  name: "Velvet torso"
+  parent: [PartVelvet, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadVelvet
+  name: "Velvet head"
+  parent: [PartVelvet, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmVelvet
+  name: "left Velvet arm"
+  parent: [PartVelvet, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmVelvet
+  name: "right Velvet arm"
+  parent: [PartVelvet, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandVelvet
+  name: "left Velvet hand"
+  parent: [PartVelvet, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandVelvet
+  name: "right Velvet hand"
+  parent: [PartVelvet, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegVelvet
+  name: "left Velvet leg"
+  parent: [PartVelvet, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegVelvet
+  name: "right Velvet leg"
+  parent: [PartVelvet, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootVelvet
+  name: "left Velvet foot"
+  parent: [PartVelvet, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootVelvet
+  name: "right Velvet foot"
+  parent: [PartVelvet, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "r_foot"

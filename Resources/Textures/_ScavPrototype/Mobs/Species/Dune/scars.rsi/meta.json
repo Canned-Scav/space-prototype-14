@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Abubben",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "tail_dune_cut",
+            "directions": 4
+        },
+        {
+            "name": "tail_dune_knot",
+            "directions": 4
+        }
+    ]
+}

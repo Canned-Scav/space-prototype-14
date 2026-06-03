@@ -1,0 +1,138 @@
+- type: entity
+  id: PartDune
+  parent: [BaseItem, BasePart]
+  name: "Dune body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoDune
+  name: "Dune torso"
+  parent: [PartDune, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadDune
+  name: "Dune head"
+  parent: [PartDune, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmDune
+  name: "left Dune arm"
+  parent: [PartDune, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmDune
+  name: "right Dune arm"
+  parent: [PartDune, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandDune
+  name: "left Dune hand"
+  parent: [PartDune, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandDune
+  name: "right Dune hand"
+  parent: [PartDune, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegDune
+  name: "left Dune leg"
+  parent: [PartDune, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegDune
+  name: "right Dune leg"
+  parent: [PartDune, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootDune
+  name: "left Dune foot"
+  parent: [PartDune, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootDune
+  name: "right Dune foot"
+  parent: [PartDune, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: "r_foot"

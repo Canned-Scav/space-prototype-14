@@ -1,0 +1,49 @@
+- type: body
+  id: Voyager
+  name: "Voyager"
+  root: torso
+  slots:
+    head:
+      part: HeadVoyager
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoVoyager
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganSpecimanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganSpecimanStomach
+        liver: OrganSpecimanLiver
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmVoyager
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmVoyager
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandVoyager
+    left_hand:
+      part: LeftHandVoyager
+    right_leg:
+      part: RightLegVoyager
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegVoyager
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootVoyager
+    left_foot:
+      part: LeftFootVoyager

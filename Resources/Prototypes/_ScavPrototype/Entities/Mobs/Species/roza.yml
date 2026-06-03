@@ -1,0 +1,137 @@
+- type: entity
+  save: false
+  parent: BaseMobSpeciesOrganic
+  id: MobRoza
+  name: Урист МакЛедышка
+  components:
+  - type: HumanoidAppearance
+    species: Roza
+    hideLayersOnEquip:
+    - HeadTop
+    - HeadSide
+  - type: ScaleVisuals
+    scale: 0.905, 0.905
+  - type: Body
+    prototype: Roza
+  - type: Vocal
+    sounds:
+      Male: MaleSpeciman
+      Unsexed: MaleSpeciman
+      Female: FemaleSpeciman
+  - type: Speech
+    speechSounds: MaleSpeciman
+    allowedEmotes: [ 'Bark', 'Growl' ]
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodYellowMeat
+      amount: 5
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FFCC00"
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 3
+        Slash: 4
+        Structural: 7
+        Cold: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 300
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Speciman
+  - type: Temperature
+    heatDamageThreshold: 335
+    coldDamageThreshold: 200
+    currentTemperature: 290.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      223: 0.85
+      210: 0.75
+      200: 0.65
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 100
+    damage:
+      types:
+        Heat: -0.05
+        Cold: -0.12
+        Shock: -0.03
+      groups:
+        Brute: -0.08
+        Toxin: -0.05
+  - type: Hunger
+    baseDecayRate: 0.042
+    starvationDamage:
+      types:
+        Bloodloss: 0.75
+        Cold: 0.05
+  - type: Thirst
+    baseDecayRate: 0.2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - SpecimanCraft
+    - AnomalyHost
+  - type: Sharp
+  - type: Inventory
+    speciesId: Roza
+    templateId: speciman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobRozaDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Roza

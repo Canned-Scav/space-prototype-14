@@ -1,0 +1,47 @@
+- type: lobbyBackground
+  id: DuneAndMilkieSelfie
+  background: /Textures/_ScavPrototype/LobbyScreens/DuneAndMilkieSelfie.jpg
+
+- type: lobbyBackground
+  id: ExpieDuneMilkie
+  background: /Textures/_ScavPrototype/LobbyScreens/ExpieDuneMilkie.webp
+
+- type: lobbyBackground
+  id: ExpieCool
+  background: /Textures/_ScavPrototype/LobbyScreens/ExpieCool.png
+
+- type: lobbyBackground
+  id: ExpieTrader
+  background: /Textures/_ScavPrototype/LobbyScreens/ExpieTrader.png
+
+- type: lobbyBackground
+  id: EscapeAttempt
+  background: /Textures/_ScavPrototype/LobbyScreens/EscapeAttempt.png
+
+- type: lobbyBackground
+  id: TheInterrogation
+  background: /Textures/_ScavPrototype/LobbyScreens/TheInterrogation.png
+
+- type: lobbyBackground
+  id: Despair
+  background: /Textures/_ScavPrototype/LobbyScreens/Despair.png
+
+- type: lobbyBackground
+  id: TheBigWin
+  background: /Textures/_ScavPrototype/LobbyScreens/TheBigWin.png
+
+- type: lobbyBackground
+  id: WayToDown
+  background: /Textures/_ScavPrototype/LobbyScreens/WayToDown.png
+
+- type: lobbyBackground
+  id: CardGame
+  background: /Textures/_ScavPrototype/LobbyScreens/CardGame.png
+
+- type: lobbyBackground
+  id: SnowyRest
+  background: /Textures/_ScavPrototype/LobbyScreens/SnowyRest.png
+
+- type: lobbyBackground
+  id: BeforeDeath
+  background: /Textures/_ScavPrototype/LobbyScreens/BeforeDeath.png

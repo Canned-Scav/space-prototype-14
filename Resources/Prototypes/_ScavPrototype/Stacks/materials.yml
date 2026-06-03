@@ -1,0 +1,6 @@
+- type: stack
+  id: String
+  parent: BaseVerySmallStack
+  name: нить
+  icon: { sprite: _ScavPrototype/Objects/Items/thread.rsi, state: icon }
+  spawn: FoilageString

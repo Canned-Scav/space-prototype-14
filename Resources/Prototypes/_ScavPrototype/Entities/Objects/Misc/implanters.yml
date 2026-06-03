@@ -1,0 +1,15 @@
+- type: entity
+  id: AdvancedTrackingImplanter
+  name: имплантер "продвинутый отслеживающий имплант"
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: AdvancedTrackingImplant
+
+- type: entity
+  id: SelfDiagnosticImplanter
+  name: имплантер "самодиагностический имплант"
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SelfDiagnosticImplant

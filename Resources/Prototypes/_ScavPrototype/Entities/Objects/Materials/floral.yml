@@ -1,0 +1,85 @@
+- type: entity
+  name: листва
+  parent: BaseItem
+  description: Обычная листва, может пригодится для создание чего-то.
+  id: Foilage
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/foilage.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - Foilage
+  - type: Item
+    size: Tiny
+
+- type: entity
+  name: верёвка
+  parent: BaseItem
+  description: Крепкая верёвка из листвы.
+  id: FoilageRope
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+    state: icon
+  - type: Construction
+    graph: SpecimanObjects
+    node: rope
+  - type: Tag
+    tags:
+    - Rope
+
+- type: entity
+  name: полотно
+  parent: BaseItem
+  description: Полотно из листвы.
+  id: FoilageCanvas
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/canvas.rsi
+    state: icon
+  - type: Construction
+    graph: SpecimanObjects
+    node: canvas
+  - type: Tag
+    tags:
+    - Canvas
+
+- type: entity
+  name: нитки
+  parent: BaseItem
+  description: Нитки из верёвок.
+  id: FoilageString
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/thread.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - String
+  - type: Item
+    size: Tiny
+  - type: Stack
+    stackType: String
+    count: 1
+
+- type: entity
+  abstract: false
+  name: нитки
+  parent: FoilageString
+  description: Нитки из верёвок.
+  id: FoilageString3
+  components:
+  - type: Stack
+    stackType: String
+    count: 3
+  - type: Construction
+    graph: SpecimanObjects
+    node: string
+
+- type: material
+  id: String
+  stackEntity: FoilageString
+  name: нитки
+  icon: { sprite: _ScavPrototype/Objects/Items/thread.rsi, state: icon }
+  price: 0.15 # $15 for 1 unit

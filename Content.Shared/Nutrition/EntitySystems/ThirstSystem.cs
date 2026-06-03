@@ -128,6 +128,8 @@ public sealed class ThirstSystem : EntitySystem
     private static readonly ProtoId<SatiationIconPrototype> ThirstIconThirstyId = "ThirstIconThirsty";
     private static readonly ProtoId<SatiationIconPrototype> ThirstIconParchedId = "ThirstIconParched";
 
+    private const float MaxThreshold = 150.0f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -166,8 +168,12 @@ public sealed class ThirstSystem : EntitySystem
         if (_jetpack.IsUserFlying(uid))
             return;
 
-        var mod = component.CurrentThirstThreshold <= ThirstThreshold.Parched ? 0.75f : 1.0f;
-        args.ModifySpeed(mod, mod);
+        if (component.CurrentThirstThreshold >= ThirstThreshold.OverHydrated)
+            args.ModifySpeed(component.ParchedSlowdownModifier, component.ParchedSlowdownModifier);
+        else if (component.CurrentThirstThreshold <= ThirstThreshold.Parched)
+            args.ModifySpeed(component.ParchedSlowdownModifier, component.ParchedSlowdownModifier);
+        else if (component.CurrentThirstThreshold <= ThirstThreshold.Dead)
+            args.ModifySpeed(component.DeadSlowdownModifier, component.DeadSlowdownModifier);
     }
 
     private void OnRejuvenate(EntityUid uid, ThirstComponent component, RejuvenateEvent args)
@@ -199,7 +205,7 @@ public sealed class ThirstSystem : EntitySystem
     public void SetThirst(EntityUid uid, ThirstComponent component, float amount)
     {
         component.CurrentThirst = Math.Clamp(amount,
-            component.ThirstThresholds[ThirstThreshold.Dead],
+            component.ThirstThresholds[ThirstThreshold.Dead]-MaxThreshold,
             component.ThirstThresholds[ThirstThreshold.OverHydrated]
         );
 
@@ -248,7 +254,7 @@ public sealed class ThirstSystem : EntitySystem
 
     private void UpdateEffects(EntityUid uid, ThirstComponent component)
     {
-        if (IsMovementThreshold(component.LastThirstThreshold) != IsMovementThreshold(component.CurrentThirstThreshold) &&
+        if (component.LastThirstThreshold != component.CurrentThirstThreshold &&
                 TryComp(uid, out MovementSpeedModifierComponent? movementSlowdownComponent))
         {
             _movement.RefreshMovementSpeedModifiers(uid, movementSlowdownComponent);
@@ -264,39 +270,15 @@ public sealed class ThirstSystem : EntitySystem
             _alerts.ClearAlertCategory(uid, component.ThirstyCategory);
         }
 
-        DirtyField(uid, component, nameof(ThirstComponent.LastThirstThreshold));
-        DirtyField(uid, component, nameof(ThirstComponent.ActualDecayRate));
 
-        switch (component.CurrentThirstThreshold)
+        if (component.ThirstThresholdDecayModifiers.TryGetValue(component.CurrentThirstThreshold, out var modifier))
         {
-            case ThirstThreshold.OverHydrated:
-                component.LastThirstThreshold = component.CurrentThirstThreshold;
-                component.ActualDecayRate = component.BaseDecayRate * 1.2f;
-                return;
-
-            case ThirstThreshold.Okay:
-                component.LastThirstThreshold = component.CurrentThirstThreshold;
-                component.ActualDecayRate = component.BaseDecayRate;
-                return;
-
-            case ThirstThreshold.Thirsty:
-                // Same as okay except with UI icon saying drink soon.
-                component.LastThirstThreshold = component.CurrentThirstThreshold;
-                component.ActualDecayRate = component.BaseDecayRate * 0.8f;
-                return;
-            case ThirstThreshold.Parched:
-                _movement.RefreshMovementSpeedModifiers(uid);
-                component.LastThirstThreshold = component.CurrentThirstThreshold;
-                component.ActualDecayRate = component.BaseDecayRate * 0.6f;
-                return;
-
-            case ThirstThreshold.Dead:
-                return;
-
-            default:
-                Log.Error($"No thirst threshold found for {component.CurrentThirstThreshold}");
-                throw new ArgumentOutOfRangeException($"No thirst threshold found for {component.CurrentThirstThreshold}");
+            component.ActualDecayRate = component.BaseDecayRate * modifier;
+            DirtyField(uid, component, nameof(ThirstComponent.ActualDecayRate));
         }
+
+        component.LastThirstThreshold = component.CurrentThirstThreshold;
+        DirtyField(uid, component, nameof(ThirstComponent.LastThirstThreshold));
     }
 
     public override void Update(float frameTime)

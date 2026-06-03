@@ -1,0 +1,61 @@
+- type: entity
+  parent: [BaseItem, BaseControllable, MobDamageable, MobAtmosStandard, MobRespirator, MobBloodstream]
+  id: BabyExpilky
+  name: младенец экспилки
+  description: Маленький черно-белый шерстяной комочек завернутые в простынь.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/baby_expilky.rsi
+    state: icon
+  - type: ScaleVisuals
+    scale: 0.8, 0.8
+  - type: Item
+    size: Large
+  - type: MultiHandedItem
+  - type: BlockMovement
+  - type: Edible
+    delay: 4
+    forceFeedDelay: 8
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fat
+          Quantity: 3
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 12
+        - ReagentId: YellowBlood
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - terrible
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 10
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: Body
+    prototype: Speciman
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 100
+  - type: Hunger
+    baseDecayRate: 0.012
+  - type: Thirst
+    baseDecayRate: 0.008
+

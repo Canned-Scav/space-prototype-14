@@ -120,6 +120,10 @@ public sealed class LockSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _sharedPopupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+
+    private readonly LocId _defaultDenyReason = "lock-comp-has-user-access-fail";
 
     /// <inheritdoc />
     public override void Initialize()
@@ -373,7 +377,10 @@ public sealed class LockSystem : EntitySystem
 
     private void AddToggleLockVerb(EntityUid uid, LockComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
+        if (!args.CanInteract || args.Hands == null || !component.ShowLockVerbs)
+            return;
+
+        if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
             return;
 
         AlternativeVerb verb = new()

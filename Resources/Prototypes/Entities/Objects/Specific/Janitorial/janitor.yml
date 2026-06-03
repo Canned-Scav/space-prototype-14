@@ -540,7 +540,7 @@
       Plastic: 50
   - type: Tool
     qualities:
-    - Brushing
+      Brushing: 1
     useSound:
       path: /Audio/Items/wirebrushing.ogg
   - type: StaticPrice

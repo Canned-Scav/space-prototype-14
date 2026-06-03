@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Created by λserovich[BAD] (aserovich) for Space Prototype project",
+    "size": {
+      "x": 64,
+      "y": 64
+    },
+    "states": [
+      {
+        "name": "dirt"
+      },
+      {
+        "name": "dirt_east"
+      },
+      {
+        "name": "dirt_north"
+      },
+      {
+        "name": "dirt_south"
+      },
+      {
+        "name": "dirt_west"
+      }
+    ]
+  }

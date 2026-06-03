@@ -1,0 +1,192 @@
+- type: entity
+  save: false
+  parent: BaseMobSpeciesOrganic
+  id: MobDune
+  name: Урист МакЗубастик
+  components:
+  - type: Biter
+    biteTypes:
+      Normal:
+        biteTime: 2
+        transferAmount: 8
+        hungerAmount: 5
+        damage:
+          types:
+            Slash: 8
+        biteSound:
+          collection: eating
+      Strong:
+        biteTime: 3.5
+        transferAmount: 20
+        hungerAmount: 15
+        damage:
+          types:
+            Slash: 25
+        biteSound:
+          collection: eating
+      Dead:
+        biteTime: 6
+        transferAmount: 40
+        hungerAmount: 30
+        damage:
+          types:
+            Slash: 50
+        biteSound:
+          path: /Audio/Effects/demon_consume.ogg
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
+    state: full
+  - type: HumanoidAppearance
+    species: Dune
+    hideLayersOnEquip:
+    - HeadTop
+    - HeadSide
+  - type: Body
+    prototype: Dune
+  - type: Vocal
+    sounds:
+      Male: MaleSpeciman
+      Unsexed: MaleSpeciman
+      Female: FemaleSpeciman
+  - type: Speech
+    speechSounds: MaleSpeciman
+    allowedEmotes: [ 'Bark', 'Growl' ]
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodYellowMeat
+      amount: 6
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FFCC00"
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 4
+        Slash: 6
+        Structural: 10
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      220: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 0.7
+      100: 0.5
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 320
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Speciman
+  - type: Temperature
+    heatDamageThreshold: 335
+    coldDamageThreshold: 260
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.85
+      280: 0.75
+      260: 0.65
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      types:
+        Heat: -0.03
+        Cold: -0.02
+        Shock: -0.01
+      groups:
+        Brute: -0.04
+        Toxin: -0.02
+  - type: Stamina
+    baseCritThreshold: 120
+    decay: 4
+  - type: Hunger
+    baseDecayRate: 0.045
+    starvationDamage:
+      types:
+        Bloodloss: 0.7
+        Cold: 0.05
+  - type: Thirst
+    baseDecayRate: 0.22
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - SpecimanCraft
+    - AnomalyHost
+  - type: Sharp
+  - type: Inventory
+    speciesId: Dune
+    templateId: speciman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobDuneDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Dune
+
+- type: entity
+  parent: BaseAction
+  id: DuneBiteAction
+  name: "[color=red]Укусить[/color]"
+  description: Откусите от кого-то кусочек.
+  components:
+  - type: Action
+    icon: { sprite : _ScavPrototype/Mobs/Species/Dune/bite_action.rsi, state: icon }
+    iconOn: { sprite : _ScavPrototype/Mobs/Species/Dune/bite_action.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+    useDelay: 5
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+    event: !type:BiteActionEvent

@@ -287,10 +287,10 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#FFE4CE" # 5000K color temp
+    color: "#c7d6e6" # 5000K color temp
     lightEnergy: 0.8
-    lightRadius: 10
-    lightSoftness: 1
+    lightRadius: 8
+    lightSoftness: 2
     PowerUse: 25
 
 - type: entity

@@ -260,6 +260,7 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: CanEscapeInventory # Carrying system from nyanotrasen.
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Groin" ]
@@ -526,6 +527,7 @@
   - type: Absorbable # Goobstation - changelings
   - type: OfferItem # CorvaxGoob-Offer
   - type: WraithAbsorbable # Goobstation - wraith
+  - type: Carriable # Goobstation
   - type: Barotrauma
     damage:
       types:

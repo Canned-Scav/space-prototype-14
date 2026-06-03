@@ -1,0 +1,72 @@
+- type: reaction
+  id: Dormitive
+  reactants:
+    Opium:
+      amount: 1
+    ChloralHydrate:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    Dormitive: 3
+
+- type: reaction
+  id: Antisomnin
+  reactants:
+    Haloperidol:
+      amount: 1
+    Carbon:
+      amount: 1
+    Cryptobiolin:
+      amount: 1
+  products:
+    Antisomnin: 3
+
+- type: reaction
+  id: Heroin
+  minTemp: 315
+  reactants:
+    Sodium:
+      amount: 1
+    Opium:
+      amount: 2
+    Phenol:
+      amount: 1
+  products:
+    Heroin: 3
+
+- type: reaction
+  id: Morphine
+  reactants:
+    SulfuricAcid:
+      amount: 1
+      catalyst: true
+    Opium:
+      amount: 3
+    Water:
+      amount: 1
+  products:
+    Morphine: 2
+
+- type: reaction
+  id: Fentanyl
+  minTemp: 325
+  reactants:
+    Ethanol:
+      amount: 1
+    Morphine:
+      amount: 2
+    SodiumHydroxide:
+      amount: 1
+  products:
+    Fentanyl: 2
+
+- type: reaction
+  id: DilutedFentanyl
+  reactants:
+    Water:
+      amount: 9
+    Fentanyl:
+      amount: 1
+  products:
+    DilutedFentanyl: 10

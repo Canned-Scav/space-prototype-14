@@ -1,0 +1,75 @@
+- type: entity
+  name: одноразовый шприц
+  parent: BaseItem
+  description: Одноразовый шприц, может только вводить вещества. После применения становиться мягким и безвредным.
+  id: DisposableSyringe
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/disposable_syringe.rsi
+    layers:
+      - state: syringe1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: syringe_base0
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: _ScavPrototype/Objects/Items/disposable_syringe.rsi
+    state: "syringe_base0"
+  - type: Item
+    size: Tiny
+    sprite: _ScavPrototype/Objects/Items/disposable_syringe.rsi
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+  - type: Injector
+    activeModeProtoId: SyringeInjectMode
+    allowedModes:
+    - SyringeInjectMode
+  - type: ExaminableSolution
+    solution: injector
+    exactVolume: true
+  - type: TrashOnSolutionEmpty
+    solution: injector
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: syringe
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+  - type: Tag
+    tags:
+    - Syringe
+    - Trash
+
+
+
+- type: entity
+  suffix: героин
+  parent: DisposableSyringe
+  id: DisposableSyringeHeroin
+  components:
+  - type: Label
+    currentLabel: героин
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Heroin
+          Quantity: 15
+
+- type: entity
+  suffix: разбавленный фентанил
+  parent: DisposableSyringe
+  id: DisposableSyringeDilutedFentanyl
+  components:
+  - type: Label
+    currentLabel: разбавленный фентанил
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: DilutedFentanyl
+          Quantity: 15

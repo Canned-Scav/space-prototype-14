@@ -1,0 +1,774 @@
+- type: reagent
+  id: LightNarcotic
+  name: reagent-name-narcotic
+  desc: reagent-desc-narcotic
+  flavor: bitter
+  color: "#AAAAAA"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 1
+      - !type:AdjustReagent
+        reagent: LightPreAddiction
+        amount: 0.15
+      - !type:AdjustReagent
+        reagent: LightAddiction
+        amount: -5
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: -0.2
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "psicodine-effect-at-peace"
+        - "narcotic-effect-good-feeling"
+        probability: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-want-more"
+        probability: 0.025
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 15
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 20
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 15
+        damage:
+          types:
+            Poison: 0.05
+          groups:
+            Airloss: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 20
+        damage:
+          types:
+            Poison: 0.15
+          groups:
+            Airloss: 0.15
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 20
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-really-good-feeling"
+        probability: 0.01
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 15
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.025
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 20
+
+- type: reagent
+  id: LightPreAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: LightAddiction
+        amount: 0.2
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-want-more"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          max: 0.1
+        damage:
+          types:
+            Asphyxiation: 0.6
+
+- type: reagent
+  id: LightAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: Crying
+        showInChat: true
+        probability: 0.01
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "addiction-effect-really-want-more"
+        probability: 0.01
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "addiction-effect-bad-feeling"
+        - "addiction-effect-bad-everything"
+        - "narcotic-effect-want-more"
+        probability: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+        - !type:TotalDamageCondition
+          max: 50
+        damage:
+          types:
+            Asphyxiation: 0.75
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        visualType: Medium
+        messages: [ "ephedrine-effect-tight-pain" ]
+        type: Local
+        probability: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightAddiction
+          min: 10
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          max: 0.1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Remove
+        time: 2
+
+
+
+
+#----------Moderate
+- type: reagent
+  id: ModerateNarcotic
+  name: reagent-name-narcotic
+  desc: reagent-desc-narcotic
+  flavor: bitter
+  color: "#AAAAAA"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: LightNarcotic
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: ModerateNarcotic
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightNarcotic
+          min: 0.1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 3
+      - !type:AdjustReagent
+        reagent: ModeratePreAddiction
+        amount: 0.15
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: -5
+      - !type:AdjustReagent
+        reagent: LightAddiction
+        amount: -15
+      - !type:Emote
+        emote: Laugh
+        showInChat: true
+        probability: 0.01
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "psicodine-effect-anxieties-wash-away"
+        - "psicodine-effect-at-peace"
+        - "narcotic-effect-good-feeling"
+        - "narcotic-effect-warm-feeling"
+        - "narcotic-effect-good-everything"
+        - "narcotic-effect-want-more"
+        probability: 0.15
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 20
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 20
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 20
+        damage:
+          types:
+            Poison: 0.1
+          groups:
+            Airloss: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 30
+        damage:
+          types:
+            Poison: 0.25
+          groups:
+            Airloss: 0.25
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 25
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-really-good-feeling"
+        - "narcotic-effect-arms-feeling"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 15
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 25
+
+- type: reagent
+  id: ModeratePreAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: LightPreAddiction
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: ModeratePreAddiction
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightPreAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: 0.3
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-want-more"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          max: 0.1
+        damage:
+          types:
+            Asphyxiation: 0.7
+
+- type: reagent
+  id: ModerateAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: LightAddiction
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: LightAddiction
+          min: 0.1
+      - !type:Emote
+        emote: Crying
+        showInChat: true
+        probability: 0.04
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:Emote
+        emote: Gasp
+        showInChat: true
+        probability: 0.01
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+        - "narcotic-effect-want-more"
+        - "addiction-effect-really-want-more"
+        probability: 0.075
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "addiction-effect-bad-feeling"
+        - "addiction-effect-bad-everything"
+        - "addiction-effect-suicide-feeling"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateAddiction
+          min: 20
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+        - !type:TotalDamageCondition
+          max: 60
+        damage:
+          groups:
+            Airloss: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+        - !type:TotalDamageCondition
+          max: 60
+        damage:
+          types:
+            Asphyxiation: 1
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        visualType: Medium
+        messages: [ "ephedrine-effect-tight-pain" ]
+        type: Local
+        probability: 0.075
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateAddiction
+          min: 10
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          max: 0.1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Remove
+        time: 10
+
+
+
+#--------Hard
+- type: reagent
+  id: HardNarcotic
+  name: reagent-name-narcotic
+  desc: reagent-desc-narcotic
+  flavor: bitter
+  color: "#AAAAAA"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: ModerateNarcotic
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: HardNarcotic
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateNarcotic
+          min: 0.1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 6
+      - !type:AdjustReagent
+        reagent: HardPreAddiction
+        amount: 0.15
+      - !type:AdjustReagent
+        reagent: HardAddiction
+        amount: -5
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: -10
+      - !type:AdjustReagent
+        reagent: LightAddiction
+        amount: -15
+      - !type:Emote
+        emote: Laugh
+        showInChat: true
+        probability: 0.03
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+        - "narcotic-effect-good-feeling"
+        - "narcotic-effect-warm-feeling"
+        - "narcotic-effect-good-everything"
+        - "narcotic-effect-want-more"
+        - "narcotic-effect-really-good-feeling"
+        - "narcotic-effect-arms-feeling"
+        probability: 0.2
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 20
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 20
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 20
+        damage:
+          types:
+            Poison: 0.2
+          groups:
+            Airloss: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 30
+        damage:
+          types:
+            Poison: 0.75
+          groups:
+            Airloss: 0.75
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 25
+      - !type:PopupMessage
+        visualType: MediumCaution
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.075
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          min: 25
+
+- type: reagent
+  id: HardPreAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: ModeratePreAddiction
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: HardPreAddiction
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModeratePreAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: HardAddiction
+        amount: 0.45
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "narcotic-effect-want-more"
+        - "addiction-effect-really-want-more"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardNarcotic
+          max: 0.1
+        damage:
+          types:
+            Asphyxiation: 0.8
+
+- type: reagent
+  id: HardAddiction
+  name: reagent-name-addiction
+  desc: reagent-desc-addiction
+  flavor: bitter
+  color: "#FFFFFF"
+  physicalDesc: reagent-physical-desc-syrupy
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:AdjustReagent
+        reagent: ModerateAddiction
+        amount: -3
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateAddiction
+          min: 0.1
+      - !type:AdjustReagent
+        reagent: HardAddiction
+        amount: 1
+        conditions:
+        - !type:ReagentCondition
+          reagent: ModerateAddiction
+          min: 0.1
+      - !type:Emote
+        emote: Crying
+        showInChat: true
+        probability: 0.05
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:Emote
+        emote: Gasp
+        showInChat: true
+        probability: 0.02
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages:
+        - "narcotic-effect-want-more"
+        - "addiction-effect-really-want-more"
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages:
+        - "addiction-effect-bad-feeling"
+        - "addiction-effect-bad-everything"
+        - "addiction-effect-suicide-feeling"
+        probability: 0.15
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardAddiction
+          min: 20
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+        - !type:TotalDamageCondition
+          max: 70
+        damage:
+          groups:
+            Airloss: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+        - !type:TotalDamageCondition
+          max: 70
+        damage:
+          types:
+            Asphyxiation: 1.25
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:PopupMessage
+        visualType: Medium
+        messages: [ "ephedrine-effect-tight-pain" ]
+        type: Local
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: HardAddiction
+          min: 10
+        - !type:ReagentCondition
+          reagent: HardPreAddiction
+          max: 0.1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Remove
+        time: 20

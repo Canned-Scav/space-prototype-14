@@ -1,0 +1,120 @@
+- type: construction
+  id: SteelCraft
+  graph: SpecimanObjects
+  startNode: start
+  targetNode: steel
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: ImprovisedScrewdriverCraft
+  graph: ImprovisedTools
+  startNode: start
+  targetNode: screwdriver
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: ImprovisedWirecutterCraft
+  graph: ImprovisedTools
+  startNode: start
+  targetNode: wirecutter
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: ImprovisedCrowbarCraft
+  graph: ImprovisedTools
+  startNode: start
+  targetNode: crowbar
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: ImprovisedKnifeCraft
+  graph: ImprovisedTools
+  startNode: start
+  targetNode: incompleteKnife
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: FoilageRopeCraft
+  graph: SpecimanObjects
+  startNode: start
+  targetNode: rope
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: FoilageStorageCraft
+  graph: ImprovisedStorage
+  startNode: start
+  targetNode: pouch
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: FoilageBagCraft
+  graph: ImprovisedStorage
+  startNode: start
+  targetNode: imbag
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: FoilageCanvasCraft
+  graph: SpecimanObjects
+  startNode: start
+  targetNode: canvas
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+- type: construction
+  id: FoilageStringCraft
+  graph: SpecimanObjects
+  startNode: start
+  targetNode: string
+  category: construction-category-speciman
+  entityWhitelist:
+    tags:
+    - SpecimanCraft
+  objectType: Item
+
+#- type: construction
+#  id: UnfinishedStringCraft
+#  graph: SpecimanObjects
+#  startNode: start
+#  targetNode: unfinishedstring
+#  category: construction-category-speciman
+#  entityWhitelist:
+#    tags:
+#    - SpecimanCraft
+#  objectType: Item

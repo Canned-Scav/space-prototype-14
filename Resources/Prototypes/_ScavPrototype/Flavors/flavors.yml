@@ -1,0 +1,4 @@
+- type: flavor
+  id: stupidy
+  flavorType: Base
+  description: глупенькость

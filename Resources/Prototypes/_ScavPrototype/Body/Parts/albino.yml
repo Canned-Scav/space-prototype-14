@@ -1,0 +1,138 @@
+- type: entity
+  id: PartAlbino
+  parent: [BaseItem, BasePart]
+  name: "Albino body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoAlbino
+  name: "Albino torso"
+  parent: [PartAlbino, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadAlbino
+  name: "Albino head"
+  parent: [PartAlbino, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmAlbino
+  name: "left Albino arm"
+  parent: [PartAlbino, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmAlbino
+  name: "right Albino arm"
+  parent: [PartAlbino, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandAlbino
+  name: "left Albino hand"
+  parent: [PartAlbino, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandAlbino
+  name: "right Albino hand"
+  parent: [PartAlbino, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegAlbino
+  name: "left Albino leg"
+  parent: [PartAlbino, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegAlbino
+  name: "right Albino leg"
+  parent: [PartAlbino, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootAlbino
+  name: "left Albino foot"
+  parent: [PartAlbino, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootAlbino
+  name: "right Albino foot"
+  parent: [PartAlbino, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Specimanalbino/parts.rsi
+    state: "r_foot"

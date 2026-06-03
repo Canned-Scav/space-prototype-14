@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseInjectorProjecttile
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletPractice
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 15
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 15
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+
+
+- type: entity
+  id: InjectorProjecttileTranquilizer
+  parent: BaseInjectorProjecttile
+  name: tranquilizer projectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: rubber
+
+- type: entity
+  id: InjectorProjecttileAntisomnin
+  parent: BaseInjectorProjecttile
+  name: antisomniin projectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: rubber
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielTraumatic
+  name: Патрон (.60 травматический)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 150
+

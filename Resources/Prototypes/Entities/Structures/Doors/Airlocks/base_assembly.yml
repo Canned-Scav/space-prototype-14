@@ -57,6 +57,13 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
+      #Space Prototype changes start
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+      #Space Prototype changes end
       - !type:DoActsBehavior
         acts: ["Destruction"]
     # Goob start

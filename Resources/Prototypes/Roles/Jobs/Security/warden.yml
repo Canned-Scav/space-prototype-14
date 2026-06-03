@@ -175,6 +175,11 @@
   - External
   - Detective
   - Cryogenics
+  - Medic-Experiment
+  - Cleaner-Experiment
+  - Guard-Experiment
+  - Cook-Experiment
+  - B-Experiment
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

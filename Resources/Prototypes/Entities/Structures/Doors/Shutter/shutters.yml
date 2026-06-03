@@ -115,6 +115,7 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Airtight
+    noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker # CorvaxGoob Radiation Overhaul Revert
     resistance: 2
   - type: Damageable

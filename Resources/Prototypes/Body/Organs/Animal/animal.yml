@@ -216,6 +216,7 @@
       Destroyed: 0
   - type: Metabolizer
     maxPoisonsProcessable: 2
+    maxReagents: 6
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine

@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by koteg_",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "dune_painting",
+            "directions": 4
+        },
+        {
+            "name": "dune_painting_tail",
+            "directions": 4
+        }
+    ]
+}

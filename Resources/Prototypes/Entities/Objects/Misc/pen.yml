@@ -193,7 +193,7 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
     qualities:
-    - Screwing
+      Screwing: 0.5
     useSound:
       collection: Screwdriver
   - type: DamageOtherOnHit

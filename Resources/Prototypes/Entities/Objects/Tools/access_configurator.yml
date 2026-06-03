@@ -87,6 +87,11 @@
       - Theatre
       - GenpopEnter
       - GenpopLeave
+      - Medic-Experiment
+      - Cook-Experiment
+      - Guard-Experiment
+      - Cleaner-Experiment
+      - B-Experiment
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -172,6 +177,11 @@
     - Xenoborg
     - GenpopEnter
     - GenpopLeave
+    - Medic-Experiment
+    - Cook-Experiment
+    - Guard-Experiment
+    - Cleaner-Experiment
+    - B-Experiment
     privilegedIdSlot:
       name: id-card-console-privileged-id
       startingItem: UniversalIDCard

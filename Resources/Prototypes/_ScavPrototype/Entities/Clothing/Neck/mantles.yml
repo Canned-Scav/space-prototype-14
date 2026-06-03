@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingNeckBase]
+  id: ClothingNeckMantleBlueSpeciman
+  name: мантия стража образцов
+  description: Синия мантия служителя закона.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/Neck/mantles/specimanblue_manle.rsi
+  - type: Clothing
+    sprite: _ScavPrototype/Clothing/Neck/mantles/specimanblue_manle.rsi

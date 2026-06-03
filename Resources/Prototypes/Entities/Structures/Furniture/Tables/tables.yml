@@ -255,6 +255,9 @@
     sprite: Structures/Furniture/Tables/reinforced.rsi
   - type: Icon
     sprite: Structures/Furniture/Tables/reinforced.rsi
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic #Space Prototype change
   - type: Destructible
     thresholds:
     - trigger:

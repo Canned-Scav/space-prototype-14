@@ -1,0 +1,11 @@
+- type: jukebox
+  id: SnakesTheme
+  name: Snakes Theme
+  path:
+    path: /Audio/_ScavPrototype/Jukebox/SnakesTheme.ogg
+
+- type: jukebox
+  id: FishTheme
+  name: Fish Theme
+  path:
+    path: /Audio/_ScavPrototype/Jukebox/FishTheme.ogg

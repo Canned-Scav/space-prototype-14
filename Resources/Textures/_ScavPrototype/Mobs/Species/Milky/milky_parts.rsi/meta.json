@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Abubben",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ears_milkybase",
+            "directions": 4
+        },
+        {
+            "name": "fin_milkybase",
+            "directions": 4
+        },
+        {
+            "name": "tail_milkybase",
+            "directions": 4
+        },
+        {
+            "name": "pregnant_belly",
+            "directions": 4
+        }
+    ]
+}

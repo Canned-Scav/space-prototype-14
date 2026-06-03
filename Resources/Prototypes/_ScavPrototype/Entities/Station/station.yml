@@ -1,0 +1,11 @@
+- type: entity
+  id: SPStandardStation
+  parent:
+    - BaseStation
+    - BaseStationJobsSpawning
+    - BaseStationAlertLevels
+    - BaseStationRecords
+    - BaseStationNews 
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform

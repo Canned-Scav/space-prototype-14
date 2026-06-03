@@ -1,0 +1,56 @@
+- type: reagent
+  id: SleepToxin
+  name: reagent-name-paralys
+  desc: reagent-desc-paralys
+  flavor: bitter
+  color: "#000067"
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: SleepToxin
+          min: 2
+        type: Local
+        visualType: Medium
+        messages: [ "sleeptoxin-effect-paralysis" ]
+        probability: 0.15
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.45
+        sprintSpeedModifier: 0.45
+      - !type:ModifyParalysis
+        conditions:
+        - !type:ReagentCondition
+          reagent: SleepToxin
+          max: 2
+        time: 20
+        type: Add
+
+
+- type: reagent
+  id: ShokerReagent
+  name: reagent-name-tazinide
+  desc: reagent-desc-tazinide
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: shocking
+  color: "#FDD023"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 4
+        type: Add
+      - !type:ModifyKnockdown
+        time: 4
+        type: Add
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        time: 10
+        type: Add
+      - !type:Jitter
+        time: 7
+        refresh: false

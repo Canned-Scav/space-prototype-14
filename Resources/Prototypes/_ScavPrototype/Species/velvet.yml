@@ -1,0 +1,171 @@
+- type: species
+  id: Velvet
+  name: species-name-velvet
+  roundStart: true
+  prototype: MobVelvet
+  sprites: MobVelvetSprites
+  markingLimits: MobVelvetMarkingLimits
+  dollPrototype: MobVelvetDummy
+  maleFirstNames: SpecimanUnisex
+  femaleFirstNames: SpecimanUnisex
+  skinColoration: TintedHues
+  naming: First
+  minAge: 10
+  youngAge: 15
+  oldAge: 25
+  maxAge: 40
+
+- type: speciesBaseSprites
+  id: MobVelvetSprites
+  sprites:
+    Head: MobVelvetHead
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobVelvetTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobVelvetLArm
+    RArm: MobVelvetRArm
+    LHand: MobVelvetLHand
+    RHand: MobVelvetRHand
+    LLeg: MobVelvetLLeg
+    RLeg: MobVelvetRLeg
+    LFoot: MobVelvetLFoot
+    RFoot: MobVelvetRFoot
+    Eyes: MobVelvetEyes
+
+- type: humanoidBaseSprite
+  id: MobVelvetEyes
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobVelvetMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ VelvetEarsBase ]
+    Head:
+      points: 1
+      required: false
+      defaultMarkings: [ VelvetEyesBase ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+      defaultMarkings: [ VelvetBacklegsBase ]
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ VelvetTailBase ]
+
+- type: humanoidBaseSprite
+  id: MobVelvetHead
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetHeadMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetHeadFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobVelvetTorso
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetTorsoMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetTorsoFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobVelvetLLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobVelvetLHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobVelvetLArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobVelvetLFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobVelvetRLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobVelvetRHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobVelvetRArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobVelvetRFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: r_foot

@@ -1,0 +1,75 @@
+- type: entity
+  name: светящийся фрукт
+  parent: BaseItem
+  description: Фрукт светящегося дерева. НЕ пригоден для употребления, но может вылечить отравление для нанесении на себя. Так-же можно использовать для создания биохимической жидкости.
+  id: GlowPlantFruit
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/glow_plant_fruit.rsi
+    state: icon
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+    color: "#ADF8ABFF"
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Poison: -5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: BiochemFluid
+          Quantity: 5
+  - type: DrawableSolution
+    solution: food
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+    popup: spike-solution-egg
+  - type: Tag
+    tags:
+    - GlowPlantFruit
+  - type: Produce
+    seedId: glowTreeSeed
+
+- type: entity
+  name: гео фрукт
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: GeoFruit
+  description: Фрукт гео дерева. Востанавливает голод и жажду.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - geofruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Water
+          Quantity: 4
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/geo_fruit.rsi
+    state: icon
+  - type: Item
+    heldPrefix: produce
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+  - type: Produce
+    seedId: geoTreeSeed

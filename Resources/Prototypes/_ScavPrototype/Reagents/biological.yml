@@ -1,0 +1,64 @@
+- type: reagent
+  id: YellowBlood
+  name: reagent-name-yellow-blood
+  group: Biological
+  desc: reagent-desc-yellow-blood
+  flavor: acid
+  color: "#FFCC00"
+  recognizable: true
+  standsout: true
+  physicalDesc: reagent-physical-desc-yellow-acidic
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.25
+        conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Speciman ]
+    Food:
+      effects:
+        - !type:AdjustReagent
+          reagent: UncookedAnimalProteins
+          amount: 0.1
+        - !type:EvenHealthChange
+          conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ Dune ]
+          damage:
+            Burn: -0.45
+            Toxin: -0.1
+            Airloss: -0.25
+            Brute: -0.7
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Speciman ]
+          inverted: true
+        damage:
+          types:
+            Caustic: 0.5
+            Poison: 1
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
+
+- type: reagent
+  id: BiochemFluid
+  name: reagent-name-biochem-fluid
+  group: Biological
+  desc: reagent-desc-biochem-fluid
+  flavor: bitter
+  color: "#00FF44"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-sticky
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.3

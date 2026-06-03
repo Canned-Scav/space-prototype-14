@@ -1,0 +1,148 @@
+- type: entity
+  save: false
+  parent: BaseMobSpeciesOrganic
+  id: MobVelvet
+  name: Урист МакПаучёк
+  components:
+  - type: HumanoidAppearance
+    species: Velvet
+    hideLayersOnEquip:
+    - HeadTop
+    - HeadSide
+  - type: Body
+    prototype: Velvet
+  - type: Vocal
+    sounds:
+      Male: MaleSpeciman
+      Unsexed: MaleSpeciman
+      Female: FemaleSpeciman
+  - type: Speech
+    speechSounds: MaleSpeciman
+    allowedEmotes: [ 'Bark', 'Growl' ]
+  - type: Sericulture
+    productionLength: 6
+    entityProduced: MaterialWebSilk1
+    hungerCost: 5
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodYellowMeat
+      amount: 6
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FFCC00"
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 4
+        Slash: 5
+        Structural: 8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      220: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: YellowBlood
+        Quantity: 350
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Speciman
+  - type: Temperature
+    heatDamageThreshold: 335
+    coldDamageThreshold: 240
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      273: 0.85
+      260: 0.75
+      240: 0.65
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 110
+    damage:
+      types:
+        Heat: -0.05
+        Cold: -0.06
+        Shock: -0.03
+      groups:
+        Brute: -0.08
+        Toxin: -0.05
+  - type: Stamina
+    baseCritThreshold: 120
+    decay: 4
+  - type: Hunger
+    baseDecayRate: 0.043
+    starvationDamage:
+      types:
+        Bloodloss: 0.7
+        Cold: 0.05
+  - type: Thirst
+    baseDecayRate: 0.2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - SpecimanCraft
+    - SpiderCraft
+    - AnomalyHost
+  - type: Sharp
+  - type: TypingIndicator
+    proto: spider
+  - type: Inventory
+    speciesId: Velvet
+    templateId: speciman
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      back:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: back
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerwear
+      gloves:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: hand
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vulpkanin/displacement.rsi
+            state: belt
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobVelvetDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Velvet

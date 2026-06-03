@@ -1,0 +1,76 @@
+- type: entity
+  parent: BaseItem
+  name: незавершенный металический стержень
+  description: Кажется его нужно разделить
+  id: RodNotCompleted
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Materials/not_completed.rsi
+    state: rod
+  - type: Construction
+    graph: MetalRod
+    node: notCompleted
+
+- type: entity
+  parent: BaseItem
+  name: незавершенный самодельная монтировка
+  description: Кажется её нужно обработать
+  id: IncompleteCrowbar
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Materials/not_completed.rsi
+    state: crowbar
+  - type: Construction
+    graph: ImprovisedTools
+    node: incompleteCrowbar
+
+- type: entity
+  parent: BaseItem
+  name: незавершенный самодельные кусачки
+  description: Кажется их нужно заострить
+  id: IncompleteWirecutter
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Materials/not_completed.rsi
+    state: cutters
+  - type: Construction
+    graph: ImprovisedTools
+    node: incompleteWirecutter
+
+- type: entity
+  parent: BaseItem
+  name: незавершенный самодельный ножик
+  description: Кажется его нужно наточить
+  id: IncompleteKnife
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Materials/not_completed.rsi
+    state: knife
+  - type: Construction
+    graph: ImprovisedTools
+    node: incompleteKnife
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ImprovisedKnife
+
+- type: entity
+  parent: BaseItem
+  name: незавершенные нитки
+  description: Их нужно нарезать чем-то
+  id: IncompleteThread
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+    state: icon-unfinished
+  - type: Construction
+    graph: SpecimanObjects
+    node: unfinishedstring
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: FoilageString
+    amount: 3
+  - type: Tag
+    tags:
+    - UnfinishedString

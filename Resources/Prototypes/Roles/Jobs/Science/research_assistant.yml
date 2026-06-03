@@ -69,6 +69,11 @@
   access:
   - Research
   - Maintenance
+  - Medic-Experiment
+  - Cleaner-Experiment
+  - Guard-Experiment
+  - Cook-Experiment
+  - B-Experiment
 
 - type: startingGear
   id: ResearchAssistantGear

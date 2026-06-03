@@ -274,16 +274,18 @@ public sealed class RadioDeviceSystem : EntitySystem
             ("speaker", Name(uid)),
             ("originalName", nameEv.VoiceName));
 
+        //Space Prototype changes start
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
         var message = args.OriginalChatMsg.Message; // The chat system will handle the rest and re-obfuscate if needed.
 
         _chat.TrySendInGameICMessage(uid,
             message,
-            component.SpeakNormally ? InGameICChatType.Speak : InGameICChatType.Whisper, // Goobstation - radio host
+            (component.SpeakNormally || component.SpeakLoud) ? InGameICChatType.Speak : InGameICChatType.Whisper, // Goobstation - radio host & Space Prototype
             ChatTransmitRange.GhostRangeLimit,
             nameOverride: name,
             checkRadioPrefix: component.SpeakNormally,
             languageOverride: args.Language); // Einstein Engines - Languages
+        //Space Prototype changes end
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)

@@ -37,8 +37,8 @@
             - !type:SnapToGrid
               southRotation: true
           steps:
-            - material: Steel
-              amount: 2
+            - material: MetalRod
+              amount: 4
               doAfter: 1
 
     - node: girder
@@ -47,15 +47,15 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel1
-              amount: 2
+              prototype: PartRodMetal1
+              amount: 4
             - !type:DeleteEntity {}
           conditions:
             - !type:EntityAnchored
               anchored: false
           steps:
             - tool: Screwing
-              doAfter: 2
+              doAfter: 6
 
         - to: wall
           completed:
@@ -67,6 +67,11 @@
             - material: Steel
               amount: 2
               doAfter: 2
+            - tool: Welding
+              doAfter: 4
+            - material: Steel
+              amount: 2
+              doAfter: 3
 
         - to: reinforcedGirder
           completed:
@@ -75,9 +80,14 @@
           conditions:
             - !type:EntityAnchored {}
           steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 3
+            - tool: Welding
+              doAfter: 5
             - material: Plasteel
               amount: 2
-              doAfter: 1
+              doAfter: 4
 
         - to: uraniumWall
           completed:
@@ -111,8 +121,8 @@
             - !type:EntityAnchored {}
           steps:
             - material: Plastic
-              amount: 2
-              doAfter: 2
+              amount: 8
+              doAfter: 6
 
         - to: plasmaWall
           completed:
@@ -169,10 +179,14 @@
           completed:
             - !type:GivePrototype
               prototype: SheetSteel1
-              amount: 2
+              amount: 4
           steps:
             - tool: Welding
               doAfter: 10
+            - tool: Screwing
+              doAfter: 4
+            - tool: Prying
+              doAfter: 4
 
     - node: uraniumWall
       entity: WallUranium
@@ -281,6 +295,11 @@
             - material: Plasteel
               amount: 2
               doAfter: 1
+            - tool: Welding
+              doAfter: 5
+            - material: Plasteel
+              amount: 2
+              doAfter: 1
 
         - to: shuttleWall
           completed:
@@ -333,50 +352,50 @@
           completed:
             - !type:SpawnPrototype
               prototype: SheetPlasteel1
-              amount: 2
+              amount: 4
           steps:
             - tool: Cutting
-              doAfter: 1
+              doAfter: 2
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 5
             - tool: Screwing
-              doAfter: 1
+              doAfter: 2
             - tool: Welding
-              doAfter: 5
+              doAfter: 7
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 4
             - tool: Prying
-              doAfter: 1
+              doAfter: 2
             - tool: Anchoring
-              doAfter: 1
+              doAfter: 2
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 3
             - tool: Welding
-              doAfter: 10
+              doAfter: 14
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 2
             - tool: Prying
-              doAfter: 1
+              doAfter: 2
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 1
             - tool: Screwing
-              doAfter: 1
+              doAfter: 2
               completed:
                 - !type:VisualizerDataInt
                   key: "enum.ReinforcedWallVisuals.DeconstructionStage"
                   data: 0
             - tool: Cutting
-              doAfter: 1
+              doAfter: 2
 
     - node: shuttleWall
       entity: WallShuttle

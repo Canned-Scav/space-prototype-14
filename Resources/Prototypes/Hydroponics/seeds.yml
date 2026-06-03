@@ -1270,7 +1270,7 @@
       PotencyDivisor: 50
     Bicaridine:
       Min: 1
-      Max: 20
+      Max: 18
       PotencyDivisor: 5
     Heroin:
       Min: 1

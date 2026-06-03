@@ -1,0 +1,138 @@
+- type: entity
+  id: PartRoza
+  parent: [BaseItem, BasePart]
+  name: "Roza body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Biological
+
+- type: entity
+  id: TorsoRoza
+  name: "Roza torso"
+  parent: [PartRoza, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadRoza
+  name: "Roza head"
+  parent: [PartRoza, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: LeftArmRoza
+  name: "left Roza arm"
+  parent: [PartRoza, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmRoza
+  name: "right Roza arm"
+  parent: [PartRoza, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandRoza
+  name: "left Roza hand"
+  parent: [PartRoza, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandRoza
+  name: "right Roza hand"
+  parent: [PartRoza, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegRoza
+  name: "left Roza leg"
+  parent: [PartRoza, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegRoza
+  name: "right Roza leg"
+  parent: [PartRoza, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootRoza
+  name: "left Roza foot"
+  parent: [PartRoza, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootRoza
+  name: "right Roza foot"
+  parent: [PartRoza, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: "r_foot"

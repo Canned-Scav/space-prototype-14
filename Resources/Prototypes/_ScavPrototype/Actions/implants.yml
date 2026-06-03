@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseAction
+  id: ActionOpenMedicalImplant
+  name: Сканировать свое тело
+  description: Перед вами вырисовываются контуры и вы видите свое здоровье
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Specific/Medical/healthanalyzer.rsi
+      state: icon
+    useDelay: 1
+  - type: InstantAction
+    event: !type:OpenMedicalImplantEvent

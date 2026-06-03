@@ -1,0 +1,47 @@
+- type: entity
+  name: dart thrower
+  parent: BaseItem
+  id: InjectorGun
+  description: Fires small, harmless darts that inject substances on impact.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe_gun
+  - type: Gun
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - InjectorGunAmmo
+    capacity: 3
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: AmmoCounter
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  name: dart thrower
+  parent: InjectorGun
+  id: InjectorGunFilled
+  suffix: Заполненный
+  description: Fires small, harmless darts that inject substances on impact.
+  components:
+  - type: BallisticAmmoProvider
+    proto: InjectorShellTranquilizer

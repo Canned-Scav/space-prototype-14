@@ -367,7 +367,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 5 #Space Prototype change
   - type: Produce
     seedId: towercap
   - type: Log

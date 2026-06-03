@@ -1,0 +1,9 @@
+# Jobs
+- type: playTimeTracker
+  id: SPJobSecurityOfficer
+
+- type: playTimeTracker
+  id: SPJobScientist
+
+- type: playTimeTracker
+  id: SPJobTestSubjects

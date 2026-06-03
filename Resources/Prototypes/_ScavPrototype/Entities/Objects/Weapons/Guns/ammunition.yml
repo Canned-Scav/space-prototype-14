@@ -1,0 +1,54 @@
+- type: entity
+  id: BaseInjectorShell
+  abstract: true
+  parent: [ BaseSecurityContraband , BaseItem ]
+  components:
+  - type: Tag
+    tags:
+    - InjectorGunAmmo
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Items/darts.rsi
+  - type: ChemicalAmmo
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: CartridgeAmmo
+    soundEject:
+      collection: ShellEject
+    deleteOnSpawn: true
+  - type: Item
+    size: Tiny
+
+
+- type: entity
+  id: InjectorShellTranquilizer
+  name: tranquilizer dart
+  description: A dart containing a substance that immobilizes the target within a few seconds.
+  parent: BaseInjectorShell
+  components:
+  - type: Sprite
+    state: blue
+  - type: CartridgeAmmo
+    proto: InjectorProjecttileTranquilizer
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: SleepToxin
+          Quantity: 5
+
+- type: entity
+  id: InjectorShellAntisomnin
+  name: awakening dart
+  description: A dart containing an invigorating substance that causes the target to wake up.
+  parent: BaseInjectorShell
+  components:
+  - type: Sprite
+    state: yellow
+  - type: CartridgeAmmo
+    proto: InjectorProjecttileAntisomnin
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Antisomnin
+          Quantity: 5

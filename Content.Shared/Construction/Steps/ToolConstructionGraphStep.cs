@@ -29,7 +29,9 @@ namespace Content.Shared.Construction.Steps
         [DataField("tool", required:true, customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
         public string Tool { get; private set; } = string.Empty;
 
-        [DataField("fuel")] public float Fuel { get; private set; } = 10;
+        [DataField("qualityLevel")] public float QualityLevel { get; private set; } = 1f; //Space Prototype change
+
+        [DataField("fuel")] public float Fuel { get; private set; } = 10f;
 
         [DataField("examine")] public string ExamineOverride { get; private set; } = string.Empty;
 
@@ -44,7 +46,7 @@ namespace Content.Shared.Construction.Steps
             if (string.IsNullOrEmpty(Tool) || !IoCManager.Resolve<IPrototypeManager>().TryIndex(Tool, out ToolQualityPrototype? quality))
                 return;
 
-            examinedEvent.PushMarkup(Loc.GetString("construction-use-tool-entity", ("toolName", Loc.GetString(quality.ToolName))));
+            examinedEvent.PushMarkup(Loc.GetString("construction-use-tool-entity", ("toolName", Loc.GetString(quality.ToolName)), ("toolQuality", QualityLevel.ToString()))); //Space Prototype change
 
         }
 
@@ -55,7 +57,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-tool-step",
-                Arguments = new (string, object)[]{("tool", quality.ToolName)},
+                Arguments = new (string, object)[]{("tool", quality.ToolName), ("toolQuality", QualityLevel.ToString())},
                 Icon = quality.Icon,
             };
         }

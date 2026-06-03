@@ -1,0 +1,168 @@
+#---------База
+- type: marking
+  id: SpecimanEarsBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/speciman_parts.rsi
+    state: ears_speciman_primary
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/speciman_parts.rsi
+    state: ears_speciman_secondary
+
+- type: marking
+  id: SpecimanTailBase
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/speciman_parts.rsi
+    state: tail_speciman_base
+
+- type: marking
+  id: SpecimanEyesBase
+  bodyPart: Eyes
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: eyes
+
+
+
+#-----------Бинты
+- type: marking
+  id: GauzeRightEyeSpeciman
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Speciman, Milky, Albino, BoldMilky, Dune]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/gauze.rsi
+    state: gauze_righteye
+
+- type: marking
+  id: GauzeLeftEyeSpeciman
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Speciman, Milky, Albino, BoldMilky, Dune]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/gauze.rsi
+    state: gauze_lefteye
+
+- type: marking
+  id: GauzeShoulderSpeciman
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [Speciman, Milky, Albino, BoldMilky, Dune]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/gauze.rsi
+    state: gauze_shoulder
+
+- type: marking
+  id: GauzeLeftArmSpeciman
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [Speciman, Milky, Albino, BoldMilky, Dune]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/gauze.rsi
+    state: gauze_leftarm
+
+- type: marking
+  id: GauzeRightArmSpeciman
+  bodyPart: RArm
+  markingCategory: Overlay
+  speciesRestriction: [Speciman, Milky, Albino, BoldMilky, Dune]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/gauze.rsi
+    state: gauze_rightarm
+
+
+
+#-----------Шрамы
+- type: marking
+  id: SpecimanEarScarRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: speciman_primaryears_scar_right
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/speciman_parts.rsi
+    state: ears_speciman_secondary
+
+- type: marking
+  id: SpecimanEarScarLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: speciman_primaryears_scar_left
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/speciman_parts.rsi
+    state: ears_speciman_secondary
+
+- type: marking
+  id: SpecimanScarChestDiagonal
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Speciman]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: scar_chest_diagonal
+
+- type: marking
+  id: SpecimanScarChestVertical
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Speciman]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: scar_chest_vertical
+
+- type: marking
+  id: SpecimanScarLeftEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Speciman]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: scar_lefteye
+
+- type: marking
+  id: SpecimanScarRightEye
+  bodyPart: HeadTop
+  markingCategory: Overlay
+  speciesRestriction: [Speciman]
+  forcedColoring: true
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/scars.rsi
+    state: scar_righteye
+
+#--------Хвосты
+- type: marking
+  id: SpecimanTailSmall
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  followSkinColor: true
+  speciesRestriction: [Speciman]
+  sprites:
+  - sprite: _ScavPrototype/Mobs/Species/Speciman/tails.rsi
+    state: small_tail

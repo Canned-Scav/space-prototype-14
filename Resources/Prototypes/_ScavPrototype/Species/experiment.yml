@@ -1,0 +1,170 @@
+- type: species
+  id: Speciman
+  name: species-name-experiment
+  roundStart: true
+  prototype: MobSpeciman
+  sprites: MobSpecimanSprites
+  markingLimits: MobSpecimanMarkingLimits
+  dollPrototype: MobSpecimanDummy
+  maleFirstNames: SpecimanUnisex
+  femaleFirstNames: SpecimanUnisex
+  skinColoration: TintedHues
+  naming: First
+  minAge: 10
+  youngAge: 15
+  oldAge: 25
+  maxAge: 40
+
+- type: speciesBaseSprites
+  id: MobSpecimanSprites
+  sprites:
+    Head: MobSpecimanHead
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobSpecimanTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobSpecimanLArm
+    RArm: MobSpecimanRArm
+    LHand: MobSpecimanLHand
+    RHand: MobSpecimanRHand
+    LLeg: MobSpecimanLLeg
+    RLeg: MobSpecimanRLeg
+    LFoot: MobSpecimanLFoot
+    RFoot: MobSpecimanRFoot
+    Eyes: MobSpecimanEyes
+
+- type: humanoidBaseSprite
+  id: MobSpecimanEyes
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobSpecimanMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+      defaultMarkings: [ SpecimanEarsBase ]
+    Head:
+      points: 1
+      required: false
+      defaultMarkings: [ SpecimanEyesBase ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ SpecimanTailBase ]
+
+- type: humanoidBaseSprite
+  id: MobSpecimanHead
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSpecimanHeadMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSpecimanHeadFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobSpecimanTorso
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSpecimanTorsoMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSpecimanTorsoFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobSpecimanLLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobSpecimanLHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobSpecimanLArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobSpecimanLFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobSpecimanRLeg
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobSpecimanRHand
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobSpecimanRArm
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobSpecimanRFoot
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: r_foot

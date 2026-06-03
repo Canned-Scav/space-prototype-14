@@ -1,0 +1,47 @@
+# Copied & Redacted from seeds.yml(original), if something broken - not my fault :)
+- type: seed
+  id: geoTreeSeed
+  name: семена гео дерева
+  noun: семена гео дерева
+  displayName: гео дерево
+  plantRsi: _ScavPrototype/Objects/Specific/Hydroponics/geo_tree.rsi
+  packetPrototype: geoTreeSeeds
+  productPrototypes:
+    - GeoFruit
+  lifespan: 45
+  harvestRepeat: Repeat
+  maturation: 10
+  production: 5
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 0.50
+  nutrientConsumption: 0.60
+  lightTolerance: 5
+  idealLight: 4
+
+# From Aloe
+- type: seed
+  id: glowTreeSeed
+  name: семена светящегося растения
+  noun: семена светящегося растения
+  displayName: светящееся растение
+  plantRsi: _ScavPrototype/Objects/Specific/Hydroponics/glow_tree.rsi
+  packetPrototype: glowTreeSeeds
+  productPrototypes:
+    - GlowPlantFruit
+  lifespan: 20
+  maturation: 6
+  production: 6
+  yield: 2
+  potency: 10
+  growthStages: 5
+  waterConsumption: 0.40
+  nutrientConsumption: 0.50
+  idealLight: 1
+  lightTolerance: 8
+  chemicals:
+    BiochemFluid:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 2

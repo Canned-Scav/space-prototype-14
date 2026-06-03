@@ -1,0 +1,54 @@
+- type: constructionGraph
+  id: ImprovisedStorage
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: pouch
+          steps:
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+            - tag: Canvas
+              name: полотно
+              icon:
+                sprite: _ScavPrototype/Objects/Items/canvas.rsi
+                state: icon
+              doAfter: 5
+            - tag: Canvas
+              name: полотно
+              icon:
+                sprite: _ScavPrototype/Objects/Items/canvas.rsi
+                state: icon
+              doAfter: 5
+        - to: imbag
+          steps:
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+            - tag: Rope
+              name: construction-graph-tag-rope
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_rope.rsi
+                state: icon
+              doAfter: 5
+            - tag: Pouch
+              name: сумка из листвы
+              icon:
+                sprite: _ScavPrototype/Objects/Items/foilage_pouch.rsi
+                state: icon
+              doAfter: 5
+            - material: String
+              amount: 2
+
+    - node: pouch
+      entity: FoilagePouch
+
+    - node: imbag
+      entity: FoilageBag

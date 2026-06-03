@@ -12,101 +12,134 @@
   graph:
   - node: start
     edges:
+    #Space Prototype changes start
     - to: half
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: halfAlt1
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: halfAlt2
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: straight
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: straightAlt1
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: straightAlt2
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: bend
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: bendAlt1
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: bendAlt2
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: tjunction
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: tjunctionAlt1
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: tjunctionAlt2
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: fourway
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: fourwayAlt1
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: fourwayAlt2
       steps:
       - material: Steel
         amount: 1
-        doAfter: 1
+      - material: MetalRod
+        amount: 2
+        doAfter: 2
 
     - to: manifold
       steps:
       - material: Steel
         amount: 2
-        doAfter: 1
+      - material: MetalRod
+        amount: 4
+        doAfter: 2
 
   - node: half
     entity: GasPipeHalf
@@ -119,10 +152,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: halfAlt1
     entity: GasPipeHalfAlt1
@@ -135,10 +171,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: halfAlt2
     entity: GasPipeHalfAlt2
@@ -151,10 +190,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: straight
     entity: GasPipeStraight
@@ -167,10 +209,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: straightAlt1
     entity: GasPipeStraightAlt1
@@ -183,10 +228,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: straightAlt2
     entity: GasPipeStraightAlt2
@@ -199,10 +247,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: bend
     entity: GasPipeBend
@@ -215,10 +266,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: bendAlt1
     entity: GasPipeBendAlt1
@@ -231,10 +285,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: bendAlt2
     entity: GasPipeBendAlt2
@@ -247,10 +304,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: tjunction
     entity: GasPipeTJunction
@@ -263,10 +323,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: tjunctionAlt1
     entity: GasPipeTJunctionAlt1
@@ -279,10 +342,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: tjunctionAlt2
     entity: GasPipeTJunctionAlt2
@@ -295,10 +361,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: fourway
     entity: GasPipeFourway
@@ -311,10 +380,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: fourwayAlt1
     entity: GasPipeFourwayAlt1
@@ -327,10 +399,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: fourwayAlt2
     entity: GasPipeFourwayAlt2
@@ -343,10 +418,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: broken
     entity: GasPipeBroken
@@ -359,10 +437,13 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 1
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 2
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 2
 
   - node: manifold
     entity: GasPipeManifold
@@ -375,7 +456,10 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 2
+      - !type:SpawnPrototype
+        prototype: PartRodMetal1
+        amount: 4
       - !type:DeleteEntity
       steps:
       - tool: Welding
-        doAfter: 1
+        doAfter: 4

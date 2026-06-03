@@ -1,0 +1,10 @@
+- type: construction
+  id: Karemat
+  graph: karemat
+  startNode: start
+  targetNode: karemat
+  category: construction-category-furniture
+  objectType: Structure
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
