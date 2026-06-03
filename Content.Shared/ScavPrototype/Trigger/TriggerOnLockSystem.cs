@@ -1,11 +1,10 @@
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Trigger.Systems;
-using Content.Shared.Trigger;
 using Content.Shared.Lock;
 
 namespace Content.Shared.ScavPrototype.Trigger;
 
-public sealed partial class TriggerOnStrappedOrBuckledSystem : TriggerOnXSystem
+public sealed partial class TriggerOnStrappedOrBuckledSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -16,6 +15,8 @@ public sealed partial class TriggerOnStrappedOrBuckledSystem : TriggerOnXSystem
 
     private void OnLockToggled(Entity<TriggerOnLockComponent> ent, ref LockToggledEvent args)
     {
-        Trigger.Trigger(ent.Owner, ent.Owner, ent.Comp.KeyOut);
+        IoCManager.Resolve<IEntitySystemManager>()
+            .GetEntitySystem<TriggerSystem>()
+            .Trigger(ent.Owner, ent.Owner, ent.Comp.KeyOut);
     }
 }
