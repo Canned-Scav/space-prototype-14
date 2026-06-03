@@ -159,7 +159,7 @@ public abstract partial class SharedToolSystem : EntitySystem
             if (tool.EnergyTool)
                 _powerCell.TryUseCharge(uid, tool.ChargeUse);
             else if (TryComp<DamageableComponent>(uid, out var damageable) && tool.DamagePerUse != null)
-                _damageableSystem.ChangeDamage((uid, damageable), tool.DamagePerUse, false, false);
+                _damageableSystem.TryChangeDamage(uid, tool.DamagePerUse, ignoreResistances: false, interruptsDoAfters: false);
             //Space Prototype changes end
         }
 
