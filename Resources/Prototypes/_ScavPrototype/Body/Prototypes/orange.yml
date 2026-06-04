@@ -17,8 +17,8 @@
       - right arm
       - left arm
       - head # Shitmed Change
-      - low right arm
-      - low left arm
+#      - low right arm
+#      - low left arm
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
@@ -55,15 +55,15 @@
       part: RightFootOrange
     left foot:
       part: LeftFootOrange
-    low right arm:
-      part: LowRightArmOrange
-      connections:
-      - low right hand
-    low left arm:
-      part: LowLeftArmOrange
-      connections:
-      - low left hand
-    low right hand:
-      part: LowRightHandOrange
-    low left hand:
-      part: LowLeftHandOrange
+#    low right arm:
+#      part: LowRightArmOrange
+#      connections:
+#      - low right hand
+#    low left arm:
+#      part: LowLeftArmOrange
+#      connections:
+#      - low left hand
+#    low right hand:
+#      part: LowRightHandOrange
+#    low left hand:
+#      part: LowLeftHandOrange
