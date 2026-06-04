@@ -14,17 +14,23 @@
   youngAge: 15
   oldAge: 25
   maxAge: 40
+  defaultSkinTone: "#FDD023"
 
 - type: speciesBaseSprites
   id: MobVelvetSprites
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobVelvetHead
-    Undershirt: MobHumanoidAnyMarking
+    Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
-    Chest: MobVelvetTorso
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobVelvetChest
+    Groin: MobVelvetGroin
+    Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
     LArm: MobVelvetLArm
     RArm: MobVelvetRArm
     LHand: MobVelvetLHand
@@ -33,7 +39,8 @@
     RLeg: MobVelvetRLeg
     LFoot: MobVelvetLFoot
     RFoot: MobVelvetRFoot
-    Eyes: MobVelvetEyes
+    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran. CorvaxGoob-Sponsors
+    HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
 
 - type: humanoidBaseSprite
   id: MobVelvetEyes
@@ -45,46 +52,64 @@
   id: MobVelvetMarkingLimits
   onlyWhitelisted: true
   points:
+    Special: # the cat ear joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
+      required: false
     Hair:
       points: 1
       required: false
     FacialHair:
-      points: 0
+      points: 1
       required: false
     Snout:
       points: 1
       required: false
-    HeadTop:
-      points: 1
+    Tail: # the cat tail joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
       required: false
-    HeadSide:
-      points: 1
-      required: true
-      defaultMarkings: [ VelvetEarsBase ]
-    Head:
-      points: 1
+      defaultMarkings: [ VelvetTailBase ]
+    HeadTop:
+      points: 8
       required: false
       defaultMarkings: [ VelvetEyesBase ]
-    Undershirt:
-      points: 1
+    HeadSide:
+      points: 8
+      required: false
+      defaultMarkings: [ VelvetEarsBase ]
+    Chest:
+      points: 10
       required: false
     Underwear:
       points: 1
       required: false
-    Chest:
+    Undershirt:
       points: 1
       required: false
       defaultMarkings: [ VelvetBacklegsBase ]
-    Legs:
+    RightLeg:
       points: 2
       required: false
-    Arms:
-      points: 4
+    RightFoot:
+      points: 2
       required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ VelvetTailBase ]
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
+      required: false
 
 - type: humanoidBaseSprite
   id: MobVelvetHead
@@ -105,22 +130,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobVelvetTorso
+  id: MobVelvetChest
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVelvetTorsoMale
+  id: MobVelvetChestMale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVelvetTorsoFemale
+  id: MobVelvetChestFemale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobVelvetGroin
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetGroinMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVelvetGroinFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobVelvetLLeg

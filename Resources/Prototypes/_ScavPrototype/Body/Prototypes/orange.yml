@@ -1,63 +1,69 @@
 - type: body
   id: Orange
   name: "Orange"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadOrange
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoOrange
+    chest:
+      part: ChestOrange
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
-      - low_right_arm
-      - low_left_arm
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
+      - low right arm
+      - low left arm
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinOrange
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmOrange
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmOrange
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandOrange
-    left_hand:
+    left hand:
       part: LeftHandOrange
-    right_leg:
+    right leg:
       part: RightLegOrange
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegOrange
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootOrange
-    left_foot:
+    left foot:
       part: LeftFootOrange
-    low_right_arm:
+    low right arm:
       part: LowRightArmOrange
       connections:
-      - low_right_hand
-    low_left_arm:
+      - low right hand
+    low left arm:
       part: LowLeftArmOrange
       connections:
-      - low_left_hand
-    low_right_hand:
+      - low left hand
+    low right hand:
       part: LowRightHandOrange
-    low_left_hand:
+    low left hand:
       part: LowLeftHandOrange

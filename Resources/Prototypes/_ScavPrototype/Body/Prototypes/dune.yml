@@ -1,49 +1,55 @@
 - type: body
   id: Dune
   name: "Dune"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadDune
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoDune
+    chest:
+      part: ChestDune
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinDune
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganDuneStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmDune
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmDune
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandDune
-    left_hand:
+    left hand:
       part: LeftHandDune
-    right_leg:
+    right leg:
       part: RightLegDune
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegDune
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootDune
-    left_foot:
+    left foot:
       part: LeftFootDune

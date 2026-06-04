@@ -54,6 +54,7 @@
       95: 0.7
       115: 0.5
   - type: Bloodstream
+    bloodReagent: YellowBlood
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood

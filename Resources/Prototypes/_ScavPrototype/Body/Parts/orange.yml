@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoOrange
-  name: "Orange torso"
+  id: ChestOrange
+  name: "Orange Chest"
   parent: [PartOrange, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinOrange
+  name: "Orange Groin"
+  parent: [PartOrange, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadOrange

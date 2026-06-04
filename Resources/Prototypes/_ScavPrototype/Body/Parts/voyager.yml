@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoVoyager
-  name: "Voyager torso"
+  id: ChestVoyager
+  name: "Voyager Chest"
   parent: [PartVoyager, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinVoyager
+  name: "Voyager Groin"
+  parent: [PartVoyager, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadVoyager

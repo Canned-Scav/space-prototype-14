@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoSpeciman
-  name: "Speciman torso"
+  id: ChestSpeciman
+  name: "Speciman Chest"
   parent: [PartSpeciman, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinSpeciman
+  name: "Speciman Groin"
+  parent: [PartSpeciman, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadSpeciman

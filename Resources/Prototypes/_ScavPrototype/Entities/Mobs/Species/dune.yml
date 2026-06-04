@@ -80,6 +80,7 @@
       80: 0.7
       100: 0.5
   - type: Bloodstream
+    bloodReagent: YellowBlood
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood

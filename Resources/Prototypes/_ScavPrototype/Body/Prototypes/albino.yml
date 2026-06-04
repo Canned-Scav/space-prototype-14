@@ -1,49 +1,55 @@
 - type: body
   id: Albino
   name: "Albino"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadAlbino
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoAlbino
+    chest:
+      part: ChestAlbino
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinAlbino
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmAlbino
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmAlbino
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandAlbino
-    left_hand:
+    left hand:
       part: LeftHandAlbino
-    right_leg:
+    right leg:
       part: RightLegAlbino
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegAlbino
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootAlbino
-    left_foot:
+    left foot:
       part: LeftFootAlbino

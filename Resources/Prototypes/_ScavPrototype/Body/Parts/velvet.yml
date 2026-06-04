@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoVelvet
-  name: "Velvet torso"
+  id: ChestVelvet
+  name: "Velvet Chest"
   parent: [PartVelvet, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinVelvet
+  name: "Velvet Groin"
+  parent: [PartVelvet, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Velvet/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadVelvet

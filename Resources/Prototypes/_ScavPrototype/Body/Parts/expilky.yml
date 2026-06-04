@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoExpilky
-  name: "Expilky torso"
+  id: ChestExpilky
+  name: "Expilky Chest"
   parent: [PartExpilky, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/Expilky/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Expilky/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinExpilky
+  name: "Expilky Groin"
+  parent: [PartExpilky, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/Expilky/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/Expilky/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadExpilky

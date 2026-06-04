@@ -1,49 +1,55 @@
 - type: body
   id: Voyager
   name: "Voyager"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadVoyager
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoVoyager
+    chest:
+      part: ChestVoyager
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinVoyager
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmVoyager
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmVoyager
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandVoyager
-    left_hand:
+    left hand:
       part: LeftHandVoyager
-    right_leg:
+    right leg:
       part: RightLegVoyager
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegVoyager
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootVoyager
-    left_foot:
+    left foot:
       part: LeftFootVoyager

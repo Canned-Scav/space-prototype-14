@@ -1,49 +1,55 @@
 - type: body
   id: Speciman
   name: "Speciman"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadSpeciman
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoSpeciman
+    chest:
+      part: ChestSpeciman
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinSpeciman
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmSpeciman
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmSpeciman
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandSpeciman
-    left_hand:
+    left hand:
       part: LeftHandSpeciman
-    right_leg:
+    right leg:
       part: RightLegSpeciman
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegSpeciman
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootSpeciman
-    left_foot:
+    left foot:
       part: LeftFootSpeciman

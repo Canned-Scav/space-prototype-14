@@ -8,17 +8,30 @@
     damageContainer: Biological
 
 - type: entity
-  id: TorsoBoldMilky
-  name: "Bold Milky torso"
+  id: ChestBoldMilky
+  name: "Bold Milky Chest"
   parent: [PartBoldMilky, BaseChest]
   components:
   - type: Sprite
     netsync: false
     sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinBoldMilky
+  name: "BoldMilky Groin"
+  parent: [PartBoldMilky, BaseGroin]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _ScavPrototype/Mobs/Species/BoldMilky/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadBoldMilky

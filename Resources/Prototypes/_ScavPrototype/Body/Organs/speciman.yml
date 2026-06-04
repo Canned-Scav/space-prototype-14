@@ -23,6 +23,13 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    intCap: 44
+    integrity: 44
+    integrityThresholds:
+      Normal: 44
+      Damaged: 17
+      Destroyed: 0
+    slotId: stomach
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -51,7 +58,15 @@
   components:
   - type: Sprite
     state: liver
+  - type: Liver
   - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
+    slotId: liver
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Animal, Speciman ]
@@ -69,7 +84,15 @@
   components:
   - type: Sprite
     state: heart-on
+  - type: Heart
   - type: Organ
+    intCap: 17
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart
   - type: Metabolizer
     maxReagents: 6
     metabolizerTypes: [ Animal, Speciman ]

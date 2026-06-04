@@ -24,6 +24,7 @@
         Slash: 4
         Structural: 8
   - type: Bloodstream
+    bloodReagent: YellowBlood
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood

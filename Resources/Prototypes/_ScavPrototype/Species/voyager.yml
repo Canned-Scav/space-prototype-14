@@ -14,17 +14,23 @@
   youngAge: 15
   oldAge: 25
   maxAge: 40
+  defaultSkinTone: "#FDD023"
 
 - type: speciesBaseSprites
   id: MobVoyagerSprites
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobVoyagerHead
-    Undershirt: MobHumanoidAnyMarking
+    Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
-    Chest: MobVoyagerTorso
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobVoyagerChest
+    Groin: MobVoyagerGroin
+    Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
     LArm: MobVoyagerLArm
     RArm: MobVoyagerRArm
     LHand: MobVoyagerLHand
@@ -33,7 +39,8 @@
     RLeg: MobVoyagerRLeg
     LFoot: MobVoyagerLFoot
     RFoot: MobVoyagerRFoot
-    Eyes: MobVoyagerEyes
+    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran. CorvaxGoob-Sponsors
+    HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
 
 - type: humanoidBaseSprite
   id: MobVoyagerEyes
@@ -45,45 +52,63 @@
   id: MobVoyagerMarkingLimits
   onlyWhitelisted: true
   points:
+    Special: # the cat ear joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
+      required: false
     Hair:
       points: 1
       required: false
     FacialHair:
-      points: 0
+      points: 1
       required: false
     Snout:
       points: 1
       required: false
-    HeadTop:
-      points: 1
+    Tail: # the cat tail joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
       required: false
-    HeadSide:
-      points: 1
-      required: true
-      defaultMarkings: [ VoyagerEarsBase ]
-    Head:
-      points: 1
+      defaultMarkings: [ VoyagerTailBase ]
+    HeadTop:
+      points: 8
       required: false
       defaultMarkings: [ VoyagerEyesBase ]
-    Undershirt:
-      points: 1
+    HeadSide:
+      points: 8
+      required: false
+      defaultMarkings: [ VoyagerEarsBase ]
+    Chest:
+      points: 10
       required: false
     Underwear:
       points: 1
       required: false
-    Chest:
+    Undershirt:
       points: 1
       required: false
-    Legs:
+    RightLeg:
       points: 2
       required: false
-    Arms:
-      points: 4
+    RightFoot:
+      points: 2
       required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ VoyagerTailBase ]
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
+      required: false
 
 - type: humanoidBaseSprite
   id: MobVoyagerHead
@@ -104,22 +129,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobVoyagerTorso
+  id: MobVoyagerChest
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVoyagerTorsoMale
+  id: MobVoyagerChestMale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVoyagerTorsoFemale
+  id: MobVoyagerChestFemale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobVoyagerGroin
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVoyagerGroinMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVoyagerGroinFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Voyager/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobVoyagerLLeg

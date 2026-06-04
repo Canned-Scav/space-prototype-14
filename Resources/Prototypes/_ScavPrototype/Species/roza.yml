@@ -14,17 +14,23 @@
   youngAge: 15
   oldAge: 25
   maxAge: 40
+  defaultSkinTone: "#FDD023"
 
 - type: speciesBaseSprites
   id: MobRozaSprites
   sprites:
+    Special: MobHumanoidAnyMarking
     Head: MobRozaHead
-    Undershirt: MobHumanoidAnyMarking
+    Face: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Underwear: MobHumanoidAnyMarking
-    Chest: MobRozaTorso
+    Undershirt: MobHumanoidAnyMarking
+    Chest: MobRozaChest
+    Groin: MobRozaGroin
+    Eyes: MobHumanoidEyes
     HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
     LArm: MobRozaLArm
     RArm: MobRozaRArm
     LHand: MobRozaLHand
@@ -33,7 +39,8 @@
     RLeg: MobRozaRLeg
     LFoot: MobRozaLFoot
     RFoot: MobRozaRFoot
-    Eyes: MobRozaEyes
+    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran. CorvaxGoob-Sponsors
+    HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
 
 - type: humanoidBaseSprite
   id: MobRozaEyes
@@ -45,45 +52,63 @@
   id: MobRozaMarkingLimits
   onlyWhitelisted: true
   points:
+    Special: # the cat ear joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
+      required: false
     Hair:
       points: 1
       required: false
     FacialHair:
-      points: 0
+      points: 1
       required: false
     Snout:
       points: 1
       required: false
-    HeadTop:
-      points: 1
+    Tail: # the cat tail joke, its real *godo*
+      points: 1 # CorvaxGoob-Sponsors
       required: false
-    HeadSide:
-      points: 1
-      required: true
-      defaultMarkings: [ RozaEarsBase ]
-    Head:
-      points: 1
+      defaultMarkings: [ RozaTailBase ]
+    HeadTop:
+      points: 8
       required: false
       defaultMarkings: [ RozaEyesBase ]
-    Undershirt:
-      points: 1
+    HeadSide:
+      points: 8
+      required: false
+      defaultMarkings: [ RozaEarsBase ]
+    Chest:
+      points: 10
       required: false
     Underwear:
       points: 1
       required: false
-    Chest:
+    Undershirt:
       points: 1
       required: false
-    Legs:
+    RightLeg:
       points: 2
       required: false
-    Arms:
-      points: 4
+    RightFoot:
+      points: 2
       required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ RozaTailBase ]
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
+      required: false
 
 - type: humanoidBaseSprite
   id: MobRozaHead
@@ -104,22 +129,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobRozaTorso
+  id: MobRozaChest
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRozaTorsoMale
+  id: MobRozaChestMale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobRozaTorsoFemale
+  id: MobRozaChestFemale
   baseSprite:
     sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobRozaGroin
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRozaGroinMale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobRozaGroinFemale
+  baseSprite:
+    sprite: _ScavPrototype/Mobs/Species/Roza/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobRozaLLeg

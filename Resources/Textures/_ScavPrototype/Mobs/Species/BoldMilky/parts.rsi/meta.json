@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Lev008 & Abubben & koteg_",
+    "copyright": "Made by Lev008 & resprited by inksansik(Discord) for Space Prototype",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,14 @@
     "states": [
         {
             "name": "full"
+        },
+        {
+            "name": "groin_m",
+            "directions": 4
+        },
+        {
+            "name": "groin_f",
+            "directions": 4
         },
         {
             "name": "head_f",
@@ -51,11 +59,11 @@
             "directions": 4
         },
         {
-            "name": "torso_f",
+            "name": "chest_f",
             "directions": 4
         },
         {
-            "name": "torso_m",
+            "name": "chest_m",
             "directions": 4
         },
         {

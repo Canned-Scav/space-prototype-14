@@ -42,6 +42,7 @@
         Slash: 5
         Structural: 7
   - type: Bloodstream
+    bloodReagent: YellowBlood
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood

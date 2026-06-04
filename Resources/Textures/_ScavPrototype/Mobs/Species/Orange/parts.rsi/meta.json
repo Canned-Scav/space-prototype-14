@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Abubben",
+    "copyright": "Made by Lev008 & resprited by inksansik(Discord) for Space Prototype",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,14 @@
     "states": [
         {
             "name": "full"
+        },
+        {
+            "name": "groin_m",
+            "directions": 4
+        },
+        {
+            "name": "groin_f",
+            "directions": 4
         },
         {
             "name": "head_f",
@@ -28,6 +36,22 @@
         },
         {
             "name": "l_hand",
+            "directions": 4
+        },
+        {
+            "name": "low_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "low_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "low_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "low_r_hand",
             "directions": 4
         },
         {
@@ -51,27 +75,11 @@
             "directions": 4
         },
         {
-            "name": "torso_f",
+            "name": "chest_f",
             "directions": 4
         },
         {
-            "name": "torso_m",
-            "directions": 4
-        },
-        {
-            "name": "low_l_arm",
-            "directions": 4
-        },
-        {
-            "name": "low_r_arm",
-            "directions": 4
-        },
-        {
-            "name": "low_l_hand",
-            "directions": 4
-        },
-        {
-            "name": "low_r_hand",
+            "name": "chest_m",
             "directions": 4
         },
         {

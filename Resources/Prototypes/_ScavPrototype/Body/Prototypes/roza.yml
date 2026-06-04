@@ -1,49 +1,55 @@
 - type: body
   id: Roza
   name: "Roza"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadRoza
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoRoza
+    chest:
+      part: ChestRoza
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinRoza
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmRoza
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmRoza
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandRoza
-    left_hand:
+    left hand:
       part: LeftHandRoza
-    right_leg:
+    right leg:
       part: RightLegRoza
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegRoza
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootRoza
-    left_foot:
+    left foot:
       part: LeftFootRoza

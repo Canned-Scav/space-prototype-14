@@ -1,49 +1,55 @@
 - type: body
   id: Velvet
   name: "Velvet"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadVelvet
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoVelvet
+    chest:
+      part: ChestVelvet
       connections:
-      - right_arm
-      - left_arm
-      - right_leg
-      - left_leg
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
       organs:
         heart: OrganSpecimanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinVelvet
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganSpecimanStomach
         liver: OrganSpecimanLiver
         kidneys: OrganHumanKidneys
-    right_arm:
+    right arm:
       part: RightArmVelvet
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmVelvet
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandVelvet
-    left_hand:
+    left hand:
       part: LeftHandVelvet
-    right_leg:
+    right leg:
       part: RightLegVelvet
       connections:
-      - right_foot
-    left_leg:
+      - right foot
+    left leg:
       part: LeftLegVelvet
       connections:
-      - left_foot
-    right_foot:
+      - left foot
+    right foot:
       part: RightFootVelvet
-    left_foot:
+    left foot:
       part: LeftFootVelvet
