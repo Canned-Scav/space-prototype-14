@@ -82,10 +82,10 @@
     Underwear:
       points: 1
       required: false
+      defaultMarkings: [ OrangeLowArmsBase ]
     Undershirt:
       points: 1
       required: false
-#      defaultMarkings: [ OrangeLowArmsBase ] yes-yes-yes
     RightLeg:
       points: 2
       required: false

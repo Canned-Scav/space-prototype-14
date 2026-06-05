@@ -31,14 +31,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gamePreset
-  id: Changeling
+  id: Changeling 
   alias:
     - ling
     - lings
     - changeling
   name: changeling-gamemode-title
   description: changeling-gamemode-description
-  showInVote: true
+  showInVote: false
   rules:
     - Changeling
     - SubGamemodesRule
@@ -129,7 +129,7 @@
   - blab
   name: blob-title
   description: blob-description
-  showInVote: true
+  showInVote: false
   rules:
   - BlobGameMode
   - BasicStationEventScheduler
@@ -237,7 +237,7 @@
   - ayyliens
   name: xenomorph-title
   description: xenomorph-description
-  showInVote: true
+  showInVote: false
   minPlayers: 1
   rules:
   - XenomorphsInfestationRoundstart
@@ -252,7 +252,7 @@
     - thieves
   name: oops-all-thieves-title
   description: oops-all-thieves-description
-  showInVote: true
+  showInVote: false
   rules:
   - OopsAllThieves
   - TraitorSubGamemodesRule

@@ -252,7 +252,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 10 #scav
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -373,7 +373,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 5 #scav
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
@@ -397,7 +397,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 10 #scav
     chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -491,7 +491,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 10 #scav
     delay:
       min: 600
       max: 900
@@ -617,8 +617,6 @@
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
-  - type: GameRule # CorvaxGoob-GameRulesTweak
-    minPlayers: 30
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
