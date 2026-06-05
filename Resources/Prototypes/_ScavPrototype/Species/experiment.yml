@@ -15,6 +15,10 @@
   oldAge: 25
   maxAge: 40
   defaultSkinTone: "#FDD023"
+  minHeight: 0.875
+  maxHeight: 0.875
+  minWidth: 0.875
+  maxWidth: 0.875
 
 - type: speciesBaseSprites
   id: MobSpecimanSprites

@@ -15,6 +15,10 @@
   oldAge: 25
   maxAge: 40
   defaultSkinTone: "#FDD023"
+  minHeight: 0.8
+  maxHeight: 0.8
+  minWidth: 0.8
+  maxWidth: 0.8
 
 - type: speciesBaseSprites
   id: MobVoyagerSprites

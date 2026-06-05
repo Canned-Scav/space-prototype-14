@@ -86,8 +86,8 @@
         Cold: 0.05
   - type: Thirst
     baseDecayRate: 0.2
-  - type: ScaleVisuals
-    scale: 0.875, 0.875
+#  - type: ScaleVisuals uo use
+#    scale: 0.875, 0.875
   - type: Tag
     tags:
     - CanPilot

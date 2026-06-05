@@ -9,8 +9,8 @@
     hideLayersOnEquip:
     - HeadTop
     - HeadSide
-  - type: ScaleVisuals
-    scale: 0.905, 0.905
+#  - type: ScaleVisuals no use
+#    scale: 0.905, 0.905
   - type: Body
     prototype: Roza
   - type: Vocal

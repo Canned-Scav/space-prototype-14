@@ -106,8 +106,8 @@
         Cold: 0.05
   - type: Thirst
     baseDecayRate: 0.17
-  - type: ScaleVisuals
-    scale: 0.8, 0.8
+#  - type: ScaleVisuals no use
+#    scale: 0.8, 0.8
   - type: ActionGrant
     actions:
     - ActionVoyagerToggleInvisibility
