@@ -263,10 +263,7 @@
   - TowelColorSilver
   - TowelColorGold
   # Space-Prototype-Loadouts
-  - MittsBlueWhite
-  - MittsBlackPink
-  # Space-Prototype-Loadouts
-  - MittsBlueWhite
+  - MittsBlueWhite 
   - MittsBlackPink
   
 - type: loadoutGroup
