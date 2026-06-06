@@ -57,18 +57,20 @@
     damageModifierSet: Speciman
   - type: Temperature
     heatDamageThreshold: 335
-    coldDamageThreshold: 0
+    coldDamageThreshold: 200
     currentTemperature: 290.15
     specificHeat: 42
     coldDamage:
       types:
-        Cold: 0
+        Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat: 1.5 #per second, scales with temperature & other constants
-  - type: SpecialLowTempImmunity
   - type: TemperatureSpeed
-    thresholds: {}
+    thresholds:
+      223: 0.85
+      210: 0.75
+      200: 0.65
   - type: PassiveDamage
     allowedStates:
     - Alive
