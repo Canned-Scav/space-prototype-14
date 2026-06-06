@@ -4,6 +4,13 @@
   name: "BoldMilky body part"
   abstract: true
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#FFCC00"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Damageable
     damageContainer: Biological
 
