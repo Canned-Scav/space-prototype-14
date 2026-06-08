@@ -91,7 +91,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant] 
+    implants: [ MindShieldImplant] #Scav-edit
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
