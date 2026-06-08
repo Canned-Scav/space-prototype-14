@@ -112,7 +112,7 @@
     - Flash
 #   - ClothingBSOMaskGasSwat # CorvaxGoob-loadouts: replaced on a BSOMask loadout
     - CombatKnife
-    - BluespaceLifelineImplanter
+    - BluespaceLifelineImplanter #Scav-edit
 
 - type: chameleonOutfit
   id: BlueshieldOfficerChameleonOutfit
