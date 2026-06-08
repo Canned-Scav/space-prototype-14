@@ -137,6 +137,17 @@
     - Tajaran
     - Chitinid # DeltaV
     - Shadowkin
+    # ScavPrototype Custom Races
+    - Voyager
+    - Velvet
+    - Roza
+    - Orange
+    - Milky
+    - Experiment
+    - Expilky
+    - Dune
+    - BoldMilky
+    - Albino
 
 # Goobstation start
 - type: loadoutEffectGroup
@@ -215,6 +226,17 @@
     - Resomi
     - Tajaran
     - Shadowkin
+    # ScavPrototype Custom Races
+    - Voyager
+    - Velvet
+    - Roza
+    - Orange
+    - Milky
+    - Experiment
+    - Expilky
+    - Dune
+    - BoldMilky
+    - Albino
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
