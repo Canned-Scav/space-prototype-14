@@ -142,6 +142,24 @@
     - CandleBlue
     - CandleGreenSmall
 
+- type: loadout
+  id: PlushieMilky
+  storage:
+   back:
+   - PlushieMilky
+
+- type: loadout
+  id: PlushieDune
+  storage:
+    back:
+    - PlushieDune
+
+- type: loadout
+  id: PlushieExperiment
+  storage:
+    back:
+    - PlushieExperiment
+
 # Smokeables
 - type: loadout
   id: Lighter
