@@ -265,7 +265,12 @@
   # Space-Prototype-Loadouts
   - MittsBlueWhite 
   - MittsBlackPink
-  
+ #scav-edit
+  - PlushieMilky
+  - PlushieDune
+  - PlushieExperiment
+#scav-edit
+
 - type: loadoutGroup
   id: Glasses
   name: loadout-group-glasses
