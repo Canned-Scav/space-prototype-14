@@ -119,6 +119,7 @@
     - DoorBumpOpener
     - SpecimanCraft
     - AnomalyHost
+    - Orange
   - type: Sharp
   - type: Inventory
     speciesId: Orange

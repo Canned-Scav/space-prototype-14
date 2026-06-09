@@ -149,3 +149,9 @@
         location: Middle
       extra_hand_2:
         location: Middle
+  #scav-edit
+  - type: InteractedBlacklist
+    blacklist:
+      tags:
+      - Orange
+  #scav-edit

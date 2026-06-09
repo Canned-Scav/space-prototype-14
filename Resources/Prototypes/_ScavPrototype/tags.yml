@@ -33,3 +33,6 @@
 
 - type: Tag
   id: UnfinishedString
+
+- type: Tag
+  id: Orange
