@@ -117,6 +117,9 @@
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Speciman/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart # Canned_Scav | Connection
+    sprintSpeed: 4.5
+    walkSpeed: 2.5
 
 - type: entity
   id: RightLegSpeciman

@@ -46,24 +46,27 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Piercing: 1
-        Slash: 3
-        Structural: 3
+        Piercing: 2
+        Slash: 4
+        Structural: 7
+  - type: MovementSpeedModifier #Canned-Scav / Connection Edit
+    baseWalkSpeed: 2.6
+    baseSprintSpeed: 4.75
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Critical
-      100: Dead
+      90: Critical #Canned-Scav / Connection Edit (Original - 50)
+      180: Dead #Canned-Scav / Connection Edit (Original - 100)
   - type: SlowOnDamage
     speedModifierThresholds:
-      30: 0.7
-      40: 0.5
+      60: 0.7 #Canned-Scav / Connection Edit (Original - 30)
+      75: 0.5 #Canned-Scav / Connection Edit (Original - 40)
   - type: Bloodstream
     bloodReagent: YellowBlood
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood
-        Quantity: 150
+        Quantity: 275
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Speciman
@@ -86,7 +89,7 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 80
+    damageCap: 90
     damage:
       types:
         Heat: -0.03
@@ -96,8 +99,8 @@
         Brute: -0.05
         Toxin: -0.03
   - type: Stamina
-    baseCritThreshold: 60
-    decay: 2.5
+    baseCritThreshold: 80 #Canned-Scav / Connection Edit (Original - 60)
+    decay: 2.5  #Canned-Scav / Connection Edit (Original - 2.5)
   - type: Hunger
     baseDecayRate: 0.025
     starvationDamage:

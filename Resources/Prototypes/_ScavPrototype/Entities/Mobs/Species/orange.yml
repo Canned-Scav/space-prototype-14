@@ -35,7 +35,7 @@
 #        sprite: Mobs/Effects/brute_damage.rsi
 #        color: "#FFCC00"
   - type: MeleeWeapon
-    attackRate: 1.75
+    attackRate: 2 #Canned-Scav / Connection Edit (1.75 - Original) | Комментарий: 2 раза больше рук = 2 раза больше ударов?
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     animation: WeaponArcClaw
@@ -53,6 +53,9 @@
     speedModifierThresholds:
       95: 0.7
       115: 0.5
+  - type: MovementSpeedModifier #Canned-Scav / Connection Edit | Комментарий: Да, по канону замедление в 1.4 раз больше, но даже 10% очень сильно чувствуется, при замедлении
+    baseWalkSpeed: 2.3
+    baseSprintSpeed: 4.05
   - type: Bloodstream
     bloodReagent: YellowBlood
     bloodReferenceSolution:
@@ -91,8 +94,8 @@
         Brute: -0.08
         Toxin: -0.05
   - type: Stamina
-    baseCritThreshold: 135
-    decay: 4
+    critThreshold: 150
+    decay: 3.5
   - type: Hunger
     baseDecayRate: 0.046
     starvationDamage:

@@ -117,6 +117,9 @@
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart # Canned_Scav | Connection
+    sprintSpeed: 5
+    walkSpeed: 2.75
 
 - type: entity
   id: RightLegDune
@@ -130,6 +133,9 @@
   - type: Icon
     sprite: _ScavPrototype/Mobs/Species/Dune/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart # Canned_Scav | Connection
+    sprintSpeed: 5
+    walkSpeed: 2.75
 
 - type: entity
   id: LeftFootDune

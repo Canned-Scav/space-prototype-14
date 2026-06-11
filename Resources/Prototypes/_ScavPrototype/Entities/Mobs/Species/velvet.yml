@@ -45,8 +45,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
-      220: Dead
+      120: Critical
+      240: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -79,7 +79,7 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 110
+    damageCap: 120
     damage:
       types:
         Heat: -0.05
@@ -90,13 +90,16 @@
         Toxin: -0.05
   - type: Stamina
     baseCritThreshold: 120
-    decay: 4
+    decay: 5 #В описании гансова, написано что плохо обращается с оружием, пускай его организованность будет дольше
   - type: Hunger
     baseDecayRate: 0.043
     starvationDamage:
       types:
         Bloodloss: 0.7
         Cold: 0.05
+  - type: MovementSpeedModifier #Canned-Scav / Connection Edit
+    baseWalkSpeed: 2.35
+    baseSprintSpeed: 4.2
   - type: Thirst
     baseDecayRate: 0.2
   - type: Tag

@@ -71,6 +71,9 @@
       223: 0.85
       210: 0.75
       200: 0.65
+  - type: MovementSpeedModifier #Canned-Scav / Connection Edit | Комментарий: Меньше чем на % канона. Во благо математики
+    baseWalkSpeed: 2.65
+    baseSprintSpeed: 4.8
   - type: PassiveDamage
     allowedStates:
     - Alive

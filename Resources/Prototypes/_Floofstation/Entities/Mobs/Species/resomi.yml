@@ -212,6 +212,7 @@
   - type: Bloodstream # Goobstation - lore stuff
     bloodReagent: AmmoniaBlood
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
+    attackRate: 1.5 #Canned-Scav / Connection Edit (1 - Original) | Комментарий: Рассчёт резоми на более стремительную, но опасную игру
     soundHit:
       collection: AlienClaw
     angle: 30
@@ -219,6 +220,19 @@
     damage:
       types:
         Slash: 5
+  #Canned-Scav / Connection Edit Start | Комментарий: Исходя из их роста, сделал их менее живучими
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      85: Critical
+      170: Dead
+  - type: Stamina
+    baseCritThreshold: 50 # Очень просто ошеломить
+    decay: 1.4 # Крайне быстро отдыхают
+  - type: MovementSpeedModifier #Главное преймущество которое будет у резоми (скорость x1.1)
+    baseWalkSpeed: 2.7
+    baseSprintSpeed: 4.95
+  #Canned-Scav / Connection Edit End
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature

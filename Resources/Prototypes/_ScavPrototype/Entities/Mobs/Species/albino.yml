@@ -28,7 +28,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: YellowBlood
-        Quantity: 300
+        Quantity: 250
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Speciman
@@ -54,6 +54,9 @@
       types:
         Bloodloss: 0.75
         Cold: 0.05
+  - type: MovementSpeedModifier #Canned-Scav / Connection Edit | Комментарий: Замедление не такое сильное, по аналогии с оранжами
+    baseWalkSpeed: 2.45
+    baseSprintSpeed: 4.4
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -66,8 +69,13 @@
       groups:
         Brute: -0.07
         Toxin: -0.04
+  - type: MobThresholds #Canned-Scav / Connection Edit | Комментарий: По канону GunSaw
+    thresholds:
+      0: Alive
+      80: Critical
+      160: Dead
   - type: Stamina
-    baseCritThreshold: 90
+    baseCritThreshold: 70
   - type: Thirst
     baseDecayRate: 0.2
   - type: Tag

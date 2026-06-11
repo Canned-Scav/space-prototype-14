@@ -94,6 +94,10 @@
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart # Canned_Scav | Connection
+    sprintSpeed: 4.95
+    walkSpeed: 2.7
+
 
 - type: entity
   id: RightLegResomi
@@ -103,6 +107,9 @@
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart # Canned_Scav | Connection
+    sprintSpeed: 4.95
+    walkSpeed: 2.7
 
 - type: entity
   id: LeftFootResomi
