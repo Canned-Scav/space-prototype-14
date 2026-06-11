@@ -227,7 +227,7 @@
       85: Critical
       170: Dead
   - type: Stamina
-    baseCritThreshold: 50 # Очень просто ошеломить
+    critThreshold: 50 # Очень просто ошеломить
     decay: 1.4 # Крайне быстро отдыхают
   - type: MovementSpeedModifier #Главное преймущество которое будет у резоми (скорость x1.1)
     baseWalkSpeed: 2.7

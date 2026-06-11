@@ -52,7 +52,7 @@
         Brute: -0.06
         Toxin: -0.04
   - type: Stamina
-    baseCritThreshold: 75
+    critThreshold: 75
     decay: 2.5
   - type: Fixtures
     fixtures:

@@ -99,7 +99,7 @@
         Brute: -0.05
         Toxin: -0.03
   - type: Stamina
-    baseCritThreshold: 80 #Canned-Scav / Connection Edit (Original - 60)
+    critThreshold: 80 #Canned-Scav / Connection Edit (Original - 60)
     decay: 2.5  #Canned-Scav / Connection Edit (Original - 2.5)
   - type: Hunger
     baseDecayRate: 0.025

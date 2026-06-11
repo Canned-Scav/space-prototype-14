@@ -89,7 +89,7 @@
         Brute: -0.08
         Toxin: -0.05
   - type: Stamina
-    baseCritThreshold: 120
+    critThreshold: 120
     decay: 5 #В описании гансова, написано что плохо обращается с оружием, пускай его организованность будет дольше
   - type: Hunger
     baseDecayRate: 0.043
