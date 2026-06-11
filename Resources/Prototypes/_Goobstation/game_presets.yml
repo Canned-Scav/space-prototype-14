@@ -190,7 +190,7 @@
     - turbulence
   name: secretplus-low-title
   description: secretplus-low-description
-  showInVote: false #scav
+  showInVote: true
   rules:
     - SecretPlusLow
 
@@ -202,7 +202,7 @@
     - entropy
   name: secretplus-mid-title
   description: secretplus-mid-description
-  showInVote: false #scav
+  showInVote: true
   rules:
     - SecretPlusMid
 
@@ -215,7 +215,7 @@
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description
-  showInVote: false #scav
+  showInVote: true
   rules:
     - SecretPlusAdmeme
 
@@ -227,7 +227,7 @@
     - survivalnew
   name: survivalplus-title
   description: survivalplus-description
-  showInVote: false #scav
+  showInVote: true
   rules:
     - SecretPlusRampingMid
 

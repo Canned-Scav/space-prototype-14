@@ -96,7 +96,7 @@
   - all
   name: all-at-once-title
   description: all-at-once-description
-  showInVote: false #scav
+  showInVote: true
   rules:
     - Nukeops
     - Traitor
@@ -164,7 +164,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: true #4boring4vote #scav
+  showInVote: false #4boring4vote
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
@@ -241,7 +241,7 @@
     - dm
   name: death-match-title
   description: death-match-description
-  maxPlayers: 15
+  maxPlayers: 7
   showInVote: true
   supportedMaps: DeathMatchMapPool
   rules:
@@ -253,7 +253,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: false #scav
+  showInVote: true
   rules:
   - Nukeops
   - DummyNonAntagChance
@@ -291,7 +291,7 @@
   - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: false #scav
+  showInVote: true
   rules:
   - Zombie
   - BasicStationEventScheduler
