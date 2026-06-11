@@ -1,0 +1,56 @@
+- type: entity
+  name: пулемёт B240A "Подавитель"
+  parent: BaseWeaponRifle
+  id: ScavWeaponHmgB240A
+  description: Это один из тех, чем Кованые всегда и славились в кровопролитных боях - пулемёт. Тяжёлый, здоровенный и рвущий врагов на части, однако предназначенный исключительно для продолжительного огня на подавление в условиях крупного наступления, использования тяжёлой пехотой, и оборонительных действах. Низкая точность компенсируется штатной пулемётной лентой ёмкостью в двести патрон и серьёзной скорострельностью.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Weapon/Guns/HMGs/canadianhmg.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _ScavPrototype/Objects/Weapon/Guns/HMGs/canadianhmg.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    minAngle: 26
+    maxAngle: 60
+    angleIncrease: 2.5
+    angleDecay: 6
+  - type: MovementSpeedModifier
+    baseWalkSpeedModifier: 0.85
+    baseSprintSpeedModifier: 0.85
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: Item
+    size: Huge
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: ScavBoxMagazineHmgB240A
+        priority: 2
+        whitelist:
+          tags:
+            - ScavBoxMagazineHmgB240A
+      gun_chamber:
+        startingItem: ScavCartridgeRifle762C70
+        priority: 1
+        whitelist:
+          tags:
+            - ScavCartridgeRifle762C70
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Appearance

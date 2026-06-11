@@ -1,0 +1,10 @@
+- type: entity
+  id: ScavCartridgeRifle762C70
+  name: патрон (7.62)
+  parent: BaseCartridgeRifle
+  components:
+  - type: CartridgeAmmo
+    projectile: ScavProjectileRifle762C70
+  - type: Tag
+    tags:
+      - ScavCartridgeRifle762C70

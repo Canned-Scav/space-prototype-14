@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitLord
+  id: ScavClothingOuterHardsuitLord
   name: боевая броня "Молот"
   description: Стандартный офицерский бронекостюм третьего поколения, встречаемый у офицеров Кованых от низшего, до высшего рангов. В отличии от штатной боевой экипировки пехоты, в бронекостюме используются технологичные и высококачественные материалы, обеспечивающие высокие показали защиты, а за счёт встроенных сервоприводов в ноги, даже дополнительную манёвренность! Явно чтобы наверняка, не враг и не подчинённый, не смог скрыться от заслуженной расправы...
   components:
@@ -41,4 +41,4 @@
     coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototypes:
-      head: ClothingHeadHardsuitLord
+      head: ScavClothingHeadHardsuitLord

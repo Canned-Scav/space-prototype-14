@@ -1,0 +1,20 @@
+- type: entity
+  id: ScavMagazineRifleC70
+  name: магазин C70 "Рокот" (7.62)
+  parent: [BaseItem, BaseSecurityContraband]
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Weapon/Guns/Rifles/canadianrifle.rsi
+    state: mag-0
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: ScavCartridgeRifle762C70
+    whitelist:
+      tags:
+        - ScavCartridgeRifle762C70
+  - type: AmmoCounter
+  - type: Tag
+    tags:
+      - ScavMagazineRifleC70

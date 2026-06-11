@@ -1,0 +1,11 @@
+- type: entity
+  id: ScavProjectileRifle762C70
+  name: пуля (7.62)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 13
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_flesh.ogg

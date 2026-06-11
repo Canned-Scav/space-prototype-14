@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ScavClothingBeltBosWebbing
+  name: разгрузочная система Кованых
+  description: Нет ничего надёжнее и лучше, чем взять штатную разгрузочную систему Утилизаторов, и заменив её основной материал на более распространённый и качественный в рамках владений Кованых, пустить в массовое производство. Стоит отметить, эта РПС видела взлёты и падения, поражения и победы тяжёлой пехоты и всей военной машины.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/belt/boswebbing.rsi
+  - type: Clothing
+    sprite: _ScavPrototype/Clothing/belt/boswebbing.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - MagazinePistol
+        - MagazineRifle
+        - MagazineMagnum
+        - MagazineLightRifle
+        - MagazinePistolSubMachineGun
+        - Sidearm
+        - CombatKnife
+        - KitchenKnife
+        - Crowbar
+        - ScavMagazineRifleC70
+        - ScavMagazineSniperF1
+      components:
+        - CartridgeAmmo
+        - SpeedLoader
+        - RevolverAmmoProvider

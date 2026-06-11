@@ -1,0 +1,58 @@
+- type: entity
+  name: марксманская винтовка F1 "Цельсия"
+  parent: BaseWeaponRifle
+  id: ScavWeaponSniperF1
+  description: Как и всегда, для наиболее эффективного закрытия определённых боевых задач, в каких не автомат, и не пулемёт не в силах сыскать успех в следствии сравнительно низкой точности огня, была разработана полуавтоматическая винтовка со встроенной оптикой, с возможностью стрельбы очередями для успешного поражения целей на средней и дальней дистанциях, при этом, не оставляя стрелка беззащитным в условиях тесного контакта с оппонентом.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Weapon/Guns/Snipers/canadianmarksman.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _ScavPrototype/Objects/Weapon/Guns/Snipers/canadianmarksman.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - Burst
+    minAngle: 20.5
+    maxAngle: 33
+    angleIncrease: 0.2
+    angleDecay: 5
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 8
+    pvsIncrease: 0.8
+  - type: Item
+    size: Large
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: ScavMagazineSniperF1
+        priority: 2
+        whitelist:
+          tags:
+            - ScavMagazineSniperF1
+      gun_chamber:
+        startingItem: ScavCartridgeRifle762C70
+        priority: 1
+        whitelist:
+          tags:
+            - ScavCartridgeRifle762C70
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Appearance

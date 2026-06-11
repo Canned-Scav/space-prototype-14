@@ -1,0 +1,9 @@
+- type: entity
+  id: ScavBoxMagazineRifleC70
+  name: коробка магазинов C70 "Рокот"
+  parent: BoxMagazineRifle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ScavMagazineRifleC70
+        amount: 3

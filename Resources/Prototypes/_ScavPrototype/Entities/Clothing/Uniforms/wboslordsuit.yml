@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ScavClothingUniformWbosLordSuit
+  name: униформа офицера Кованых
+  description: Общевойсковая офицерская версия формы Кованых. Полностью состоит из бархатно-нежного материала, отчего создаётся ощущение при ношении, что она становится вторым слоем кожи. Настоятельно не рекомендуется носить её НЕ представителям офицерского состава.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/Uniforms/Jumpsuit/wboslordsuit.rsi
+  - type: Clothing
+    sprite: _ScavPrototype/Clothing/Uniforms/Jumpsuit/wboslordsuit.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1

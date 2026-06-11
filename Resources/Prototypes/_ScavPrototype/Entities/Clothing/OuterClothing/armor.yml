@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterArmorBase
-  id: ClothingOuterArmorKnight
+  id: ScavClothingOuterArmorKnight
   name: боевая броня "Закалённый"
   description: Общевойсковая боевая броня Кованных, производимая в огромных количествах с недавнего времени в связи с необходимостью создания штатных пехотных подразделений. Весьма неудобная, тяжёлая, но устрашающая и позволяющая пушечному мясу прикрыть своей тушей тяжёлого пехотинца от лишней пули противотанковых винтовок.
   components:
@@ -33,14 +33,14 @@
 
 - type: entity
   parent: ClothingOuterArmorBase
-  id: ClothingOuterArmorKnightHeavy
+  id: ScavClothingOuterArmorKnightHeavy
   name: тяжёлая боевая броня "Грохот"
-  description: Основной военной силой и гордостью Кованых является тяжёлая пехота, прокладывающая себе путь в прорыве на вражескую территорию сотнями трупов, в обороне же, способная удерживать занятые позиции неделями с минимальными потерями. Вместе с первоклассной защитной экипировкой, чей грохот шагов слышен издалека, они снаряжаются продвинутым тяжёлым вооружением - от гранатомётов и ракетниц, до общевойсковых пулемётов и систем Гатлинга, в следствии чего в руки были встроены вспомогательные сервоприводы, облегчающие контроль оружия. На правой нагрудной плите стоит гравировка: "Лафет козлит и ствол ведёт... Но тебя то не спасёт!"
+  description: 'Основной военной силой и гордостью Кованых является тяжёлая пехота, прокладывающая себе путь в прорыве на вражескую территорию сотнями трупов, в обороне же, способная удерживать занятые позиции неделями с минимальными потерями. Вместе с первоклассной защитной экипировкой, чей грохот шагов слышен издалека, они снаряжаются продвинутым тяжёлым вооружением - от гранатомётов и ракетниц, до общевойсковых пулемётов и систем Гатлинга, в следствии чего в руки были встроены вспомогательные сервоприводы, облегчающие контроль оружия. На правой нагрудной плите стоит гравировка: "Лафет козлит и ствол ведёт... Но тебя то не спасёт!"'
   components:
   - type: Sprite
-    sprite: _ScavPrototype/Clothing/OuterClothing/Armor/WBoSPowerArmor.rsi
+    sprite: _ScavPrototype/Clothing/OuterClothing/Hardsuits/WBoSPowerArmor.rsi
   - type: Clothing
-    sprite: _ScavPrototype/Clothing/OuterClothing/Armor/WBoSPowerArmor.rsi
+    sprite: _ScavPrototype/Clothing/OuterClothing/Hardsuits/WBoSPowerArmor.rsi
   - type: Armor
     coverage:
     - Chest
@@ -71,3 +71,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.60
     sprintModifier: 0.60
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ScavClothingHeadHelmetKnightHeavy

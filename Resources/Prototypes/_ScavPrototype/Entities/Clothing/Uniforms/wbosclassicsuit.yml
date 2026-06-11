@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ScavClothingUniformWbosClassicSuit
+  name: униформа Кованых
+  description: Общевойсковая форма членов Кованых - просто, строго, стильно. Её носят что рядовые, что представители тяжёлой пехоты. Обеспечивает хорошие теплоизоляционные свойства.
+  components:
+  - type: Sprite
+    sprite: _ScavPrototype/Clothing/Uniforms/Jumpsuit/wbosclassicsuit.rsi
+  - type: Clothing
+    sprite: _ScavPrototype/Clothing/Uniforms/Jumpsuit/wbosclassicsuit.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1

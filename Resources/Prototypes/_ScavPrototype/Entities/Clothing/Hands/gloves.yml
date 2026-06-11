@@ -1,13 +1,13 @@
 - type: entity
   parent: ClothingHandsBase
-  id: ClothingHandsGlovesKnight
+  id: ScavClothingHandsGlovesKnight
   name: комбинированные перчатки "Кара"
   description: Модификация боевых перчаток под авторством самых злобных офицеров Кованных, в первую очередь предназначенные для их использования руководящим составом что занимается процессом рекрутинга пушечного мяса, в рамках демонстрации того, что следует за непослушанием. Главным отличием от боевых перчаток является то... Что ударная часть перчатки "Кара" была значительно усилена металлом неизвестного происхождения, в следствии чего она одновременно позволяет офицеру повыбивать зубы у нахального рекрута с пары ударов, и обеспечивать комфорт в любое время года.
   components:
   - type: Sprite
-    sprite: _ScavPrototype/Clothing/Hands/combatgloves.rsi
+    sprite: _ScavPrototype/Clothing/Hands/Gloves/combatgloves.rsi
   - type: Clothing
-    sprite: _ScavPrototype/Clothing/Hands/combatgloves.rsi
+    sprite: _ScavPrototype/Clothing/Hands/Gloves/combatgloves.rsi
   - type: Armor
     coverage:
     - Hand

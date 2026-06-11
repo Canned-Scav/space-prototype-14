@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesGlassesKnight
+  id: ScavClothingEyesGlassesKnight
   name: тактический визор
   description: Общевойсковой тактический визор Кованых, предназначенный для защиты глаз от ярких вспышек, осколков и погодных условий, что скроет ваши ненаглядные глаза за алой стеной.
   components:

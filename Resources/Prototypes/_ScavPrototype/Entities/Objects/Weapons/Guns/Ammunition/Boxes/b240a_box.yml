@@ -1,0 +1,16 @@
+- type: entity
+  id: ScavBoxMagazineHmgB240A
+  name: лента патронов пулемёта (7.62)
+  parent: [BaseItem, BaseSecurityContraband]
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Weapon/Guns/HMGs/canadianhmg.rsi
+    state: mag-0
+  - type: Tag
+    tags:
+      - ScavBoxMagazineHmgB240A
+  - type: BallisticAmmoProvider
+    capacity: 200
+    proto: ScavCartridgeRifle762C70

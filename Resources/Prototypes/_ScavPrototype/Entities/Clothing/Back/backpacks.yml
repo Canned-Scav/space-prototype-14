@@ -1,12 +1,12 @@
 - type: entity
   parent: ClothingBackpackDuffel
-  id: ClothingBackpackMilitaryScav
+  id: ScavClothingBackpackMilitaryScav
   name: боевой рюкзак
   description: Штатный рюкзак военного назначения Кованых. Аналогичен по вместимости обычному вещмешку.
   components:
   - type: Sprite
-    sprite: _ScavPrototype/Clothing/Back/military.rsi
+    sprite: _ScavPrototype/Clothing/military.rsi
   - type: Clothing
-    sprite: _ScavPrototype/Clothing/Back/military.rsi
+    sprite: _ScavPrototype/Clothing/military.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.50

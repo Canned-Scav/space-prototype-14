@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingHeadHelmetBase
-  id: ClothingHeadHelmetKnight
+  id: ScavClothingHeadHelmetKnight
   name: боевой шлем "Закалённый"
   description: Штатный боевой шлем пехоты Кованных. Простой, надёжный, симпатичный.
   components:
@@ -18,7 +18,7 @@
 
 - type: entity
   parent: ClothingHeadHardsuitBase
-  id: ClothingHeadHardsuitLord
+  id: ScavClothingHeadHardsuitLord
   name: боевой шлем "Молот"
   description: Штатный офицерский шлем, идущий в комплекте с боевой бронёй с аналогичным названием. Визор, словно созданный из преобразовавшиеся артериальной крови в стекло, внушает тревогу и становится частым гостем во сновидениях пехотинцев.
   components:
@@ -48,7 +48,7 @@
 
 - type: entity
   parent: ClothingHeadHelmetBase
-  id: ClothingHeadHelmetKnightHeavy
+  id: ScavClothingHeadHelmetKnightHeavy
   name: тяжёлый боевой шлем "Грохот"
   description: Шлем является самой технологичной и дорогой частью всей брони, как минимум за счёт встроенного ПТВ. Стоит отметить, во время штурмовых операций на нём редко остаётся чёрный цвет.
   components:

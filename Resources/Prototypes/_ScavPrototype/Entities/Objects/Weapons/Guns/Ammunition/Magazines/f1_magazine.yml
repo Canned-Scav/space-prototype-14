@@ -1,0 +1,17 @@
+- type: entity
+  id: ScavMagazineSniperF1
+  name: магазин винтовки F1 (7.62)
+  parent: [BaseItem, BaseSecurityContraband]
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _ScavPrototype/Objects/Weapon/Guns/Snipers/canadianmarksman.rsi
+    state: mag-0
+  - type: Tag
+    tags:
+      - ScavMagazineSniperF1
+  - type: BallisticAmmoProvider
+    capacity: 15
+    proto: ScavCartridgeRifle762C70
+  - type: AmmoCounter

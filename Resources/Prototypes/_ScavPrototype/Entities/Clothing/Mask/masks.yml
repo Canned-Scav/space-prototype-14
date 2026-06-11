@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingMaskGas
-  id: ClothingMaskGasKnight
+  id: ScavClothingMaskGasKnight
   name: боевой противогаз
   description: Общевойсковой противогаз Кованых, предназначенный обеспечить владельца необходимым газом для дыхания в условиях его отсутствия, и также, обеспечить базовую защиту нижней челюсти.
   components:
