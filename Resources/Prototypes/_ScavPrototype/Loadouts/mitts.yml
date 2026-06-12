@@ -1,13 +1,13 @@
 - type: loadout
   id: MittsBlueWhite
   storage:
-    gloves:
+    back: #Арра огузок нормально не сделал. Лооох!!!(Не обижайся пожалуйста я шучу. Лавки тебя❤)
     - MittsBlueWhite
   groupBy: "towels"
 
 - type: loadout
   id: MittsBlackPink
   storage:
-    gloves:
+    back: #Арра огузок нормально не сделал. Лооох!!!(Не обижайся пожалуйста я шучу. Лавки тебя❤)
     - MittsBlackPink
   groupBy: "towels"
