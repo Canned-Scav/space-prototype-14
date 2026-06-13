@@ -1,13 +1,13 @@
 - type: loadout
   id: MittsBlueWhite
   storage:
-    gloves:
+    back:
     - MittsBlueWhite
   groupBy: "towels"
 
 - type: loadout
   id: MittsBlackPink
   storage:
-    gloves:
+    back:
     - MittsBlackPink
   groupBy: "towels"
