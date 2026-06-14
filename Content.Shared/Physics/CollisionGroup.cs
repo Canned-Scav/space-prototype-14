@@ -107,6 +107,11 @@ public enum CollisionGroup
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
     BlobImpassable     = 1 << 9, // 512 Blob Tiles Goobstation - Blob
 
+    // rmc-edit start: collision groups for vehicle system
+    BarricadeImpassable  = 1 << 10, // 1024 Barricades that can be rammed by vehicles
+    DropshipImpassable   = 1 << 11, // 2048 Structures that block dropship/vehicle movement
+    // rmc-edit end
+
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
     // 32 possible groups

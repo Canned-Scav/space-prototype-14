@@ -427,7 +427,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
 
-        var attemptEv = new AttemptShootEvent(user, null);
+        // rmc-edit: pass shoot coordinates so VehicleTurretSystem can do aim checking
+        var attemptEv = new AttemptShootEvent(user, null, ToCoordinates: toCoordinates, FromCoordinates: Transform(user).Coordinates);
         RaiseLocalEvent(gunUid, ref attemptEv);
 
         if (attemptEv.Cancelled)
@@ -441,7 +442,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
-            gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
+            if (attemptEv.ResetCooldown) // rmc-edit: VehicleTurretSystem may request cooldown reset instead of advancing it
+                gun.NextFire = lastFire;
+            else
+                gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
             return;
         }
 
@@ -516,7 +520,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
+        // rmc-edit: VehicleTurretSystem may redirect the shot target via AttemptShootEvent
+        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, attemptEv.ToCoordinates ?? toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
         var shotBodyEv = new GunShotBodyEvent(gunUid, gun); // Shitmed Change
@@ -819,8 +824,20 @@ public abstract partial class SharedGunSystem : EntitySystem
 /// <param name="User">The user that attempted to fire this gun.</param>
 /// <param name="Cancelled">Set this to true if the shot should be cancelled.</param>
 /// <param name="ThrowItems">Set this to true if the ammo shouldn't actually be fired, just thrown.</param>
+/// <param name="ResetCooldown">rmc-edit: Set this to true to reset the cooldown instead of advancing it on cancel (used by vehicle turrets).</param>
+/// <param name="ToCoordinates">rmc-edit: Override target coordinates for the shot (used by vehicle turrets for barrel alignment).</param>
+/// <param name="FromCoordinates">rmc-edit: The origin coordinates of the shot, set from the user's position.</param>
 [ByRefEvent]
-public record struct AttemptShootEvent(EntityUid User, string? Message, bool Cancelled = false, bool ThrowItems = false);
+public record struct AttemptShootEvent(
+    EntityUid User,
+    string? Message,
+    bool Cancelled = false,
+    bool ThrowItems = false,
+    // rmc-edit: vehicle turret fields
+    bool ResetCooldown = false,
+    EntityCoordinates? ToCoordinates = null,
+    EntityCoordinates? FromCoordinates = null
+);
 
 /// <summary>
 ///     Raised directed on the gun after firing.
