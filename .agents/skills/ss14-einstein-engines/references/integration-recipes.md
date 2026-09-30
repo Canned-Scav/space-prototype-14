@@ -23,9 +23,13 @@ Creating a Scavenger dialect in `Resources/Prototypes/_ScavPrototype/Languages/s
     - vosh
     - glik
     - skrav
+    - brek
+    - nal
 ```
 
-Attaching the language to a scavenger mob prototype:
+> **Important**: Always provide at least 4-8 distinct syllables. Empty or too-short syllable lists cause null reference exceptions during chat obfuscation.
+
+Attaching the language to a scavenger mob prototype (requires **both** `LanguageSpeaker` and `LanguageKnowledge`):
 
 ```yaml
 - type: entity
@@ -47,6 +51,8 @@ Attaching the language to a scavenger mob prototype:
     - ScavengerJargon
 ```
 
+> **Note**: `LanguageSpeaker` is for shared/client (UI, language menu). `LanguageKnowledge` is for server (authoritative obfuscation). Both are required on sentient speaking mobs.
+
 ## Recipe 2: Authoring a Scavenger IPC / Robot Mob
 
 Creating a synthetic scavenger chassis powered by a battery with power drain:
@@ -64,7 +70,7 @@ Creating a synthetic scavenger chassis powered by a battery with power drain:
   - type: DeadStartupButton
   - type: BatteryDrinker
     drinkSpeed: 100
-  - type: BatterySlotRequiresLock
+  - type: BatterySlotRequiresLock  # Always include — prevents trivial power cell theft
   - type: ItemSlots
     slots:
       battery_slot:
@@ -74,6 +80,8 @@ Creating a synthetic scavenger chassis powered by a battery with power drain:
           tags:
           - HighPowerCell
 ```
+
+> **Important**: Always add `BatterySlotRequiresLock`. Without it, any adjacent player can freely yank the power cell mid-combat.
 
 ## Recipe 3: Creating a YAML Interaction Verb
 
@@ -106,5 +114,91 @@ Defining a "field triage" verb that patches up wounded targets without writing n
         Blunt: -10
   - !type:ChatMessageAction
     message: scav-popup-patched-up
+    type: Emote
+```
+
+## Recipe 4: Complex Verb with Conditional Actions
+
+Using `ConditionalAction` and `ComplexAction` for a verb that behaves differently based on target state:
+
+```yaml
+- type: interactionVerb
+  id: ScavInspectVerb
+  verb:
+    text: scav-verb-inspect-target
+    icon:
+      sprite: _ScavPrototype/Interface/Verbs/inspect.rsi
+      state: inspect
+    category: VerbCategoryExamine
+  requirements:
+  - !type:DistanceRequirement
+    maxDistance: 2.0
+  actions:
+  - !type:ConditionalAction
+    condition: !type:ConsciousRequirement {}
+    ifTrue:
+      - !type:ChatMessageAction
+        message: scav-popup-target-conscious
+        type: Popup
+    ifFalse:
+      - !type:ComplexAction
+        actions:
+        - !type:ChatMessageAction
+          message: scav-popup-target-unconscious
+          type: Popup
+        - !type:ModifyHealthAction
+          damage:
+            types:
+              Blunt: -5
+```
+
+## Recipe 5: Using ContestsSystem for Strength-Based Interactions
+
+Leveraging contests for a salvage-specific strength check:
+
+```csharp
+using Content.Shared._EinsteinEngines.Contests;
+using Robust.Shared.GameObjects;
+
+namespace Content.Shared._ScavPrototype.Salvage;
+
+public sealed partial class ScavHeavyLiftSystem : EntitySystem
+{
+    [Dependency] private readonly ContestsSystem _contests = default!;
+
+    public bool CanLiftHeavyDebris(EntityUid lifter, EntityUid debris)
+    {
+        // Use EinsteinEngines contest system for mass-based strength comparison
+        var massContest = _contests.MassContest(lifter, debris);
+        return massContest >= 0.8f; // Lifter must be at least 80% of debris mass
+    }
+}
+```
+
+## Recipe 6: Using OnUserAction in a Verb
+
+Creating a verb where the action affects the **user** performing the verb, not the target:
+
+```yaml
+- type: interactionVerb
+  id: ScavSalvageBreathVerb
+  verb:
+    text: scav-verb-take-breath
+    category: VerbCategorySelf
+  requirements:
+  - !type:DistanceRequirement
+    maxDistance: 1.5
+  doAfter:
+    delay: 2.0
+    breakOnMove: true
+  actions:
+  - !type:OnUserAction
+    action:
+      !type:ModifyStatusEffectAction
+      effect: Stun
+      duration: 0  # Remove stun from the user
+      remove: true
+  - !type:ChatMessageAction
+    message: scav-popup-caught-breath
     type: Emote
 ```

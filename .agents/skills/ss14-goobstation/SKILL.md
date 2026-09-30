@@ -1,6 +1,6 @@
 ---
 name: ss14-goobstation
-description: Architecture and systems of Goob Station (`Content.Goobstation.*`, `_Goobstation`): projects, UIKit, antagonists (Changeling, Heretic, Blob), augmentations/autosurgeon, and clean integration from `_ScavPrototype`.
+description: "Goob Station (`Content.Goobstation.*`, `_Goobstation`): upstream fork projects, UIKit rich controls, antagonists (Changeling, Heretic, Blob, Devil, DarkLord, Shadowling, Wraith, Nightmare, Slasher, ChronoLegionnaire, Xenomorph, Hastur), augmentations/autosurgeon, MartialArts, Grab system, Dash, Sandevistan, MantisBlades, Factory, Enchanting, Virology, Supermatter, Vehicles, Xenobiology, and clean integration from `_ScavPrototype`."
 ---
 
 # Goob Station Architecture and Systems
@@ -27,20 +27,37 @@ Goob Station maintains its own set of C# projects alongside base SS14:
 
 | Project | Execution Target | Responsibilities |
 | --- | --- | --- |
-| `Content.Goobstation.Shared` | Shared (Server + Client) | Components, network events, game rules, math, item logic |
+| `Content.Goobstation.Shared` | Shared (Server + Client) | Components, network events, game rules, item logic. 177+ directories including all antagonists, combat systems, factories, etc. |
 | `Content.Goobstation.Server` | Server | Game rule controllers, server-side entity tracking, admin commands |
 | `Content.Goobstation.Client` | Client | Prediction systems, client state, custom UI controllers |
-| `Content.Goobstation.UIKit` | Client | Custom UI controls (`IconButton`, `StaticSpriteView`), custom RichText tags |
-| `Content.Goobstation.Common` | Shared | Shared helper structures and data types |
-| `Content.Goobstation.Maths` | Shared | Math utilities, trajectory calculations, curve solvers |
+| `Content.Goobstation.UIKit` | Client | Custom UI controls (`IconButton`, `StaticSpriteView`, `ShaderLabel`, `TooltipTextureRect`), custom RichText tags |
+| `Content.Goobstation.Common` | Shared | Shared helper structures, data types, traits |
+| `Content.Goobstation.Maths` | Shared | Math utilities, trajectory calculations, curve solvers, `FixedPoint` math (used heavily by Shitmed) |
 
 Prototypes and textures are located in:
 - `Resources/Prototypes/_Goobstation`: YAML prototypes for entities, abilities, store entries, and game rules.
 - `Resources/Textures/_Goobstation`: Sprites, RSIs, UI textures, and icons.
 
-## 4. Fundamental Rules for `_ScavPrototype`
+## 4. Scale of `Content.Goobstation.Shared`
+
+The shared assembly is enormous (177+ directories). Major feature groups include:
+
+| Category | Key Directories |
+| --- | --- |
+| **Antagonists** | `Changeling`, `Heretic`, `Blob`, `Devil`, `DarkLord`, `Shadowling`, `Wraith`, `Nightmare`, `Slasher`, `ChronoLegionnaire`, `Xenomorph`, `Hastur`, `Pirates`, `Traitor`, `Revolutionary` |
+| **Combat** | `MartialArts`, `Grab`, `GrabIntent`, `Dash`, `Sandevistan`, `MantisBlades`, `BerserkerImplant`, `Boomerang`, `Bloodtrak`, `Weapons`, `Throwing`, `TableSlam`, `ContractorBaton`, `RecoilAbsorber`, `SmartLinkImplant` |
+| **Engineering** | `Supermatter`, `Power`, `Factory`, `Wires`, `Electrocution`, `Atmos` |
+| **Science** | `Xenobiology`, `Enchanting`, `Research` |
+| **Medical** | `Virology`, `Disease`, `Surgery`, `Medical`, `CheckInfection` |
+| **Movement** | `Vehicles`, `Sprinting`, `PhaseShift`, `MomentumSteering`, `Waddle`, `Stealth` |
+| **Social** | `Emag`, `Emoting`, `Polls`, `Voice`, `Speech`, `Radio`, `Communications`, `Fax`, `TapeRecorder` |
+| **Misc** | `Teleportation`, `Fishing`, `Guardian`, `Mimery`, `Voodoo`, `Religion`, `Exorcism`, `Bingle`, `SlotMachine`, `HoloCigar`, `GPS`, `Loudspeaker`, `CloneProjector` |
+
+## 5. Fundamental Rules for `_ScavPrototype`
 
 1. **Isolation**: Never create new files inside `Content.Goobstation.*` or `_Goobstation`. All custom code belongs in `_ScavPrototype`.
 2. **Coupling**: Consume Goob Station systems via dependency injection (`[Dependency] private readonly SharedChangelingSystem _changeling = default!;`) or `_entityManager.System<T>()`.
 3. **Prototypes**: When expanding on Goob Station content, inherit from their prototypes using `parent:` in `Resources/Prototypes/_ScavPrototype`.
 4. **Minimal Upstream Edits**: If an upstream Goob method must be hooked, insert a 1-2 line event hook wrapped in `// scav-edit start` and `// scav-edit end`.
+5. **Shared vs Server**: Always use `Shared*System` variants in shared code. Server-only systems (`ChangelingSystem`, `HereticSystem`, `BlobRuleSystem`) must only be resolved inside `Content.Server/_ScavPrototype`.
+6. **FixedPoint Math**: Shitmed wound and trauma values use `Content.Goobstation.Maths.FixedPoint` — not `float` or `int`. Import this namespace when interacting with wound or damage amounts.

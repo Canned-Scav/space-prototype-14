@@ -37,7 +37,6 @@ Creating a Scavenger cybernetic implant in `_ScavPrototype`:
 
 1. Define the component in C# (`Content.Shared/_ScavPrototype/Augments/ScavReflexAugmentComponent.cs`):
 ```csharp
-using Content.Goobstation.Shared.Augments;
 using Robust.Shared.GameObjects;
 
 namespace Content.Shared._ScavPrototype.Augments;
@@ -88,6 +87,8 @@ public sealed partial class ScavLootSystem : EntitySystem
 }
 ```
 
+> **Important**: Always verify that the prototype ID exists before injecting into a dynamic format string. Invalid IDs crash the RichText parser.
+
 ## Recipe 4: Inheriting from a Goob Station Prototype
 
 Overriding a Goob Station weapon in `_ScavPrototype`:
@@ -107,4 +108,55 @@ Overriding a Goob Station weapon in `_ScavPrototype`:
       types:
         Slash: 25
         Structural: 15
+```
+
+## Recipe 5: Resolving a Server-Only Goob System Safely
+
+When you need `ChangelingSystem` (server-only) from `_ScavPrototype` server code:
+
+```csharp
+using Content.Goobstation.Server.Changeling;
+using Robust.Shared.GameObjects;
+
+namespace Content.Server._ScavPrototype.Antag;
+
+public sealed partial class ScavChangelingInteractionSystem : EntitySystem
+{
+    // Server-only system — only resolve in Content.Server/_ScavPrototype
+    [Dependency] private readonly ChangelingSystem _changeling = default!;
+
+    // ... server-only logic
+}
+```
+
+For shared code, always use the `Shared*System` variant:
+
+```csharp
+using Content.Goobstation.Shared.Changeling;
+using Robust.Shared.GameObjects;
+
+namespace Content.Shared._ScavPrototype.Antag;
+
+public sealed partial class ScavChangelingSharedSystem : EntitySystem
+{
+    // Shared variant — safe in both server and client assemblies
+    [Dependency] private readonly SharedChangelingSystem _changeling = default!;
+
+    // ... shared logic
+}
+```
+
+## Recipe 6: Using FixedPoint for Damage Values
+
+When interacting with Shitmed wound/damage values through Goob Station systems:
+
+```csharp
+using Content.Goobstation.Maths.FixedPoint;
+
+// Correct — use FixedPoint2 for wound severity values
+FixedPoint2 woundSeverity = FixedPoint2.New(15);
+FixedPoint2 totalDamage = woundSeverity + FixedPoint2.New(10);
+
+// Wrong — do NOT use raw float/int for Shitmed damage math
+// float damage = 15.0f;  // Will cause type mismatch errors
 ```
