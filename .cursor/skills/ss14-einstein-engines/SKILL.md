@@ -1,6 +1,6 @@
 ---
 name: ss14-einstein-engines
-description: Architecture and systems of EinsteinEngines (`_EinsteinEngines`): Language subsystem and translators, Silicon/IPC mechanics and battery charging, Interaction Verbs, Flight, and Contests/Height adjustment.
+description: "EinsteinEngines (`_EinsteinEngines`): Language subsystem and translators, Silicon/IPC battery/charging/death, Interaction Verbs (YAML-defined with 11 action types and complex requirements), Flight, Contests/Height adjustment, ScentTracker forensics, SelfExtinguisher, Psionics/Telepathy, RestrictedMelee, TelescopicBaton, RomanNaming, and BatteryDrinker power."
 ---
 
 # Cursor Bridge

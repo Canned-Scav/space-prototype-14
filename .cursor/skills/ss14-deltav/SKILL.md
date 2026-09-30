@@ -1,6 +1,6 @@
 ---
 name: ss14-deltav
-description: Architecture and features of DeltaV (`_DV`): Harpy and Feroxi species abilities, NanoChat and Cartridges, carrying mechanics, Cosmic Cult, and equipment systems.
+description: "DeltaV (`_DV`): Carrying system with slowdown and contests, Harpy singing/syrinx voice, Feroxi hydration, NanoChat PDA messaging, CrawlUnderObjects, MouthStorage/ItemCougher, Cosmic Cult antagonist, mining vendors, holosigns, weather scheduling, silicons, and accuracy modifiers."
 ---
 
 # Cursor Bridge

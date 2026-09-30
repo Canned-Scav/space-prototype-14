@@ -1,6 +1,6 @@
 ---
 name: ss14-goobstation
-description: Architecture and systems of Goob Station (`Content.Goobstation.*`, `_Goobstation`): projects, UIKit, antagonists (Changeling, Heretic, Blob), augmentations/autosurgeon, and clean integration from `_ScavPrototype`.
+description: "Goob Station (`Content.Goobstation.*`, `_Goobstation`): upstream fork projects, UIKit rich controls, antagonists (Changeling, Heretic, Blob, Devil, DarkLord, Shadowling, Wraith, Nightmare, Slasher, ChronoLegionnaire, Xenomorph, Hastur), augmentations/autosurgeon, MartialArts, Grab system, Dash, Sandevistan, MantisBlades, Factory, Enchanting, Virology, Supermatter, Vehicles, Xenobiology, and clean integration from `_ScavPrototype`."
 metadata:
   source_skill: "../../../.agents/skills/ss14-goobstation/SKILL.md"
 ---

@@ -1,6 +1,6 @@
 ---
 name: ss14-corvax
-description: Architecture and ecosystem of Corvax, CorvaxGoob and CorvaxNext: station Announcer, Criminal Records, footprints, Russian localization/grammar helpers, remote silicon control, and Corvax interfaces.
+description: "Corvax Ecosystem: CorvaxGoob (calendar Announcer, TTS voice synthesis, Criminal Records, footprints, Skills, Nuclear Reactor, OfferItem, Russian grammar), Corvax Core interfaces (sponsors, Discord auth, queue), and CorvaxNext (AI remote silicon control)."
 ---
 
 # Claude Bridge
