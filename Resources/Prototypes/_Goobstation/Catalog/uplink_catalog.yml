@@ -676,7 +676,6 @@
     whitelist:
     - HijackShuttleObjective
     - NukeDiskStealObjective
-  saleLimit: 1
 
 
 - type: listing
@@ -709,6 +708,7 @@
     whitelist:
     - Clown
     - Mime
+
 
 - type: listing
   id: UplinkClowncar
@@ -1133,6 +1133,14 @@
     Telecrystal: 30
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - LoneOpsUplink
+      - ContractorUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkAutosurgeonRecoilAbsorber

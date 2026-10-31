@@ -37,15 +37,12 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Goobstation.Maths.FixedPoint;
-using System.Linq;
-using Content.Shared.Mobs.Systems; // Goobstation
-using Content.Server.Body.Systems;
-//Space Prototype changes
-using Content.Shared.Implants.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Damage;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
+//Space Prototype changes
+using Content.Shared.Implants.Components;
 
 namespace Content.Server.Medical;
 
@@ -93,7 +90,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             if (component.NextUpdate > _timing.CurTime)
                 continue;
 
-            if (component.ScannedEntity is not { } patient)
+            if (component.ScannedEntity is not {} patient)
                 continue;
 
             if (Deleted(patient))
@@ -290,12 +287,13 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<TemperatureComponent>(target, out var temp))
             bodyTemperature = temp.CurrentTemperature;
 
-        var bloodAmount = _bloodstreamSystem.GetBloodLevel(target); // Goobstation
+        var bloodAmount = float.NaN; // Goobstation
         var unrevivable = false;
         var bloodLow = false; // Goobstation
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream)) // Goobstation - Don't resolve twice
         {
+            bloodAmount = _bloodstreamSystem.GetBloodLevel((target, bloodstream)); // Goob - Fix (bloodless targets)
             bloodLow = bloodAmount < bloodstream.BloodlossThreshold; // Goobstation
         }
 
@@ -308,7 +306,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
             string msg = Loc.GetString(analyzerComp.SpeakerMessage,
                 ("damage", damageableComp.TotalDamage.ToString()),
-                ("bloodLevel", $"{bloodAmount * 100:F1}")
+                ("bloodLevel", float.IsNaN(bloodAmount) ? "0" : $"{bloodAmount * 100:F1}") // Goob - Fix (bloodless targets)
             );
 
             _chat.TrySendInGameICMessage(healthAnalyzer, msg, InGameICChatType.Speak, hideChat: true);
@@ -397,11 +395,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             // scav edit start
             traumas.TryAdd(GetNetEntity(woundable), FetchTraumaData(woundable, component));
             pain.TryAdd(GetNetEntity(woundable), FetchPainData(woundable, component));
-            var targetPart = _bodySystem.GetTargetBodyPart(woundable);
-            if (bleeding.TryGetValue(targetPart, out var existing))
-                bleeding[targetPart] = existing || component.Bleeds > 0;
-            else
-                bleeding[targetPart] = component.Bleeds > 0;
+            var part = _bodySystem.GetTargetBodyPart(woundable);
+            bleeding[part] = bleeding.GetValueOrDefault(part) || component.Bleeds > 0;
             // scav edit end
         }
     }
@@ -413,16 +408,11 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (body.RootContainer.ContainedEntity is not { } rootPart)
             return bleeding;
 
-        // scav edit start
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            var targetPart = _bodySystem.GetTargetBodyPart(woundable);
-            if (bleeding.TryGetValue(targetPart, out var existing))
-                bleeding[targetPart] = existing || component.Bleeds > 0;
-            else
-                bleeding[targetPart] = component.Bleeds > 0;
+            var part = _bodySystem.GetTargetBodyPart(woundable);
+            bleeding[part] = bleeding.GetValueOrDefault(part) || component.Bleeds > 0;
         }
-        // scav edit end
 
         return bleeding;
     }
@@ -517,8 +507,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         return solutionsList;
     }
-
-    //Space Prototype changes start
+//Space Prototype changes start
     private void OnImplantActivate(Entity<HealthAnalyzerComponent> ent, ref OpenMedicalImplantEvent args)
     {
         if (args.Handled)

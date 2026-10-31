@@ -30,7 +30,6 @@ namespace Content.Shared.Tools.Systems;
 public abstract partial class SharedToolSystem : EntitySystem
 {
     [Dependency] private   readonly IGameTiming _timing = default!;
-    [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefManager = default!;
@@ -152,7 +151,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <param name="target">The entity that the tool is being used on. This is also the entity that will receive the
     /// event. If null, the event will be broadcast</param>
     /// <param name="doAfterDelay">The base tool use delay (seconds). This will be modified by the tool's quality</param>
-    /// <param name="toolQualitiesNeeded">The qualities needed for this tool to work.</param>
+    /// <param name="qualitiesNeeded">The qualities needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>
     /// <param name="fuel">Amount of fuel that should be taken from the tool.</param>
@@ -179,6 +178,26 @@ public abstract partial class SharedToolSystem : EntitySystem
             toolComponent);
     }
 
+    public bool UseTool(
+        EntityUid tool,
+        EntityUid user,
+        EntityUid? target,
+        float doAfterDelay,
+        [ForbidLiteral] IEnumerable<ProtoId<ToolQualityPrototype>> toolQualitiesNeeded,
+        DoAfterEvent doAfterEv,
+        float fuel = 0,
+        ToolComponent? toolComponent = null)
+    {
+        return UseTool(tool,
+            user,
+            target,
+            doAfterDelay,
+            DefaultQualitiesLevels(toolQualitiesNeeded),
+            doAfterEv,
+            fuel,
+            toolComponent);
+    }
+
     /// <summary>
     ///     Attempts to use a tool on some entity, which will start a DoAfter. Returns true if an interaction occurred.
     ///     Note that this does not mean the interaction was successful, you need to listen for the DoAfter event.
@@ -188,7 +207,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <param name="target">The entity that the tool is being used on. This is also the entity that will receive the
     /// event. If null, the event will be broadcast</param>
     /// <param name="delay">The base tool use delay. This will be modified by the tool's quality</param>
-    /// <param name="toolQualitiesNeeded">The qualities needed for this tool to work.</param>
+    /// <param name="qualitiesNeeded">The qualities needed for this tool to work.</param>
     /// <param name="doAfterEv">The event that will be raised when the tool has finished (including cancellation). Event
     /// will be directed at the tool target.</param>
     /// <param name="id">The id of the DoAfter that was created. This may be null even if the function returns true in
@@ -235,6 +254,28 @@ public abstract partial class SharedToolSystem : EntitySystem
         return true;
     }
 
+    public bool UseTool(
+        EntityUid tool,
+        EntityUid user,
+        EntityUid? target,
+        TimeSpan delay,
+        [ForbidLiteral] IEnumerable<ProtoId<ToolQualityPrototype>> toolQualitiesNeeded,
+        DoAfterEvent doAfterEv,
+        out DoAfterId? id,
+        float fuel = 0,
+        ToolComponent? toolComponent = null)
+    {
+        return UseTool(tool,
+            user,
+            target,
+            delay,
+            DefaultQualitiesLevels(toolQualitiesNeeded),
+            doAfterEv,
+            out id,
+            fuel,
+            toolComponent);
+    }
+
     /// <summary>
     ///     Attempts to use a tool on some entity, which will start a DoAfter. Returns true if an interaction occurred.
     ///     Note that this does not mean the interaction was successful, you need to listen for the DoAfter event.
@@ -255,7 +296,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         EntityUid user,
         EntityUid? target,
         float doAfterDelay,
-        [ForbidLiteral] string toolQualityNeeded,
+        [ForbidLiteral] ProtoId<ToolQualityPrototype> toolQualityNeeded,
         DoAfterEvent doAfterEv,
         float fuel = 0,
         ToolComponent? toolComponent = null,
@@ -275,7 +316,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <summary>
     ///     Whether a tool entity has the specified quality or not.
     /// </summary>
-    public bool HasQuality(EntityUid uid, [ForbidLiteral] string quality, ToolComponent? tool = null)
+    public bool HasQuality(EntityUid uid, [ForbidLiteral] ProtoId<ToolQualityPrototype> quality, ToolComponent? tool = null)
     {
         return Resolve(uid, ref tool, false) && tool.Qualities.ContainsKey(quality);
     }
@@ -283,16 +324,52 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <summary>
     ///     Whether a tool entity has all specified qualities or not.
     /// </summary>
-    /*[PublicAPI]
+    [PublicAPI]
+    public bool HasAllQualities(EntityUid uid, [ForbidLiteral] IEnumerable<ProtoId<ToolQualityPrototype>> qualities, ToolComponent? tool = null)
+    {
+        if (!Resolve(uid, ref tool, false))
+            return false;
+
+        foreach (var quality in qualities)
+        {
+            if (!tool.Qualities.ContainsKey(quality))
+                return false;
+        }
+
+        return true;
+    }
+
+    [PublicAPI]
     public bool HasAllQualities(EntityUid uid, [ForbidLiteral] IEnumerable<string> qualities, ToolComponent? tool = null)
     {
-        return Resolve(uid, ref tool, false) && tool.Qualities.ContainsAll(qualities);
-    }*/
+        if (!Resolve(uid, ref tool, false))
+            return false;
+
+        foreach (var quality in qualities)
+        {
+            if (!tool.Qualities.ContainsKey(quality))
+                return false;
+        }
+
+        return true;
+    }
 
     //Space Prototype changes start
     public bool HasMinQualityLevel(EntityUid uid, [ForbidLiteral] string quality, float qualityLevel, ToolComponent? tool = null)
     {
         return Resolve(uid, ref tool, false) && tool.Qualities.ContainsKey(quality) && tool.Qualities[quality] >= qualityLevel;
+    }
+
+    public Dictionary<string, float> DefaultQualitiesLevels(IEnumerable<ProtoId<ToolQualityPrototype>> qualities)
+    {
+        var _qualities = new Dictionary<string, float>();
+
+        foreach (var quality in qualities)
+        {
+            _qualities.Add(quality, 1f);
+        }
+
+        return _qualities;
     }
 
     public Dictionary<string, float> DefaultQualitiesLevels(PrototypeFlags<ToolQualityPrototype> qualities)
@@ -305,6 +382,16 @@ public abstract partial class SharedToolSystem : EntitySystem
         }
 
         return _qualities;
+    }
+
+    public bool HasAnyQuality(Dictionary<string, float> qualitiesInitial, IEnumerable<ProtoId<ToolQualityPrototype>> qualitiesToCheck)
+    {
+        foreach (var quality in qualitiesToCheck)
+        {
+            if (qualitiesInitial.ContainsKey(quality))
+                return true;
+        }
+        return false;
     }
 
     public bool HasAnyQuality(Dictionary<string, float> qualitiesInitial, PrototypeFlags<ToolQualityPrototype> qualitiesToCheck)
@@ -331,7 +418,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         //Space Prototype changes start
         foreach (var quality in qualitiesNeeded)
         {
-            if(!toolComponent.Qualities.ContainsKey(quality.Key) || toolComponent.Qualities[quality.Key] < quality.Value)
+            if (!toolComponent.Qualities.ContainsKey(quality.Key) || toolComponent.Qualities[quality.Key] < quality.Value)
                 return false;
         }
 
@@ -345,19 +432,12 @@ public abstract partial class SharedToolSystem : EntitySystem
         if (ev.Cancelled)
             return false;
 
-        // check if the tool allows being used
-        var beforeAttempt = new ToolUseAttemptEvent(user, fuel);
-        RaiseLocalEvent(tool, beforeAttempt);
-        if (beforeAttempt.Cancelled)
-            return false;
+        return _welder.CanUseWelder(tool, fuel, user);
+    }
 
-        // check if the target allows using the tool
-        if (target != null && target != tool)
-        {
-            RaiseLocalEvent(target.Value, beforeAttempt);
-        }
-
-        return !beforeAttempt.Cancelled;
+    private bool CanStartToolUse(EntityUid tool, EntityUid user, EntityUid? target, float fuel, IEnumerable<ProtoId<ToolQualityPrototype>> toolQualitiesNeeded, ToolComponent? toolComponent = null)
+    {
+        return CanStartToolUse(tool, user, target, fuel, DefaultQualitiesLevels(toolQualitiesNeeded), toolComponent);
     }
 
     public override void Update(float frameTime)

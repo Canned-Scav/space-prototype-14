@@ -20,6 +20,13 @@ public sealed class CCCVars
         CVarDef.Create("game.station_goal", true, CVar.SERVERONLY);
 
     /// <summary>
+    /// Whether the Corvax server list is shown in the lobby.
+    /// Disabled by default so downstream forks opt in explicitly.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyServerHubEnabled =
+        CVarDef.Create("lobby.server_hub_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Deny any VPN connections.
     /// </summary>
     public static readonly CVarDef<bool> PanicBunkerDenyVPN =
@@ -117,7 +124,7 @@ public sealed class CCCVars
     /// Will skills be applied to players.
     /// </summary>
     public static readonly CVarDef<bool> SkillsEnabled =
-        CVarDef.Create("skills.enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("skills.enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// Show MRP-designated jobs in the lobby and late join.
@@ -151,4 +158,30 @@ public sealed class CCCVars
 
     public static readonly CVarDef<float> PhotoPlayTimeHours =
         CVarDef.Create("photo.playtime_require_time", 20f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// The size at which the server-side replay file will be split.
+    /// </summary>
+    public static readonly CVarDef<int> SplitCompressedSize =
+        CVarDef.Create("replay.split_compressed_size", 200 * 1024, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> SplitUncompressedSize =
+        CVarDef.Create("replay.split_uncompressed_size", 800 * 1024, CVar.SERVERONLY | CVar.ARCHIVE);
+    /// <summary>
+    ///     Установить режим возвраждения.
+    /// </summary>
+    public static readonly CVarDef<bool> GhostGoLobbyEnabled =
+        CVarDef.Create("ghost.go_lobby.enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Лимит по общему количеству наигранного времени для возвраждения.
+    /// </summary>
+    public static readonly CVarDef<float> GhostGoLobbyTimeHours =
+        CVarDef.Create("ghost.go_lobby.require_time", 25f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Длительность до возможность возврадиться.
+    /// </summary>
+    public static readonly CVarDef<float> GhostGoLobbyDeathTimeMinutes =
+        CVarDef.Create("ghost.go_lobby.death_time", 15f, CVar.SERVERONLY);
 }
