@@ -534,6 +534,8 @@
     key: walls
     base: plastic
   # CorvaxGoob-Start
+  - type: DetailExaminable
+    content: wall-plastic-examine-detailed
   - type: Appearance
   - type: Paintable
     group: Walls

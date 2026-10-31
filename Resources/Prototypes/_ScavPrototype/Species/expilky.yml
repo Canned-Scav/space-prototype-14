@@ -17,8 +17,10 @@
   defaultSkinTone: "#FDD023"
   minHeight: 0.80
   maxHeight: 0.80
+  defaultHeight: 0.80
   minWidth: 0.80
   maxWidth: 0.80
+  defaultWidth: 0.80
 
 - type: speciesBaseSprites
   id: MobExpilkySprites

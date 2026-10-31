@@ -27,6 +27,10 @@
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
     state: "chest_m"
   - type: BodyPart
+    partType: Chest
+    toolName: "a chest"
+    containerName: "chest_slot"
+    partComposition: Organic
     children:
       groin:
         id: groin
@@ -46,6 +50,11 @@
       low left arm:
         id: low left arm
         type: Arm
+    organs:
+      heart:
+        id: heart
+      lungs:
+        id: lungs
 
 - type: entity
   id: GroinOrange
@@ -196,6 +205,9 @@
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
     state: "low_l_arm"
   - type: BodyPart
+    partType: Arm
+    symmetry: Left
+    partComposition: Organic
     toolName: "a low left arm"
     children:
       low left hand:
@@ -217,6 +229,9 @@
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
     state: "low_r_arm"
   - type: BodyPart
+    partType: Arm
+    symmetry: Right
+    partComposition: Organic
     toolName: "a low right arm"
     children:
       low right hand:
@@ -238,6 +253,9 @@
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
     state: "low_l_hand"
   - type: BodyPart
+    partType: Hand
+    symmetry: Left
+    partComposition: Organic
     toolName: "a low left hand"
   - type: BodyPartAppearance
     visLayers: LowLHand
@@ -255,6 +273,9 @@
     sprite: _ScavPrototype/Mobs/Species/Orange/parts.rsi
     state: "low_r_hand"
   - type: BodyPart
+    partType: Hand
+    symmetry: Right
+    partComposition: Organic
     toolName: "a low right hand"
   - type: BodyPartAppearance
     visLayers: LowRHand

@@ -32,18 +32,18 @@
     - Chitinid # DeltaV
     - Shadowkin
     - Hydrakin
+    - Synth # Goob
     # ScavPrototype Custom Races
     - Voyager
     - Velvet
     - Roza
     - Orange
     - Milky
-    - Experiment
+    - Speciman
     - Expilky
     - Dune
     - BoldMilky
     - Albino
-    - Hydrakin
 
 # Goobstation start
 - type: loadoutEffectGroup
@@ -128,7 +128,7 @@
     - Roza
     - Orange
     - Milky
-    - Experiment
+    - Speciman
     - Expilky
     - Dune
     - BoldMilky

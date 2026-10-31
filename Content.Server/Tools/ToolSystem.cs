@@ -2,6 +2,7 @@ using Content.Shared.Tools.Systems;
 //Space Prototype changes
 using Content.Server.Destructible;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Robust.Shared.Utility;
 using Content.Shared.Tools.Components;
@@ -31,5 +32,5 @@ public sealed class ToolSystem : SharedToolSystem
         msg.AddMarkupPermissive(Loc.GetString("tool-component-damage-percent", ("percent", damagePercent)));
         args.PushMessage(msg);
     }
-    //Space Prototype changes end
+    //Space Prototype end
 }

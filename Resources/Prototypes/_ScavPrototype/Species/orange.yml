@@ -17,8 +17,10 @@
   defaultSkinTone: "#FDD023"
   minHeight: 1.1
   maxHeight: 1.1
+  defaultHeight: 1.1
   minWidth: 1.1
   maxWidth: 1.1
+  defaultWidth: 1.1
 
 - type: speciesBaseSprites
   id: MobOrangeSprites

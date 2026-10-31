@@ -17,8 +17,10 @@
   defaultSkinTone: "#FDD023"
   minHeight: 0.875
   maxHeight: 0.875
+  defaultHeight: 0.875
   minWidth: 0.875
   maxWidth: 0.875
+  defaultWidth: 0.875
 
 - type: speciesBaseSprites
   id: MobAlbinoSprites
