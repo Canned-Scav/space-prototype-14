@@ -4,6 +4,7 @@ using System.Linq;
 using Content.Shared.Interaction;
 using Content.Shared.Prying.Components;
 using Content.Shared.Tools.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Tools.Systems;
 
@@ -20,13 +21,13 @@ public abstract partial class SharedToolSystem
 
     private void OnInit(Entity<MultipleToolComponent> entity, ref ComponentInit args)
     {
-        for(int i = 0; i < entity.Comp.Entries.Length; i++)
+        for (int i = 0; i < entity.Comp.Entries.Length; i++)
         {
             entity.Comp.Entries[i].Behavior = entity.Comp.Entries[i].BehaviorLevels
-            .ToDictionary(
-                pair => pair.Key.Id,
-                pair => pair.Value
-            );
+                .ToDictionary(
+                    pair => pair.Key.Id,
+                    pair => pair.Value
+                );
         }
     }
     //Space Prototype changes end
@@ -84,8 +85,7 @@ public abstract partial class SharedToolSystem
 
         var current = multiple.Entries[multiple.CurrentEntry];
         tool.UseSound = current.UseSound;
-        tool.Qualities.Clear();
-        tool.Qualities.UnionWith(current.Behavior);
+        tool.Qualities = new(current.Behavior);
 
         // TODO: Replace this with a better solution later
         if (TryComp<PryingComponent>(uid, out var pryComp))

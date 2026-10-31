@@ -19,7 +19,7 @@
     - 0,0,0,3
   - type: Tool
     qualities:
-    - Rolling
+      Rolling: 0.5
     speedModifier: 0.6 # a bit unwieldly but does the job
   - type: Clothing
     sprite: _Lavaland/Objects/Weapons/Melee/cudgel.rsi

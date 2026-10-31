@@ -22,6 +22,8 @@ using Robust.Shared.Utility;
 //Space Prototype changes
 using System.Linq;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Power.Components;
 
@@ -432,7 +434,20 @@ public abstract partial class SharedToolSystem : EntitySystem
         if (ev.Cancelled)
             return false;
 
-        return _welder.CanUseWelder(tool, fuel, user);
+        // check if the tool allows being used
+        var beforeAttempt = new ToolUseAttemptEvent(user, fuel);
+        RaiseLocalEvent(tool, beforeAttempt);
+        if (beforeAttempt.Cancelled)
+            return false;
+
+        // check if the target allows using the tool
+        if (target != null && target != tool)
+        {
+            RaiseLocalEvent(target.Value, beforeAttempt);
+        }
+
+        return !beforeAttempt.Cancelled;
+        //Space Prototype changes end
     }
 
     private bool CanStartToolUse(EntityUid tool, EntityUid user, EntityUid? target, float fuel, IEnumerable<ProtoId<ToolQualityPrototype>> toolQualitiesNeeded, ToolComponent? toolComponent = null)

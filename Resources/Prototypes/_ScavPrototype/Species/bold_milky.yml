@@ -17,8 +17,10 @@
   defaultSkinTone: "#FDD023"
   minHeight: 0.75
   maxHeight: 0.75
+  defaultHeight: 0.75
   minWidth: 0.75
   maxWidth: 0.75
+  defaultWidth: 0.75
 
 - type: speciesBaseSprites
   id: MobBoldMilkySprites

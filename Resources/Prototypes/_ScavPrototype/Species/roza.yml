@@ -17,8 +17,10 @@
   defaultSkinTone: "#FDD023"
   minHeight: 0.905
   maxHeight: 0.905
+  defaultHeight: 0.905
   minWidth: 0.905
   maxWidth: 0.905
+  defaultWidth: 0.905
 
 - type: speciesBaseSprites
   id: MobRozaSprites

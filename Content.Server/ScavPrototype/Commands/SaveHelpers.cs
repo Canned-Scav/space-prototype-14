@@ -24,7 +24,6 @@ namespace Robust.Shared.Console.Commands;
 [AdminCommand(AdminFlags.Debug)]
 internal sealed class TpAreaItems : LocalizedEntityCommands
 {
-    [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
