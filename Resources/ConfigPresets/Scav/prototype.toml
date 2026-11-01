@@ -19,13 +19,6 @@ level = 1
 enabled = false
 
 [net]
-force_ack_threshold = 3600
-mtu = 1200
-mtu_expand = false
-pvs_compress_level = 5
-buffer_size = 4
-lidgren_log_warning = false
-log_late_msg = false
 tickrate = 30
 port = 1212
 bindto = "0.0.0.0"
