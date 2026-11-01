@@ -1,0 +1,82 @@
+[server]
+lobby_name = "Canned Scav 🚀"
+rules_file = "CorvaxRuleset"
+
+[skills]
+enabled = true
+
+[rules]
+time = 18.0
+
+[hub]
+advertise = false
+tags = "lang:ru,rp:med,rp:med,region:eu_e"
+
+[log]
+path = "logs"
+format = "log_%(date)s-%(time)s.txt"
+level = 1
+enabled = false
+
+[net]
+force_ack_threshold = 3600
+mtu = 1200
+mtu_expand = false
+pvs_compress_level = 5
+buffer_size = 4
+lidgren_log_warning = false
+log_late_msg = false
+tickrate = 30
+port = 1212
+bindto = "0.0.0.0"
+max_connections = 256
+upnp = false
+
+[status]
+enabled = true
+
+[auth]
+mode = 0
+
+[netres]
+limit = 25.0
+
+[viewport]
+maximum_width = 26
+
+[shuttle]
+emergency_early_launch_allowed = true
+auto_call_time = 150
+
+# [console]
+# login_host_user = ""
+
+[vote]
+preset_enabled = true
+restart_enabled = true
+map_enabled = true
+
+[game]
+hostname = "Canned Scav 🚀"
+desc = "Придумайте, пожалуйста!"
+maxplayers = 100
+soft_max_players = 100
+map_rotation = true
+lobbyduration = 240
+map_pool = "CorvaxMapPool"
+alternating_gamemode_enabled = true
+secret_weight_prototype = "CorvaxSecretDefault"
+round_restart_time = 240
+role_timers = false
+
+# [database]
+# engine = "postgres"
+# pg_host = ""
+# pg_port = 
+# pg_database = ""
+# pg_username = ""
+# pg_password = ""
+# pg_concurrency = 8
+
+# [discord]
+# rich_main_icon_id = ""
