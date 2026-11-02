@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.VoiceChat;
@@ -137,4 +135,3 @@ public sealed partial class VoiceLogsEui : BaseEui
             Close();
     }
 }
-*/

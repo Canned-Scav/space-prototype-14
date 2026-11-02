@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.IntrinsicVoiceModulator.Components;
@@ -1191,4 +1189,3 @@ public sealed partial class VoiceChatSystem : EntitySystem
         }
     }
 }
-*/

@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
 using Content.Server.Administration.Logs;
@@ -166,4 +164,3 @@ public sealed partial class VoiceBroadcastSystem : EntitySystem
         _adminLog.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(user):user} ended a station voice broadcast from {ToPrettyString(console):console}");
     }
 }
-*/

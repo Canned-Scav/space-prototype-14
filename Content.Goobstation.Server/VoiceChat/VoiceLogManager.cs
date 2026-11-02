@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
@@ -486,4 +484,3 @@ public sealed partial class VoiceLogManager
         public long LastTimeMs = startMs;
     }
 }
-*/

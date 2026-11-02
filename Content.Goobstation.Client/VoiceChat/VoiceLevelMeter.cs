@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Shared.VoiceChat;
 
 namespace Content.Goobstation.Client.VoiceChat;
@@ -56,4 +54,3 @@ public static class VoiceLevelSmoothing
         return current + (target - current) * (target > current ? attack : release);
     }
 }
-*/

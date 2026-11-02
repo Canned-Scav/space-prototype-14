@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Numerics;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Audio;
@@ -464,4 +462,3 @@ public sealed class VoiceContributorState
     public bool Active;
     public TimeSpan LastSeen;
 }
-*/

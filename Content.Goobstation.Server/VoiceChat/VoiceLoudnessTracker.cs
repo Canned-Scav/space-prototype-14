@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Shared.VoiceChat;
 
 namespace Content.Goobstation.Server.VoiceChat;
@@ -105,4 +103,3 @@ public sealed class VoiceLoudnessTracker
         return Mode;
     }
 }
-*/

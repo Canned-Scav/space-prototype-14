@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Numerics;
 using Content.Goobstation.Shared.VoiceChat;
 using Content.Shared.Radio;
@@ -322,4 +320,3 @@ public sealed partial class VoiceLogLane : VoiceLogTimelineControl
         return name;
     }
 }
-*/

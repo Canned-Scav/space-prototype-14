@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
@@ -511,4 +509,3 @@ public sealed partial class VoiceChatSystem : EntitySystem
         _streams.Clear();
     }
 }
-*/

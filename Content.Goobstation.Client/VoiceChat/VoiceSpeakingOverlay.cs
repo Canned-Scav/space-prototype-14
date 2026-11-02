@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Numerics;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Graphics;
@@ -92,4 +90,3 @@ public sealed class VoiceSpeakingOverlay : Overlay
         handle.DrawRect(new Box2(bottom, bottom + new Vector2(2f, height) * Pixel), color);
     }
 }
-*/

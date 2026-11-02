@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Numerics;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Goobstation.Common.CCVar;
@@ -220,4 +218,3 @@ public sealed partial class VoiceDeafenButton : VoiceIconButton
             center + new Vector2(8.5f, 7f) * scale), IconColor);
     }
 }
-*/

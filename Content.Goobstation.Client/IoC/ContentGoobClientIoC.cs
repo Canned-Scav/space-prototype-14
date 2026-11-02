@@ -1,17 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// Fully deleted by CorvaxGoob
-/*
-using Content.Goobstation.Client.JoinQueue;
-using Content.Goobstation.Client.MisandryBox;
-using Content.Goobstation.Client.Polls;
-using Content.Goobstation.Client.Redial;
-using Content.Goobstation.Client.ServerCurrency;
+using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Goobstation.Client.VoiceChat;
 using Content.Goobstation.Client.VoiceChat.UI;
-using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Goobstation.Common.ServerCurrency;
-using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Client.IoC;
@@ -20,15 +11,9 @@ internal static class ContentGoobClientIoC
 {
     internal static void Register()
     {
-        //var collection = IoCManager.Instance!;
+        var collection = IoCManager.Instance!;
 
-        collection.Register<RedialManager>();
-        collection.Register<PollManager>();
         collection.Register<VoiceChatManager>();
         collection.Register<IChatVoiceControls, ChatVoiceControls>();
-        collection.Register<JoinQueueManager>();
-        collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
-        collection.Register<ICommonCurrencyManager, ClientCurrencyManager>();
     }
 }
-*/

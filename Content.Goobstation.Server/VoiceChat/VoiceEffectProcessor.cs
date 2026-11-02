@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Shared.VoiceChat;
 using NWaves.Effects;
 using NWaves.Effects.Base;
@@ -180,4 +178,3 @@ public sealed class VoiceEffectProcessor
         }
     }
 }
-*/

@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Globalization;
 using System.Linq;
 using Content.Server.Administration;
@@ -119,4 +117,3 @@ public sealed partial class VoiceOfGodCommand : LocalizedEntityCommands
         return CompletionResult.Empty;
     }
 }
-*/

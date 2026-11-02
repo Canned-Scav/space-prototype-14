@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Shared.VoiceChat;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -349,4 +347,3 @@ public sealed partial class VoiceChatSystem
         public int TailFrames;
     }
 }
-*/

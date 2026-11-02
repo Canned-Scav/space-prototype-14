@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
@@ -288,4 +286,3 @@ public sealed partial class VoiceRadioSystem : EntitySystem
         Dirty(uid, voiceRadio);
     }
 }
-*/

@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
@@ -45,4 +43,3 @@ public sealed partial class VoiceLogsCommand : LocalizedEntityCommands
             : CompletionResult.Empty;
     }
 }
-*/

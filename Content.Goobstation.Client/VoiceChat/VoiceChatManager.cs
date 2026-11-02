@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using System.Net;
 using System.Net.Sockets;
 using Content.Goobstation.Common.CCVar;
@@ -222,4 +220,3 @@ public sealed partial class VoiceChatManager
         LinkChanged?.Invoke();
     }
 }
-*/

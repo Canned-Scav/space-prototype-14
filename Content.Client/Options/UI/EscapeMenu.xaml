@@ -12,7 +12,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
         <!-- CorvaxGoob-Coins-start
-        <Button Access="Public" Name="PatronPerksButton" Text="{Loc 'rmc-ui-patron-perks'}" StyleClasses="Caution" Visible="False" /> 
+        <Button Access="Public" Name="PatronPerksButton" Text="{Loc 'rmc-ui-patron-perks'}" StyleClasses="Caution" Visible="False" />
         CorvaxGoob-Coins-end -->
         <changelog:ChangelogButton Access="Public" Name="ChangelogButton"/>
         <ui:VoteCallMenuButton />
@@ -20,9 +20,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Button Access="Public" Name="RulesButton" Text="{Loc 'ui-escape-rules'}" />
         <Button Access="Public" Name="GuidebookButton" Text="{Loc 'ui-escape-guidebook'}" />
         <Button Access="Public" Name="WikiButton" Text="{Loc 'ui-escape-wiki'}" />
-        <!-- Deleted by CorvaxGoob: voice chat removed
-        <Button Access="Public" Name="VoiceChatButton" Text="{Loc 'ui-escape-voice-chat'}" />
-        -->
+        <Button Access="Public" Name="VoiceChatButton" Text="{Loc 'ui-escape-voice-chat'}" /> <!-- Goobstation - Voice chat -->
         <!-- Deleted by CorvaxGoob: achievements removed
         <cc:CommandButton Command="achievements" Text="{Loc 'achievements-button'}" />
         -->

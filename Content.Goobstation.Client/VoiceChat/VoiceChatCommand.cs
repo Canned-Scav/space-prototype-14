@@ -1,5 +1,3 @@
-// Fully deleted by CorvaxGoob
-/*
 using Content.Goobstation.Client.VoiceChat.UI;
 using Robust.Client.UserInterface;
 using Robust.Shared.Console;
@@ -18,4 +16,3 @@ public sealed partial class VoiceChatCommand : LocalizedCommands
             shell.WriteError(Loc.GetString("cmd-voicechat-unavailable"));
     }
 }
-*/
